@@ -1,8 +1,4 @@
-# Introduction à python
-
-## Setup (sur une machine perso)
-à compléter, distinguer mac/pc
-
+# Introduction à python [draft]
 
 ## Setup (sur les machines UGA)
 
@@ -29,20 +25,15 @@ conda --version
 ```
 Le résultat doit être du type `conda xx.x.x`. Si ce n'est pas le cas, appeler l'enseignant.
 
-Enfin, activer les téléchargements de packages en tapant
-
-```bash
-conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main
-conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
-```
-
 ### Création de l'environnement python
 
 Ouvrir un terminal PowerShell **dans le dossier `intro-python`**, comme précédemment.
 
-Lancer la commande suivante :
+Copier-coller les commandes suivantes et les lancer dans le terminal :
 
 ```
+conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main
+conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
 conda run -n base python -c "import urllib.request; exec(urllib.request.urlopen('https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/bootstrap.py').read())"
 ```
 
@@ -92,4 +83,8 @@ notebooks/00_test_setup.ipynb
 Exécutez toutes les cellules.
 
 Si aucune erreur n'apparaît, votre installation est terminée. -->
+
+## Setup (sur une machine perso)
+à compléter, distinguer mac/pc
+
 
