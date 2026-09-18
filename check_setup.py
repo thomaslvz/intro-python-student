@@ -106,10 +106,10 @@ def check_jupyter_kernel():
     current_python = os.path.normcase(
         os.path.realpath(os.path.abspath(sys.executable))
     )
-    current_python_dir = os.path.dirname(current_python)
 
     print(f"  Current Python: {sys.executable}")
-
+    print(f"  Python prefix:  {sys.prefix}")
+    
     # ------------------------------------------------------------------
     # 1. Check Jupyter executable
     # ------------------------------------------------------------------
@@ -153,10 +153,23 @@ def check_jupyter_kernel():
     print(f"  ipykernel path: {ipykernel_path}")
 
     # Check that ipykernel belongs to the current Python environment.
-    if not ipykernel_path.startswith(current_python_dir):
+    environment_prefix = os.path.normcase(
+        os.path.realpath(os.path.abspath(sys.prefix))
+    )
+
+    try:
+        ipykernel_environment = os.path.commonpath(
+            [environment_prefix, ipykernel_path]
+        ) == environment_prefix
+    except ValueError:
+        # Can happen when paths are on different drives on Windows.
+        ipykernel_environment = False
+
+    if not ipykernel_environment:
         print("  [WARNING] ipykernel does not appear to belong to the current")
         print("            Python environment.")
-
+        
+        
     # ------------------------------------------------------------------
     # 3. Retrieve Jupyter kernelspecs
     # ------------------------------------------------------------------
