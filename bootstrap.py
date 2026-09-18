@@ -5,7 +5,7 @@ import zipfile
 
 
 # URL of the public GitHub repository archive.
-REPO_URL = "HIDDEN"
+REPO_URL = "https://github.com/thomaslvz/intro-python-student/archive/refs/heads/main.zip"
 
 
 # Download the repository as a ZIP archive.
