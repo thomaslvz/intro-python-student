@@ -4,6 +4,12 @@ import urllib.request
 import zipfile
 
 
+# Make sure the script is running from the student's "intro-python" directory.
+if os.path.basename(os.getcwd()) != "intro-python":
+    print("Erreur: cette commande est à lancer depuis le répertoire intro-python. Veuillez ouvrir un terminal depuis ce répertoire et relancer la commande.")
+    raise SystemExit(1)
+
+
 # URL of the public GitHub repository archive.
 REPO_URL = "https://github.com/thomaslvz/intro-python-student/archive/refs/heads/main.zip"
 
