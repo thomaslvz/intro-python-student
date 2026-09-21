@@ -145,7 +145,7 @@ if ($LASTEXITCODE -ne 0) {
     Stop-Script "The course setup script failed with exit code $LASTEXITCODE."
 }
 Write-Host ""
-Write-Host "Bootstrap completed successfully." -ForegroundColor Green
+Write-Host "Bootstrap completed successfully in $courseDirectory." -ForegroundColor Green
 
 
 # ----------------------------------------------------------------------------
@@ -154,7 +154,7 @@ Write-Host "Bootstrap completed successfully." -ForegroundColor Green
 
 Write-Step "Python environment creation"
 
-conda env create -f ./intro-python-student/environment.yml
+conda env create -f ./intro-python-student/environment.yml --quiet
 
 if ($LASTEXITCODE -ne 0) {
     Stop-Script "The course setup script failed with exit code $LASTEXITCODE."
