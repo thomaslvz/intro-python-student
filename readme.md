@@ -17,7 +17,7 @@ En particulier, on cochera les options suivantes:
 - Dans la barre de recherche windows en bas de l'écran, taper *Terminal*, et lancer l'application Terminal.
 - Copier coller la commande suivante et la lancer en appuyant sur la touche entrée :
     ```powershell
-    Invoke-RestMethod "https://raw.githubusercontent.com/maslvz/intro-python-student/refs/heads/main/setup/setup-w11-UGA.ps1" | Invoke-Expression
+    Invoke-RestMethod "https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/setup-w11-UGA.ps1" | Invoke-Expression
     ```
     Cela va configurer python et créer un dossier de travail pour ce cours.
     
@@ -30,7 +30,7 @@ En particulier, on cochera les options suivantes:
     > ```
     Si cela ne fonctionne pas, appeler l'enseignant. Si cela fonctionne, fermer le terminal.
 
-- Localiser le dossier `intro-python` sur l'ordinateur : ouvrir l'explorateur de fichiers, cliquer sur `Ce PC` puis sur son espace personnel dans les *Emplacements réseaux*. Vous devez voir le dossier `intro-python`. Si ce n'est pas le cas, appeler l'enseignant
+- Localiser le dossier `intro-python` sur l'ordinateur : ouvrir l'explorateur de fichiers, cliquer sur `Ce PC` puis sur son espace personnel dans les *Emplacements réseaux*. Vous devez voir le dossier `intro-python`. Si ce n'est pas le cas, appeler l'enseignant. **Retenez que ce dossier sera votre dossier de travail pour tout ce cours.**
 
 ## Setup (sur une machine perso)
 à compléter, distinguer mac/pc
