@@ -99,7 +99,7 @@ switch ($machineType) {
             Stop-Script "Multiple network home drives were found for user '$env:USERNAME'."
         }
 
-        $courseDirectory = "${drive}:/intro-python"
+        $courseDirectory = "${drive}:\intro-python"
     }
 
     default {
