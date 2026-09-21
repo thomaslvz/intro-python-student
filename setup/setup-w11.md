@@ -1,3 +1,5 @@
+[< Revenir à la page d'Accueil](../readme.md)
+
 # Configurer sa machine perso ou une machine UGA (`Windows 11`)
 
 NB : si vous êtes sur une machine perso tournant sur Windows 10, il est conseillé d'utiliser plutôt les machines de l'UGA. En effet, les mises à jours de sécurité [ne sont plus publiées pour Windows 10](https://www.microsoft.com/fr-fr/windows/end-of-support), ce qui représente un risque.

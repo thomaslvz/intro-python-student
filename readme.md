@@ -1,6 +1,6 @@
 # Introduction à python [draft]
 
-## Configuration de l'ordinateur (set-up)
+## Configuration de l'ordinateur (setup)
 
 [Sur Windows 11 (machine UGA ou machine perso)](setup/setup-w11.md)
 
