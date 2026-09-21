@@ -11,6 +11,9 @@ import sys
 # Configuration
 # ============================================================
 
+sys.stdout.reconfigure(encoding="utf-8")
+sys.stderr.reconfigure(encoding="utf-8")
+
 EXPECTED_CONDA_ENVIRONMENT = "intro-python-feg-l3"
 EXPECTED_PYTHON_VERSION = "3.12"
 
