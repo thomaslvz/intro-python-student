@@ -1,3 +1,5 @@
+"""Download and update the course files from the GitHub repository to .../intro-python/intro-python-student."""
+
 import io
 import os
 import urllib.request
