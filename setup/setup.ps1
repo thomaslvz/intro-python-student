@@ -6,8 +6,14 @@
 # Configuration
 # ----------------------------------------------------------------------------
 
-# Repository containing the course/bootstrap code.
-$env:INTRO_PYTHON_REPO_URL = "https://raw.githubusercontent.com/thomaslvz/intro-python-student"
+# Repository containing the course files.
+$repoBaseUrl = "https://raw.githubusercontent.com/thomaslvz/intro-python-student/main"
+
+$environmentUrl = "$repoBaseUrl/environment.yml"
+$checkSetupUrl = "$repoBaseUrl/setup/check_setup.py"
+
+
+
 
 # Error message displayed when Conda is not available.
 # This can be overridden before running the script:
@@ -148,47 +154,84 @@ foreach ($channel in $condaChannels) {
 }
 
 # ----------------------------------------------------------------------------
-# Run bootstrap script
-# ----------------------------------------------------------------------------
-
-Write-Step "Running course bootstrap"
-
-$bootstrapUrl = "$($env:INTRO_PYTHON_REPO_URL.TrimEnd('/'))/refs/heads/main/bootstrap.py"
-
-Write-Host "Bootstrap URL: $bootstrapUrl"
-
-conda run -n base python -c @"
-import urllib.request
-exec(urllib.request.urlopen('$bootstrapUrl').read())
-"@
-
-if ($LASTEXITCODE -ne 0) {
-    Stop-Script "The course setup script failed with exit code $LASTEXITCODE."
-}
-Write-Host ""
-Write-Host "Bootstrap completed successfully in $courseDirectory." -ForegroundColor Green
-
-
-# ----------------------------------------------------------------------------
 # Python environment creation
 # ----------------------------------------------------------------------------
 
-Write-Step "Python environment creation"
+$environmentFile = Join-Path $courseDirectory "environment.yml"
 
-conda env create -f ./intro-python-student/environment.yml --quiet
+Write-Step "Downloading Python environment definition"
+
+try {
+    Invoke-WebRequest `
+        -Uri $environmentUrl `
+        -OutFile $environmentFile `
+        -ErrorAction Stop
+}
+catch {
+    if (Test-Path $environmentFile) {
+        Remove-Item -Force $environmentFile
+    }
+
+    Stop-Script "Could not download environment.yml. Details: $($_.Exception.Message)"
+}
+
+Write-Step "Creating Python environment"
+
+conda env create -f $environmentFile --quiet
 
 if ($LASTEXITCODE -ne 0) {
-    Stop-Script "The course setup script failed with exit code $LASTEXITCODE."
+    Remove-Item -Force $environmentFile
+    Stop-Script "Could not create the Python environment."
 }
+
+Remove-Item -Force $environmentFile
 
 # ----------------------------------------------------------------------------
 # Run setup check
 # ----------------------------------------------------------------------------
 
+$checkSetupFile = Join-Path $courseDirectory "check_setup.py"
+Write-Step "Downloading setup check"
+
+try {
+    Invoke-WebRequest `
+        -Uri $checkSetupUrl `
+        -OutFile $checkSetupFile `
+        -ErrorAction Stop
+}
+catch {
+    if (Test-Path $checkSetupFile) {
+        Remove-Item -Force $checkSetupFile
+    }
+
+    Stop-Script "Could not download check_setup.py. Details: $($_.Exception.Message)"
+}
+
 Write-Step "Running setup check"
 
-conda run -n intro-python-feg-l3 python ./intro-python-student/check_setup.py
+conda run -n intro-python-feg-l3 python $checkSetupFile
 
+$setupCheckExitCode = $LASTEXITCODE
+
+Remove-Item -Force $checkSetupFile
+
+if ($setupCheckExitCode -ne 0) {
+    Stop-Script "The setup check failed."
+}
+
+# ----------------------------------------------------------------------------
+# Initialization of the course directory
+# ----------------------------------------------------------------------------
+
+Write-Step "Populating the course directory"
+
+New-Item -ItemType Directory -Force ./data
+New-Item -ItemType File -Force ./data/sample.txt
+New-Item -ItemType Directory -Force ./td
+
+# Bootstrap TD1
+$td = "01"
+conda run -n intro-python-feg-l3 python -c "import sys, urllib.request; sys.argv = ['bootstrap_td.py', '$td']; exec(urllib.request.urlopen('$repoBaseUrl/setup/bootstrap_td.py').read())"
 
 # ----------------------------------------------------------------------------
 # Done

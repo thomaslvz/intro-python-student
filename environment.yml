@@ -11,3 +11,5 @@ dependencies:
   - matplotlib=3.11.2
   - statsmodels=0.15.0
   - ipykernel=7.3.0
+  - send2trash=2.1.0
+  - scipy=1.18.1

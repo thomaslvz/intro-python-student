@@ -6,15 +6,21 @@
 
 set -o pipefail
 
-# ----------------------------------------------------------------------------
-# Configuration
-# ----------------------------------------------------------------------------
 
-# Repository containing the course/bootstrap code.
-INTRO_PYTHON_REPO_URL="https://raw.githubusercontent.com/thomaslvz/intro-python-student"
+# Repository containing the course files.
+repoBaseUrl="https://raw.githubusercontent.com/thomaslvz/intro-python-student/main"
 
+environmentUrl="$repoBaseUrl/environment.yml"
+checkSetupUrl="$repoBaseUrl/setup/check_setup.py"
+bootstrapUrl="$repoBaseUrl/setup/bootstrap_td.py"
+
+# ----------------------------------------------------------------------------
 # Error message displayed when Conda is not available.
-if [[ -z "${INTRO_PYTHON_CONDA_ERROR:-}" ]]; then
+# This can be overridden before running the script:
+#   export INTRO_PYTHON_CONDA_ERROR="Please install Miniconda first."
+# ----------------------------------------------------------------------------
+
+if [ -z "${INTRO_PYTHON_CONDA_ERROR:-}" ]; then
     INTRO_PYTHON_CONDA_ERROR="Miniconda ne semble pas installé sur cette machine.
 Procédez d'abord à l'installation de Miniconda, puis relancez ce script."
 fi
@@ -83,49 +89,81 @@ for channel in "${conda_channels[@]}"; do
     fi
 done
 
+
 # ----------------------------------------------------------------------------
-# Run bootstrap script
+# Temporary files
 # ----------------------------------------------------------------------------
 
-write_step "Running course bootstrap"
+environmentFile="$courseDirectory/.intro-python-environment.yml"
+checkSetupFile="$courseDirectory/.intro-python-check_setup.py"
 
-bootstrap_url="${INTRO_PYTHON_REPO_URL%/}/refs/heads/main/bootstrap.py"
+# Always remove temporary setup files when the script exits.
+cleanup() {
+    rm -f "$environmentFile" "$checkSetupFile"
+}
 
-echo "Bootstrap URL: $bootstrap_url"
+trap cleanup EXIT
 
-if ! conda run -n base python -c "
-import urllib.request
-exec(urllib.request.urlopen('$bootstrap_url').read())
-"; then
-    stop_script "The course bootstrap script failed."
-fi
-
-echo
-echo "Bootstrap completed successfully in $course_directory."
 
 # ----------------------------------------------------------------------------
 # Python environment creation
 # ----------------------------------------------------------------------------
 
-write_step "Python environment creation"
+write_step "Downloading Python environment definition"
 
-if ! conda env create \
-    -f ./intro-python-student/environment.yml \
-    --quiet; then
+if ! curl -fsSL "$environmentUrl" -o "$environmentFile"; then
+    stop_script "Could not download environment.yml."
+fi
 
-    stop_script "Failed to create the Python environment."
+write_step "Creating Python environment"
+
+conda env create -f "$environmentFile" --quiet
+
+if [ $? -ne 0 ]; then
+    stop_script "Could not create the Python environment."
 fi
 
 # ----------------------------------------------------------------------------
 # Run setup check
 # ----------------------------------------------------------------------------
 
+write_step "Downloading setup check"
+
+if ! curl -fsSL "$checkSetupUrl" -o "$checkSetupFile"; then
+    stop_script "Could not download check_setup.py."
+fi
+
 write_step "Running setup check"
 
-if ! conda run -n intro-python-feg-l3 \
-    python ./intro-python-student/check_setup.py; then
+conda run -n intro-python-feg-l3 python "$checkSetupFile"
 
+setupCheckExitCode=$?
+
+if [ "$setupCheckExitCode" -ne 0 ]; then
     stop_script "The setup check failed."
+fi
+
+# ----------------------------------------------------------------------------
+# Initialization of the course directory
+# ----------------------------------------------------------------------------
+
+write_step "Populating the course directory"
+
+mkdir -p ./data
+touch ./data/sample.txt
+mkdir -p ./td
+
+# ----------------------------------------------------------------------------
+# Bootstrap TD1
+# ----------------------------------------------------------------------------
+
+td="01"
+
+conda run -n intro-python-feg-l3 python -c \
+"import sys, urllib.request; sys.argv = ['bootstrap_td.py', '$td']; exec(urllib.request.urlopen('$bootstrapUrl').read())"
+
+if [ $? -ne 0 ]; then
+    stop_script "Could not install TD $td."
 fi
 
 # ----------------------------------------------------------------------------
