@@ -209,7 +209,7 @@ catch {
 
 Write-Step "Running setup check"
 
-conda run -n intro-python-feg-l3 python $checkSetupFile
+conda run --no-capture-output -n intro-python-feg-l3 python -X utf8 $checkSetupFile
 
 $setupCheckExitCode = $LASTEXITCODE
 
@@ -231,8 +231,7 @@ New-Item -ItemType Directory -Force ./td
 
 # Bootstrap TD1
 $td = "01"
-conda run -n intro-python-feg-l3 python -c "import sys, urllib.request; sys.argv = ['bootstrap_td.py', '$td']; exec(urllib.request.urlopen('$repoBaseUrl/setup/bootstrap_td.py').read())"
-
+conda run --no-capture-output -n intro-python-feg-l3 python -X utf8 -c "import sys, urllib.request; sys.argv = ['bootstrap_td.py', '$td']; exec(urllib.request.urlopen('$repoBaseUrl/setup/bootstrap_td.py').read())"
 # ----------------------------------------------------------------------------
 # Done
 # ----------------------------------------------------------------------------
