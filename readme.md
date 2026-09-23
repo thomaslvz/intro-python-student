@@ -8,10 +8,14 @@
 
 ## Consignes des TDs
 
-**Important :** A chaque séance, avant de commencer le TD, il faut [ouvrir un terminal dans le dossier de travail](#je-ne-trouve-pas-mon-dossier-de-travail-intro-python) `intro-python`, puis lancer la commande suivante : 
-```bash
-conda run -n intro-python-feg-l3 python -c "import urllib.request; exec(urllib.request.urlopen('https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/bootstrap.py').read())"
-```
+Les TD sont réalisés sur l'environnement de développement *JupyterLab*. 
+
+**A chaque séance, avant de commencer le TD, il faut :** 
+1. [ouvrir un terminal dans le dossier de travail](#je-ne-trouve-pas-mon-dossier-de-travail-intro-python) `intro-python`
+2. Lancer ***JupyterLab*** avec la commande  suivante : 
+    ```bash
+    conda run -n intro-python-feg-l3 jupyter lab
+    ```
 
 **Liste des séances :**
 
@@ -54,3 +58,11 @@ Message d'erreur type :
 
 Solution : il faut (ré)installer Miniconda, cf. [Setup](#configuration-de-lordinateur-setup)
 
+### J'ai une erreur `EnvironmentLocationNotFound`
+
+Message d'erreur type :
+```bash
+EnvironmentLocationNotFound: Not a conda environment: /.../envs/intro-python-feg-l3
+```
+
+Solution : il faut refaire l'étape 2 du [Setup](#configuration-de-lordinateur-setup) 
