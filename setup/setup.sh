@@ -93,8 +93,8 @@ done
 # Temporary files
 # ----------------------------------------------------------------------------
 
-environmentFile="$courseDirectory/.intro-python-environment.yml"
-checkSetupFile="$courseDirectory/.intro-python-check_setup.py"
+environmentFile="$course_directory/.intro-python-environment.yml"
+checkSetupFile="$course_directory/.intro-python-check_setup.py"
 
 # Always remove temporary setup files when the script exits.
 cleanup() {
