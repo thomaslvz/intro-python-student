@@ -29,7 +29,8 @@ jobs:
           pip install ruff nbstripout
 
       - name: Clean notebooks
-        run: nbstripout --recursive .
+        run: |
+          find . -name "*.ipynb" -type f -print0 | xargs -0 -r nbstripout
 
       - name: Format Python
         run: ruff format .
