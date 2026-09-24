@@ -1,4 +1,4 @@
-name: Pre-commit
+name: Format and clean
 
 on:
   pull_request:
@@ -10,7 +10,7 @@ permissions:
   contents: write
 
 jobs:
-  pre-commit:
+  format:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,14 +24,17 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install pre-commit
-        run: pip install pre-commit
+      - name: Install tools
+        run: |
+          pip install ruff nbstripout
 
-      - name: Run pre-commit
-        run: pre-commit run --all-files
-        continue-on-error: true
+      - name: Clean notebooks
+        run: nbstripout --recursive .
 
-      - name: Commit automatic fixes
+      - name: Format Python
+        run: ruff format .
+
+      - name: Commit changes
         run: |
           if git diff --quiet; then
             echo "No changes to commit."
@@ -42,8 +45,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add .
-          git commit -m "chore: apply pre-commit fixes"
+          git commit -m "chore: format and clean notebooks"
           git push
-
-      - name: Verify pre-commit
-        run: pre-commit run --all-files
