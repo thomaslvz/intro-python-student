@@ -8,18 +8,13 @@
 
 ## Consignes des TDs
 
-Les TD sont réalisés sur l'environnement de développement *JupyterLab*. 
+Les TD sont réalisés sur l'environnement de développement *JupyterLab*.
 
-**A chaque séance, avant de commencer le TD, il faut :** 
-1. [ouvrir un terminal dans le dossier de travail](#je-ne-trouve-pas-mon-dossier-de-travail-intro-python) `intro-python`
-2. Lancer ***JupyterLab*** avec la commande  suivante : 
-    ```bash
-    conda run -n intro-python-feg-l3 jupyter lab
-    ```
+A chaque début de séance, il est demandé d'ouvrir un terminal dans le dossier de travail `intro-python` : c'est une opération "clasique" qu'il faut savoir refaire (cf. [ici](#comment-ouvrir-un-terminal-dans-mon-dossier-de-travail-intro-python-).
 
 **Liste des séances :**
 
-[Séance 1](tds/td1.md)
+[TD1](td/01/readme.md)
 
 ## Questions fréquentes
 
@@ -52,7 +47,7 @@ Ouvrir l'application *Terminal* et rentrer la commande `cd ~/intro-python && xdg
 
 ### J'ai une erreur me disant que `conda` n'existe pas
 
-Message d'erreur type : 
+Message d'erreur type :
 - sur windows: `conda : The term 'conda' is not recognized as the name of a cmdlet, function, script file, or operable program.`
 - sur mac/linux : `conda: command not found`
 
@@ -65,4 +60,4 @@ Message d'erreur type :
 EnvironmentLocationNotFound: Not a conda environment: /.../envs/intro-python-feg-l3
 ```
 
-Solution : il faut refaire l'étape 2 du [Setup](#configuration-de-lordinateur-setup) 
+Solution : il faut refaire l'étape 2 du [Setup](#configuration-de-lordinateur-setup)

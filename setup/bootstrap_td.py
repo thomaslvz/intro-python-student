@@ -21,7 +21,9 @@ from send2trash import send2trash
 
 # Configuration
 CONDA_ENV = "intro-python-feg-l3"
-REPO_URL = "https://github.com/thomaslvz/intro-python-student/archive/refs/heads/main.zip"
+REPO_URL = (
+    "https://github.com/thomaslvz/intro-python-student/archive/refs/heads/main.zip"
+)
 
 
 # Vérifier le répertoire courant
@@ -33,7 +35,7 @@ if os.path.basename(os.getcwd()) != "intro-python":
 # Vérifier l'environnement Conda
 if os.environ.get("CONDA_DEFAULT_ENV") != CONDA_ENV:
     print(f"Erreur : l'environnement Conda '{CONDA_ENV}' n'est pas actif.")
-    print(f"Veuillez d'abord activer cet environnement avec :")
+    print("Veuillez d'abord activer cet environnement avec :")
     print(f"    conda activate {CONDA_ENV}")
     sys.exit(1)
 
@@ -53,7 +55,7 @@ destination = os.path.join("td", td)
 if os.path.exists(destination):
     print()
     print(f"Attention : le dossier '{destination}' existe déjà.")
-    print(f"Si vous continuez, il sera placé dans la corbeille")
+    print("Si vous continuez, il sera placé dans la corbeille")
     print(f"et remplacé par les fichiers vierges du TD {td}.")
     print()
 
@@ -79,7 +81,6 @@ except Exception as error:
 
 # Extraire le TD demandé
 with zipfile.ZipFile(io.BytesIO(data)) as archive:
-
     root = archive.namelist()[0].split("/")[0]
     prefix = f"{root}/td/{td}/"
 
@@ -94,7 +95,7 @@ with zipfile.ZipFile(io.BytesIO(data)) as archive:
         sys.exit(1)
 
     for name in files:
-        relative = name[len(prefix):]
+        relative = name[len(prefix) :]
         path = os.path.join(destination, relative)
 
         os.makedirs(os.path.dirname(path), exist_ok=True)

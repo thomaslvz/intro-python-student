@@ -2,7 +2,7 @@
 
 Ouvrez un terminal dans le dossier `intro-python`.
 
-Exécutez la commande suivante pour récupérer les fichiers du TD1 : 
+Exécutez la commande suivante pour récupérer les fichiers du TD1 :
 
 ```bash
 conda run --no-capture-output -n intro-python-feg-l3 python -X utf8 -c "import sys, urllib.request; sys.argv = ['bootstrap_td.py', '01']; exec(urllib.request.urlopen('$repoBaseUrl/setup/bootstrap_td.py').read())"

@@ -11,4 +11,3 @@ jupyter lab
 ```
 
 Il faut garder ce terminal ouvert tant que JupyterLab est utilisé.
-

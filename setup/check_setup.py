@@ -30,6 +30,7 @@ EXPECTED_PACKAGES = {
 # Checks
 # ============================================================
 
+
 def check_environment():
     """Check the active Conda environment."""
     active = os.environ.get("CONDA_DEFAULT_ENV")
@@ -90,13 +91,11 @@ def check_jupyter_kernel():
     """Check Jupyter, ipykernel and kernel consistency with the current Python."""
     print("Jupyter kernel")
 
-    current_python = os.path.normcase(
-        os.path.realpath(os.path.abspath(sys.executable))
-    )
+    current_python = os.path.normcase(os.path.realpath(os.path.abspath(sys.executable)))
 
     print(f"  Current Python: {sys.executable}")
     print(f"  Python prefix:  {sys.prefix}")
-    
+
     # ------------------------------------------------------------------
     # 1. Check Jupyter executable
     # ------------------------------------------------------------------
@@ -130,13 +129,6 @@ def check_jupyter_kernel():
     print(f"  ipykernel:      {ipykernel_version}")
     print(f"  ipykernel path: {ipykernel_path}")
 
-    # Check that ipykernel belongs to the current Python environment.
-    environment_prefix = os.path.normcase(
-        os.path.realpath(os.path.abspath(sys.prefix))
-    )
-
-        
-        
     # ------------------------------------------------------------------
     # 3. Retrieve Jupyter kernelspecs
     # ------------------------------------------------------------------
@@ -245,11 +237,7 @@ def check_jupyter_kernel():
 
                 marker = " <-- CURRENT PYTHON" if is_current else ""
 
-                print(
-                    f"    - {kernel_name}: "
-                    f"{kernel_python} "
-                    f"({display_name}){marker}"
-                )
+                print(f"    - {kernel_name}: {kernel_python} ({display_name}){marker}")
             else:
                 print(f"    - {kernel_name}: no executable found")
 
@@ -258,6 +246,7 @@ def check_jupyter_kernel():
     print(f"    {sys.executable} -m ipykernel install --user")
 
     return False
+
 
 # ============================================================
 # Setup check

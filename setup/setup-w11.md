@@ -6,7 +6,7 @@ NB : si vous êtes sur une machine perso tournant sur Windows 10, il est conseil
 
 ## Etape 1 : Installer Miniconda
 
-Télécharger Miniconda depuis le [site officiel](https://www.anaconda.com/download/success), et procéder à l'installation **en suivant très précisément les étapes ci-dessous**. 
+Télécharger Miniconda depuis le [site officiel](https://www.anaconda.com/download/success), et procéder à l'installation **en suivant très précisément les étapes ci-dessous**.
 
 ⚠️ à l'étape 5, les cases ne sont pas cochées par défaut.
 
@@ -49,7 +49,7 @@ Télécharger Miniconda depuis le [site officiel](https://www.anaconda.com/downl
 
 ## Etape 2 : Création du dossier de travail
 
-⚠️**On ne travaille pas dans le dossier de téléchargements ou n'importe-où sur le disque dur.** 
+⚠️**On ne travaille pas dans le dossier de téléchargements ou n'importe-où sur le disque dur.**
 
 Nous allons créer un dossier de travail qui contiendra l'ensemble des fichiers et travaux du cours. Ce dossier portera le même nom chez tout le monde (`intro-python`).
 
@@ -84,7 +84,7 @@ Tant que le curseur en bas du terminal clignote, l'installation est en cours. Au
 > ```
 Si cela ne fonctionne pas, appeler l'enseignant. Si cela fonctionne, fermer le terminal.
 
-Pour finir, localiser le dossier `intro-python` sur l'ordinateur : 
+Pour finir, localiser le dossier `intro-python` sur l'ordinateur :
 <details>
 <summary>Sur une machine UGA</summary>
 

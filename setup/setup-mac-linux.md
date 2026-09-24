@@ -11,13 +11,13 @@ Télécharger Miniconda depuis le [site officiel](https://www.anaconda.com/downl
 
 ## Etape 2 : Création du dossier de travail
 
-⚠️**On ne travaille pas dans le dossier de téléchargements ou n'importe où sur le disque dur.** 
+⚠️**On ne travaille pas dans le dossier de téléchargements ou n'importe où sur le disque dur.**
 
 Nous allons créer un dossier de travail qui contiendra l'ensemble des fichiers et travaux du cours. Ce dossier portera le même nom chez tout le monde (`intro-python`). Le dossier de travail sera situé sera situé dans le répertoire utilisateur (aussi appelé *Home*).
 
 Ouvrir l'application *Terminal*.
 
-Copier-coller la commande suivante et taper sur *Entrée* : 
+Copier-coller la commande suivante et taper sur *Entrée* :
 ```bash
 curl -fsSL "https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/setup.sh" | bash
 ```
