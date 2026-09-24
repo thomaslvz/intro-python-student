@@ -1,4 +1,4 @@
-name: Format and clean
+name: Clean notebooks
 
 on:
   pull_request:
@@ -31,9 +31,6 @@ jobs:
       - name: Clean notebooks
         run: |
           find . -name "*.ipynb" -type f -print0 | xargs -0 -r nbstripout
-
-      - name: Format Python
-        run: ruff format .
 
       - name: Commit changes
         run: |
