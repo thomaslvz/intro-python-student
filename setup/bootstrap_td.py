@@ -12,7 +12,6 @@ The script will :
 
 import io
 import os
-import re
 import sys
 import urllib.request
 import zipfile
@@ -43,7 +42,7 @@ if os.environ.get("CONDA_DEFAULT_ENV") != CONDA_ENV:
 if len(sys.argv) != 2:
     print("Erreur : numéro de TD invalide.")
     print("Exemple : python bootstrap_td.py 01")
-    print("         python bootstrap_td.py a1")
+    print("          python bootstrap_td.py a1")
     sys.exit(1)
 
 td = sys.argv[1].lower()
@@ -105,4 +104,4 @@ with zipfile.ZipFile(io.BytesIO(data)) as archive:
 
 
 print()
-print(f"Le TD {td} a été installé dans : {destination}")
+print(f"Le TD {td} a été installé dans : {os.path.join(os.getcwd(), destination)}")

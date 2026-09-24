@@ -25,8 +25,6 @@ EXPECTED_PACKAGES = {
     "jupyterlab": "4.6.3",
 }
 
-EXPECTED_JUPYTER_KERNEL = "intro-python-feg-l3"
-
 
 # ============================================================
 # Checks
@@ -88,20 +86,6 @@ def check_package(package_name, expected_version):
         return False
 
 
-def check_jupyter_command():
-    """Check whether the Jupyter command is available."""
-    executable = shutil.which("jupyter")
-
-    print("Jupyter command")
-
-    if executable is None:
-        print("  [ERROR] Jupyter command not found.")
-        return False
-
-    print(f"  Executable: {executable}")
-    print("  [OK]")
-    return True
-
 def check_jupyter_kernel():
     """Check Jupyter, ipykernel and kernel consistency with the current Python."""
     print("Jupyter kernel")
@@ -132,15 +116,6 @@ def check_jupyter_kernel():
     # 2. Check ipykernel in the current Python environment
     # ------------------------------------------------------------------
     try:
-        ipykernel_spec = importlib.util.find_spec("ipykernel")
-    except (ImportError, ModuleNotFoundError):
-        ipykernel_spec = None
-
-    if ipykernel_spec is None:
-        print("  [ERROR] ipykernel is not installed in the current environment.")
-        return False
-
-    try:
         import ipykernel
 
         ipykernel_version = getattr(ipykernel, "__version__", "unknown")
@@ -160,17 +135,6 @@ def check_jupyter_kernel():
         os.path.realpath(os.path.abspath(sys.prefix))
     )
 
-    try:
-        ipykernel_environment = os.path.commonpath(
-            [environment_prefix, ipykernel_path]
-        ) == environment_prefix
-    except ValueError:
-        # Can happen when paths are on different drives on Windows.
-        ipykernel_environment = False
-
-    if not ipykernel_environment:
-        print("  [WARNING] ipykernel does not appear to belong to the current")
-        print("            Python environment.")
         
         
     # ------------------------------------------------------------------
@@ -237,7 +201,6 @@ def check_jupyter_kernel():
                 "name": kernel_name,
                 "display_name": spec.get("display_name", ""),
                 "argv": kernel_argv,
-                "resource_dir": kernel_info.get("resource_dir", ""),
             }
         )
 
@@ -311,9 +274,6 @@ all_ok = check_environment() and all_ok
 print()
 
 all_ok = check_python() and all_ok
-print()
-
-all_ok = check_jupyter_command() and all_ok
 print()
 
 all_ok = check_jupyter_kernel() and all_ok

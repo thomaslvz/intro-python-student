@@ -123,6 +123,16 @@ if [ $? -ne 0 ]; then
 fi
 
 # ----------------------------------------------------------------------------
+# Initialization of the course directory
+# ----------------------------------------------------------------------------
+
+write_step "Populating the course directory"
+
+mkdir -p ./data
+touch ./data/sample.txt
+mkdir -p ./td
+
+# ----------------------------------------------------------------------------
 # Run setup check
 # ----------------------------------------------------------------------------
 
@@ -143,31 +153,8 @@ if [ "$setupCheckExitCode" -ne 0 ]; then
 fi
 
 # ----------------------------------------------------------------------------
-# Initialization of the course directory
-# ----------------------------------------------------------------------------
-
-write_step "Populating the course directory"
-
-mkdir -p ./data
-touch ./data/sample.txt
-mkdir -p ./td
-
-# ----------------------------------------------------------------------------
-# Bootstrap TD1
-# ----------------------------------------------------------------------------
-
-td="01"
-
-conda run -n intro-python-feg-l3 python -c \
-"import sys, urllib.request; sys.argv = ['bootstrap_td.py', '$td']; exec(urllib.request.urlopen('$bootstrapUrl').read())"
-
-if [ $? -ne 0 ]; then
-    stop_script "Could not install TD $td."
-fi
-
-# ----------------------------------------------------------------------------
 # Done
 # ----------------------------------------------------------------------------
 
 echo
-echo "Working directory: $course_directory"
+echo "Le dossier de travail de ce cours est : $course_directory"

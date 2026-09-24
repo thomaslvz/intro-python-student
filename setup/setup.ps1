@@ -187,6 +187,16 @@ if ($LASTEXITCODE -ne 0) {
 Remove-Item -Force $environmentFile
 
 # ----------------------------------------------------------------------------
+# Initialization of the course directory
+# ----------------------------------------------------------------------------
+
+Write-Step "Populating the course directory"
+
+New-Item -ItemType Directory -Force ./data
+New-Item -ItemType File -Force ./data/sample.txt
+New-Item -ItemType Directory -Force ./td
+
+# ----------------------------------------------------------------------------
 # Run setup check
 # ----------------------------------------------------------------------------
 
@@ -219,19 +229,7 @@ if ($setupCheckExitCode -ne 0) {
     Stop-Script "The setup check failed."
 }
 
-# ----------------------------------------------------------------------------
-# Initialization of the course directory
-# ----------------------------------------------------------------------------
 
-Write-Step "Populating the course directory"
-
-New-Item -ItemType Directory -Force ./data
-New-Item -ItemType File -Force ./data/sample.txt
-New-Item -ItemType Directory -Force ./td
-
-# Bootstrap TD1
-$td = "01"
-conda run --no-capture-output -n intro-python-feg-l3 python -X utf8 -c "import sys, urllib.request; sys.argv = ['bootstrap_td.py', '$td']; exec(urllib.request.urlopen('$repoBaseUrl/setup/bootstrap_td.py').read())"
 # ----------------------------------------------------------------------------
 # Done
 # ----------------------------------------------------------------------------
