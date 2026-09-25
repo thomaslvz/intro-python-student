@@ -1,6 +1,6 @@
 [< Revenir à la page d'Accueil](../readme.md)
 
-# Configurer sa machine perso (`Mac` ou `Linux` 11)
+# Configurer sa machine perso (`Mac` ou `Linux`)
 
 
 ## Etape 1 : Installer Miniconda

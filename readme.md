@@ -1,20 +1,33 @@
 # Introduction à python [draft]
 
-## Configuration de l'ordinateur (setup)
+<details>
+<summary>Configuration initiale</summary>
 
-[Sur Windows 11 (machine UGA ou machine perso)](setup/setup-w11.md)
+Pour configurer l'ordinateur, suivez les instructions de *setup* :
 
-[Sur une machine personnelle tournant sur Mac ou Linux](setup/setup-mac-linux.md)
+- [Sur Windows 11 (machine UGA ou machine perso)](setup/setup-w11.md)
+- [Sur une machine personnelle tournant sur Mac ou Linux](setup/setup-mac-linux.md)
 
-## Consignes des TDs
+
+</details>
+
+## Déroulé des séances
 
 Les TD sont réalisés sur l'environnement de développement *JupyterLab*.
 
-A chaque début de séance, il est demandé d'ouvrir un terminal dans le dossier de travail `intro-python` : c'est une opération "clasique" qu'il faut savoir refaire (cf. [ici](#comment-ouvrir-un-terminal-dans-mon-dossier-de-travail-intro-python-).
+A chaque début de séance, il est demandé d'ouvrir un terminal dans le dossier de travail `intro-python` : c'est une opération "clasique" qu'il faut savoir refaire (cf. [ici]).(#comment-ouvrir-un-terminal-dans-mon-dossier-de-travail-intro-python-).
 
-**Liste des séances :**
-
-[TD1](td/01/readme.md)
+| Numéro de séance | Thématique    | Supports                                  |
+| ---------------- | ------------- | ----------------------------------------- |
+| Séance 1         | Prise en main | [Présentation](#) / [TD](td/01/readme.md) |
+| Séance 2         |               |                                           |
+| Séance 3         |               |                                           |
+| Séance 4         |               |                                           |
+| Séance 5         |               |                                           |
+| Séance 6         |               |                                           |
+| Séance 7         |               |                                           |
+| Séance 8         |               |                                           |
+| Séance 9         |               |                                           |
 
 ## Questions fréquentes
 
