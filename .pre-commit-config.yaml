@@ -14,7 +14,10 @@ repos:
     rev: v0.13.0
     hooks:
       - id: ruff-check
-        args: [--fix]
+        args:
+          - --fix
+          - --ignore
+          - E722
         exclude: ^td/01/01_prise_en_main\.ipynb$
       - id: ruff-format
         exclude: ^td/01/01_prise_en_main\.ipynb$

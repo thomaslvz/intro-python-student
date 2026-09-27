@@ -31,15 +31,15 @@ Ouvrez le premier Notebook intitulé `01_prise_en_main.ipynb` et suivez les inst
 
 # Exercice 2
 
-Le but de cet exercice est d'apprendre à fermer *JupyerLab*.
+Le but de cet exercice est d'apprendre à fermer proprement *JupyerLab*.
 
 Commencez par sauvegarder votre fichier `01_prise_en_main.ipynb`. Repérez ensuite l'adresse utilisée dans le navigateur pour accéder à *JupyterLab* (du style `localhost:8888/lab...`) et copiez-la (`Ctrl+C`). Fermez ensuite le navigateur.
 
-Ouvrez à nouveau un navigateur web et collez l'adresse précédente (`Ctrl+V`). *JupyterLab* se réouvre à nouveau.
+Ouvrez à nouveau un navigateur web et collez l'adresse précédente (`Ctrl+V`). *JupyterLab* s'affiche à nouveau : il n'était donc pas réellement fermé.
 
-> 💡 Ce que l'on doit comprendre : l'application *Jupyterlab* tourne en arrière plan, et le navigateur web permet uniquement d'accéder à l'application, pas de la démarrer ou l'arrêter.
+> 💡 Ce que l'on doit comprendre : l'application *Jupyterlab* tourne en arrière plan, et le navigateur web permet uniquement d'afficher à l'application, pas de la démarrer ou l'arrêter.
 
-Pour fermer *JupyterLab*, allez désormais dans le terminal que vous avez ouvert au tout début du TD. Cliquez dans le Terminal puis faites `Ctrl+C`, et répondez "y" à la question "Shut down this Jupyter server". Cette fois-ci, l'application n'est plus accessible via un navigateur. Vous pouvez fermer le terminal.
+Pour fermer réellement *JupyterLab*, allez désormais dans le terminal que vous avez ouvert au tout début du TD. Cliquez dans le Terminal puis faites `Ctrl+C`, et répondez "y" à la question "Shut down this Jupyter server". Cette fois-ci, l'application n'est plus accessible via un navigateur. Vous pouvez fermer le terminal.
 
 # Exercice 3
 
@@ -56,8 +56,7 @@ A faire :
    - String Garden
    - Number Peak
 
-
-# (bonus) Exercice 4
+# Exercice 4
 
 Comme au début du TD, ouvrez un terminal dans le dossier `intro-python`, puis lancez *JupyterLab* :
 
@@ -65,11 +64,14 @@ Comme au début du TD, ouvrez un terminal dans le dossier `intro-python`, puis l
 conda run --no-capture-output -n intro-python-feg-l3 jupyter lab
 ```
 
-Ouvrez le dossier du TD1.
+Ouvrez le dossier du TD1, puis lancez le notebook intitulé `04_fonctions.ipynb`, et suivez les consignes.
 
-Cliquez sur le *Launcher* (bouton `+`), et créez un notebook que vous appellerez `exercice_04.ipynb`.
+# (bonus) Exercice 5
 
-En utilisant le notebook, faites la suite de l'exercice.
+
+Dans JupyterLab, cliquez sur le *Launcher* (bouton `+`), et créez un notebook que vous appellerez `exercice_05.ipynb`.
+
+En utilisant le notebook, réalisez l'exercice 5, dont les consignes sont ci-dessous.
 
 **Partie 1**
 
