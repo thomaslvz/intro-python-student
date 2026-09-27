@@ -6,3 +6,8 @@
 
 # Python
 __pycache__/*
+
+
+# Others
+
+.ruff_cache
