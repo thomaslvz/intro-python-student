@@ -1,4 +1,4 @@
-# Introduction à python [draft]
+# Introduction à python
 
 <details>
 <summary>Configuration initiale</summary>
@@ -15,8 +15,8 @@ Pour configurer l'ordinateur, suivez les instructions de *setup* :
 
 Les TD sont réalisés sur l'environnement de développement *JupyterLab*.
 
-A chaque début de séance, il est demandé d'ouvrir un terminal dans le dossier de travail `intro-python` : c'est une opération "clasique" qu'il faut savoir refaire (cf. [ici]).(#comment-ouvrir-un-terminal-dans-mon-dossier-de-travail-intro-python-).
-
+A chaque début de séance, il est demandé d'ouvrir un terminal dans le dossier de travail `intro-python` : c'est une opération "clasique" qu'il faut savoir refaire (cf. [ici](#comment-ouvrir-un-terminal-dans-mon-dossier-de-travail-intro-python-).
+)
 | Numéro de séance | Thématique    | Supports                                  |
 | ---------------- | ------------- | ----------------------------------------- |
 | Séance 1         | Prise en main | [Présentation](#) / [TD](td/01/readme.md) |
