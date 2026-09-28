@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr"><head>
-<script src="00_test_files/libs/clipboard/clipboard.min.js"></script>
-<script src="00_test_files/libs/quarto-html/tabby.min.js"></script>
-<script src="00_test_files/libs/quarto-html/popper.min.js"></script>
-<script src="00_test_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="00_test_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="00_test_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="00_test_files/libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="s01_prise-en-main_files/libs/clipboard/clipboard.min.js"></script>
+<script src="s01_prise-en-main_files/libs/quarto-html/tabby.min.js"></script>
+<script src="s01_prise-en-main_files/libs/quarto-html/popper.min.js"></script>
+<script src="s01_prise-en-main_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="s01_prise-en-main_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="s01_prise-en-main_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="s01_prise-en-main_files/libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="">
@@ -14,8 +14,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="00_test_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="00_test_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="s01_prise-en-main_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="s01_prise-en-main_files/libs/revealjs/dist/reveal.css">
   <style>
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -101,13 +101,13 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="00_test_files/libs/revealjs/dist/theme/quarto-1f4b50a833cbf3c004390522233ae268.css">
-  <link href="00_test_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="00_test_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="00_test_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="00_test_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="00_test_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="00_test_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="s01_prise-en-main_files/libs/revealjs/dist/theme/quarto-1f4b50a833cbf3c004390522233ae268.css">
+  <link href="s01_prise-en-main_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="s01_prise-en-main_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="s01_prise-en-main_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="s01_prise-en-main_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="s01_prise-en-main_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="s01_prise-en-main_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -209,44 +209,379 @@
 
 </section>
 <section>
-<section id="un-titre" class="title-slide slide level1 center">
-<h1>Un titre</h1>
+<section id="présentation-du-cours" class="title-slide slide level1 section-slide center">
+<h1>Présentation du cours</h1>
 
 </section>
-<section id="titre-h2" class="slide level2">
-<h2>Titre h2</h2>
-<p>Du texte</p>
+<section id="pourquoi-python-en-économie-gestion" class="slide level2 small-slide">
+<h2>Pourquoi Python en économie-gestion ?</h2>
+<ul>
+<li class="fragment">Le langage le plus utilisé en analyse de données (banques, instituts statistiques, cabinets de conseil, INSEE…).</li>
+<li class="fragment">Gratuit, lisible, énorme communauté → documentation et exemples partout.</li>
+<li class="fragment">Un écosystème de <strong>bibliothèques</strong> : <code>numpy</code> (calcul), <code>pandas</code> (tableaux de données), <code>matplotlib</code> (graphiques), <code>statsmodels</code> (économétrie), <code>scipy</code> (optimisation).</li>
+</ul>
 <div class="fragment">
-<p>Encore du texte.</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>Ce cours va de la découverte de la programmation jusqu’à l’utilisation de python pour l’analyse de données… en 21h. On n’apprend pas <em>tout</em> Python, l’objectif est de devenir autonome pour <em>savoir apprendre</em>, c’est à dire savoir aller chercher l’information.</p>
+</div>
+</div>
+</div>
 </div>
 </section>
-<section class="slide level2">
-
-<p>Du code sans output.</p>
-<div id="a6ddcf94" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="" aria-hidden="true" tabindex="-1"></a>prix <span class="op">=</span> <span class="fl">12.5</span></span>
-<span id="cb1-2"><a href="" aria-hidden="true" tabindex="-1"></a>quantite <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb1-3"><a href="" aria-hidden="true" tabindex="-1"></a>prix <span class="op">*</span> quantite</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="objectifs" class="slide level2 small-slide">
+<h2>Objectifs</h2>
+<p>A l’issue du cours, l’étudiant.e doit être capable de :</p>
+<ul>
+<li class="fragment">utiliser un environnement de développement (IDE) Python et organiser ses fichiers (données, notebooks, code python) ;</li>
+<li class="fragment">écrire et exécuter des programmes Python simples, et notamment :
+<ul>
+<li class="fragment">maîtriser les concepts de variables, types, structures de données, conditions, boucles et fonctions ;</li>
+<li class="fragment">manipuler vecteurs et des matrices avec <code>NumPy</code> ;</li>
+<li class="fragment">importer, explorer, nettoyer et transformer des données avec <code>pandas</code> ;</li>
+<li class="fragment">calculer et interpréter des statistiques descriptives ;</li>
+<li class="fragment">produire des visualisations simples avec <code>matplotlib</code> ;</li>
+<li class="fragment">utiliser un solveur simple avec <code>scipy</code></li>
+<li class="fragment">estimer et interpréter une régression linéaire simple avec <code>statsmodels</code> ;</li>
+</ul></li>
+<li class="fragment">utiliser la documentation officielle pour débuguer ses programmes ;</li>
+<li class="fragment">réaliser une analyse élémentaire de données économiques en mobilisant l’ensemble de ces outils.</li>
+</ul>
+</section>
+<section id="format-des-séances" class="slide level2">
+<h2>Format des séances</h2>
+<div class="fragment">
+<p>🧰🛠️ Approche <em>learning by doing</em></p>
+</div>
+<div class="fragment">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; → très peu de “cours magistral”</p>
+</div>
+<div class="fragment">
+<p>Séance type :</p>
+<ul>
+<li class="fragment">30 min maximum de présentation (au tableau)</li>
+<li class="fragment">1h30 de pratique (sur machine)</li>
+</ul>
 </div>
 </section>
-<section class="slide level2">
-
-<p>Du code avec output.</p>
-<div id="c663528f" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'hello'</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>hello</code></pre>
+<section id="déroulé" class="slide level2 tiny-slide">
+<h2>Déroulé</h2>
+<style>
+.no-padding,
+.no-padding * {
+  padding: 0.2rem !important;
+  margin: 0 !important;
+}
+</style>
+<div class="no-padding">
+<table class="caption-top">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 6%">
+<col style="width: 88%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Sem.</th>
+<th>Durée</th>
+<th>Séance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>S40</td>
+<td>2h30</td>
+<td><strong>1. Prise en main</strong></td>
+</tr>
+<tr class="even">
+<td>S41</td>
+<td>2h</td>
+<td><strong>2. Variables, types, structures de données</strong></td>
+</tr>
+<tr class="odd">
+<td>S42</td>
+<td>2h30</td>
+<td><strong>3. Strutures de contrôle, boucles</strong></td>
+</tr>
+<tr class="even">
+<td>S43</td>
+<td>2h</td>
+<td><strong>4. NumPy</strong></td>
+</tr>
+<tr class="odd">
+<td>S44</td>
+<td>—</td>
+<td>Toussaint</td>
+</tr>
+<tr class="even">
+<td>S45</td>
+<td>2h</td>
+<td><strong>5. pandas, premiers pas (1h)</strong><br><strong><em>+ Évaluation 1 (1h, à l’écrit)</em></strong></td>
+</tr>
+<tr class="odd">
+<td>S46</td>
+<td>2h</td>
+<td><strong>6. Importer, inspecter, nettoyer</strong></td>
+</tr>
+<tr class="even">
+<td>S47</td>
+<td>2h</td>
+<td><strong>7. Transformer</strong></td>
+</tr>
+<tr class="odd">
+<td>S48</td>
+<td>2h</td>
+<td><strong>8. Statistiques descriptives et visualisation</strong></td>
+</tr>
+<tr class="even">
+<td>S49</td>
+<td>2h</td>
+<td><strong>9. Optimisation et régression</strong></td>
+</tr>
+<tr class="odd">
+<td>S50</td>
+<td>2h</td>
+<td>(à préciser selon modalités d’évaluation finale)</td>
+</tr>
+</tbody>
+</table>
 </div>
-</div>
-<div id="51aa2257" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb4-2"><a href="" aria-hidden="true" tabindex="-1"></a>np.array([<span class="dv">0</span>,<span class="dv">3</span>])</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>array([0, 3])</code></pre>
-</div>
-</div>
-
+<!-- 
+## Evaluation -->
+<!-- ## Supports -->
 </section></section>
+<section>
+<section id="séance-1" class="title-slide slide level1 section-slide center">
+<h1>Séance 1</h1>
+
+</section>
+<section id="objectifs-1" class="slide level2">
+<h2>Objectifs</h2>
+<p>À la fin de la séance vous savez :</p>
+<ul>
+<li class="fragment">lancer Jupyterlab et vous y repérer (explorateur, notebook, terminal) ;</li>
+<li class="fragment">Utiliser un Notebook, et manipuler des <strong>cellules de code</strong> et des <strong>cellules de texte</strong> ;</li>
+<li class="fragment">exécuter du code Python de deux façons : dans un notebook, dans un fichier <code>.py</code> ;</li>
+<li class="fragment">ouvrir votre dossier <code>intro-python</code> et y lancer un Terminal ;</li>
+<li class="fragment">lire un message d’erreur sans paniquer ;</li>
+<li class="fragment">programmer des choses simples en Python.</li>
+</ul>
+</section></section>
+<section>
+<section id="configuration-de-lordinateur" class="title-slide slide level1 section-slide center">
+<h1>Configuration de l’ordinateur</h1>
+
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<p>Si vous ne l’avez pas déjà faite, ce sera la 1ère étape après cette présentation.</p>
+<div class="fragment">
+<p>Vous allez suivre des instructions pas-à-pas, qui vont :</p>
+<ol type="1">
+<li class="fragment">Installer Python (distribution <em>Miniconda</em>)</li>
+<li class="fragment">Créer un dossier de travail <code>intro-python</code> sur l’ordinateur</li>
+<li class="fragment">Configurer un <em>environnement python</em> dédié à ce cours</li>
+<li class="fragment">Vérifier que tout est bien installé</li>
+</ol>
+</div>
+<div class="fragment">
+<p>Ensuite, vous démarrerez le TD1.</p>
+</div>
+</section></section>
+<section>
+<section id="jupyerlab" class="title-slide slide level1 section-slide center">
+<h1>JupyerLab</h1>
+
+</section>
+<section id="jupyerlab-cest-quoi" class="slide level2">
+<h2>JupyerLab c’est quoi ?</h2>
+<p>C’est un Environnement de développement (<a href="https://fr.wikipedia.org/wiki/Environnement_de_d%C3%A9veloppement">IDE</a>, en anglais).</p>
+<div class="fragment">
+<p>Il se lance depuis un <em>Terminal</em>, et s’ouvre dans votre navigateur web.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<p>Depuis <em>JupyerLab</em>, on peut :</p>
+<ul>
+<li class="fragment">📁 parcourir ses fichiers (créer, supprimer, déplacer, etc.)</li>
+<li class="fragment">écrire du code dans des <em>scripts python</em></li>
+<li class="fragment">exécuter des sripts python, à l’aide d’un <em>Terminal</em></li>
+<li class="fragment">📝 prendre des notes, au format <em><a href="https://www.markdownguide.org/basic-syntax/">Markdown</a></em></li>
+<li class="fragment"><strong>ouvrir des <em>Notebooks python</em> dans lesquels on mélange des notes et du code</strong></li>
+</ul>
+<div class="fragment">
+<p>👨‍🏫 <a href="https://jupyter.org/try-jupyter/lab/">Démo</a> !</p>
+</div>
+</section>
+<section id="lancer-jupyterlab-depuis-son-dossier-de-travail" class="slide level2">
+<h2>Lancer <em>JupyterLab</em> depuis son dossier de travail</h2>
+<p>Vous le ferez <strong>une fois que vous aurez installé python</strong>.</p>
+<div class="fragment">
+<p>👉 Il faut savoir ouvrir son dossier de travail.</p>
+<ul>
+<li>ordinateur UGA : <code>Ce PC &gt; &lt;votre nom d'utilisateur&gt; &gt; intro-python</code></li>
+<li>ordinateur perso : <code>&lt;votre dossier utilisateur&gt; &gt; intro-python</code></li>
+</ul>
+</div>
+<div class="fragment">
+<p>👉 Dans son dossier de travail, <code>clic droit &gt; Ouvrir un Terminal</code></p>
+</div>
+<div class="fragment">
+<p>👉 On lance la commande</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate intro-python-feg-l3</span>
+<span id="cb1-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> lab</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>Le navigateur s’ouvre sur <code>http://localhost:8888/lab</code>.</p>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>Ne fermez pas la fenêtre du terminal : c’est elle qui fait tourner Jupyterlab.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="linterface-jupyterlab" class="slide level2">
+<h2>L’interface Jupyterlab</h2>
+<ul>
+<li class="fragment"><strong>À gauche</strong> : l’explorateur de fichiers. Vous naviguez dans <em>vos</em> dossiers.</li>
+<li class="fragment"><strong>Au centre</strong> : les onglets (notebooks, fichiers texte, terminaux).</li>
+<li class="fragment"><strong>Launcher</strong> (bouton <code>+</code>) : créer un notebook, un fichier texte, un terminal, une console Python.<br><img data-src="img/launcher.png" style="width:50.0%" alt="Launcher"></li>
+</ul>
+</section></section>
+<section>
+<section id="types-de-fichiers-à-connaître" class="title-slide slide level1 section-slide center">
+<h1>3 types de fichiers à connaître</h1>
+
+</section>
+<section id="le-texte-au-format-markdown" class="slide level2">
+<h2>Le texte au format markdown</h2>
+<p>Fichier de type <code>*.md</code>.</p>
+<ul>
+<li class="fragment">on peut l’éditer en l’ouvrant</li>
+<li class="fragment">ou le visualiser (<code>Open with...</code> &gt; <code>Markdown Preview</code>)</li>
+</ul>
+
+<img data-src="img/markdown-example.png" class="r-stretch"></section>
+<section id="le-script-python" class="slide level2">
+<h2>Le script python</h2>
+<p>Fichier de type <code>*.py</code></p>
+<div class="fragment">
+<p><img data-src="img/python-script.png"></p>
+</div>
+<div class="fragment">
+<p>On exécute un script depuis un <em>Terminal</em> avec</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="op">&lt;</span>nom du script<span class="op">&gt;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="le-notebook-python" class="slide level2">
+<h2>Le notebook python</h2>
+<p>Fichier de type <code>*.ipynb</code></p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>Il est organisé en cellules :</p>
+<ul>
+<li class="fragment">cellules de code (python)</li>
+<li class="fragment">cellule de texte (markdown)</li>
+</ul>
+</div><div class="column" style="width:60%;">
+<p><img data-src="img/notebook-example.png"></p>
+</div></div>
+</section>
+<section class="slide level2">
+
+<p>🤔 <strong>Exécuter une cellule dans un notebook</strong></p>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Cellule de code</strong></p>
+<div id="5654c0d4" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="" aria-hidden="true" tabindex="-1"></a>prix <span class="op">=</span> <span class="fl">12.5</span></span>
+<span id="cb3-2"><a href="" aria-hidden="true" tabindex="-1"></a>quantite <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb3-3"><a href="" aria-hidden="true" tabindex="-1"></a>prix <span class="op">*</span> quantite</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Exécuter : <code>Shift + Entrée</code>. Le résultat de la dernière ligne s’affiche.</p>
+</div><div class="column" style="width:50%;">
+<p><strong>Cellule de texte (Markdown)</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">## Titre de section</span></span>
+<span id="cb4-2"><a href="" aria-hidden="true" tabindex="-1"></a>Du texte, une *emphase*, du **gras**,</span>
+<span id="cb4-3"><a href="" aria-hidden="true" tabindex="-1"></a>une liste :</span>
+<span id="cb4-4"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>point 1</span>
+<span id="cb4-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>point 2</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Exécuter : <code>Shift + Entrée</code>. Le texte s’affiche tel quel.</p>
+</div></div>
+</section>
+<section class="slide level2">
+
+<p>🤔 <strong>Raccourcis indispensables dans un notebook</strong></p>
+<p><br></p>
+<div class="no-padding">
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Raccourci</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Naviguer d’une cellule à l’autre</td>
+<td>Flèches <code>↑</code> et <code>↓</code></td>
+</tr>
+<tr class="even">
+<td>Exécuter la cellule et passer à la suivante</td>
+<td><code>Shift + Entrée</code></td>
+</tr>
+<tr class="odd">
+<td>Passer la cellule en Markdown / en code</td>
+<td><code>M</code> / <code>Y</code></td>
+</tr>
+<tr class="even">
+<td>Ajouter une cellule au-dessus (<em>above</em>) / en dessous (<em>below</em>)</td>
+<td><code>A</code> / <code>B</code></td>
+</tr>
+<tr class="odd">
+<td>Supprimer une cellule</td>
+<td><code>D</code>, <code>D</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Important :</strong> pour réaliser ces actions, il faut d’abord appuyer sur la touche <code>Échap</code> pour sortir de l’édition de la cellule.</p>
+<div class="fragment">
+<p>Pour voir tous les raccourcis clavier : <code>Help &gt; Show keyboard shortcuts...</code></p>
+</div>
+</section></section>
+<section id="questions" class="title-slide slide level1 center">
+<h1>Questions ?</h1>
+
+</section>
+
+<section id="a-vous-de-jouer" class="title-slide slide level1 center">
+<h1>A vous de jouer</h1>
+<p>Depuis Moodle, accédez au site du cours, et suivez les instructions du <code>TD1</code>.</p>
+
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -255,20 +590,20 @@
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="00_test_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="s01_prise-en-main_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="00_test_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="00_test_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="00_test_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="00_test_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="00_test_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="00_test_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="s01_prise-en-main_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="s01_prise-en-main_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="s01_prise-en-main_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="s01_prise-en-main_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="s01_prise-en-main_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="s01_prise-en-main_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="00_test_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="00_test_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="00_test_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="00_test_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="s01_prise-en-main_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="s01_prise-en-main_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="s01_prise-en-main_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="s01_prise-en-main_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
