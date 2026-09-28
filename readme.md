@@ -17,17 +17,17 @@ Les TD sont réalisés sur l'environnement de développement *JupyterLab*.
 
 A chaque début de séance, il est demandé d'ouvrir un terminal dans le dossier de travail `intro-python` : c'est une opération "clasique" qu'il faut savoir refaire (cf. [ici](#comment-ouvrir-un-terminal-dans-mon-dossier-de-travail-intro-python-)).
 
-| Numéro de séance | Thématique    | Supports                                  |
-| ---------------- | ------------- | ----------------------------------------- |
-| Séance 1         | Prise en main | [Présentation](#) / [TD](td/01/readme.md) |
-| Séance 2         |               |                                           |
-| Séance 3         |               |                                           |
-| Séance 4         |               |                                           |
-| Séance 5         |               |                                           |
-| Séance 6         |               |                                           |
-| Séance 7         |               |                                           |
-| Séance 8         |               |                                           |
-| Séance 9         |               |                                           |
+| Numéro de séance | Thématique    | Supports                                                                                                  |
+| ---------------- | ------------- | --------------------------------------------------------------------------------------------------------- |
+| Séance 1         | Prise en main | [Présentation](https://thomaslvz.github.io/intro-python-student/01_prise-en-main) / [TD](td/01/readme.md) |
+| Séance 2         |               |                                                                                                           |
+| Séance 3         |               |                                                                                                           |
+| Séance 4         |               |                                                                                                           |
+| Séance 5         |               |                                                                                                           |
+| Séance 6         |               |                                                                                                           |
+| Séance 7         |               |                                                                                                           |
+| Séance 8         |               |                                                                                                           |
+| Séance 9         |               |                                                                                                           |
 
 ## Questions fréquentes
 
