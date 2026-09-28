@@ -1,3 +1,5 @@
+[< Revenir à la page d'Accueil](../../readme.md)
+
 # TD n°1
 
 >⚠️ Si vous êtes sur un ordinateur UGA, vous devez au préalable **[configurer l'ordinateur](../../setup/setup-w11.md)** avant de débuter ce TD. Si vous êtes sur un ordinateur personnel, il faut avoir terminé le travail préparatoire demandé sur Moodle. Si vous avez déjà réalisé ces étapes, vous pouvez démarrer ce qui suit.
@@ -61,7 +63,8 @@ A faire :
 Comme au début du TD, ouvrez un terminal dans le dossier `intro-python`, puis lancez *JupyterLab* :
 
 ```bash
-conda run --no-capture-output -n intro-python-feg-l3 jupyter lab
+conda activate intro-python-feg-l3
+jupyter lab
 ```
 
 Ouvrez le dossier du TD1, puis lancez le notebook intitulé `04_fonctions.ipynb`, et suivez les consignes.

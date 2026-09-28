@@ -1,7 +1,7 @@
 # Introduction à python
 
 <details>
-<summary>Configuration initiale</summary>
+<summary id="setup">Configuration initiale</summary>
 
 Pour configurer l'ordinateur, suivez les instructions de *setup* :
 
@@ -15,8 +15,8 @@ Pour configurer l'ordinateur, suivez les instructions de *setup* :
 
 Les TD sont réalisés sur l'environnement de développement *JupyterLab*.
 
-A chaque début de séance, il est demandé d'ouvrir un terminal dans le dossier de travail `intro-python` : c'est une opération "clasique" qu'il faut savoir refaire (cf. [ici](#comment-ouvrir-un-terminal-dans-mon-dossier-de-travail-intro-python-).
-)
+A chaque début de séance, il est demandé d'ouvrir un terminal dans le dossier de travail `intro-python` : c'est une opération "clasique" qu'il faut savoir refaire (cf. [ici](#comment-ouvrir-un-terminal-dans-mon-dossier-de-travail-intro-python-)).
+
 | Numéro de séance | Thématique    | Supports                                  |
 | ---------------- | ------------- | ----------------------------------------- |
 | Séance 1         | Prise en main | [Présentation](#) / [TD](td/01/readme.md) |
@@ -64,7 +64,7 @@ Message d'erreur type :
 - sur windows: `conda : The term 'conda' is not recognized as the name of a cmdlet, function, script file, or operable program.`
 - sur mac/linux : `conda: command not found`
 
-Solution : il faut (ré)installer Miniconda, cf. [Setup](#configuration-de-lordinateur-setup)
+Solution : il faut (ré)installer Miniconda, cf. [Configuration initiale](#setup)
 
 ### J'ai une erreur `EnvironmentLocationNotFound`
 
@@ -73,4 +73,4 @@ Message d'erreur type :
 EnvironmentLocationNotFound: Not a conda environment: /.../envs/intro-python-feg-l3
 ```
 
-Solution : il faut refaire l'étape 2 du [Setup](#configuration-de-lordinateur-setup)
+Solution : il faut refaire l'étape 2 du [Configuration initiale](#setup)
