@@ -34,10 +34,13 @@ A chaque début de séance, il est demandé d'ouvrir un terminal dans le dossier
 - Apprendre Python avec d'autres cours :
   - capsules vidéo niv. débutant.e sur [learn.microsoft.com](https://learn.microsoft.com/en-us/shows/intro-to-python-development/) (en anglais)
   - le très complet [cours](https://python.sdv.u-paris.fr/) de Patrick Fuchs & Pierre Poulain (Université Paris Cité)
-  - des cours, ateliers, exercices, mini-projets pour les économistes, niv. intermédiaire et avancé, sur [QuantEcon](https://quantecon.org/) (en anglais)
+  - des cours, ateliers, exercices, mini-projets pour les économistes, niv. intermédiaire et avancé.e, sur [QuantEcon](https://quantecon.org/) (en anglais)
+- S'entraîner à coder en Python sur des exercices en ligne (en anglais) :
+  - la [Python Quest](https://utileaf.com/tools/python-quest) sur Utileaf (niv. débutant.e)
+  - de nombreux exercices tous niveaux, classés par thématique, sur [CodingPractice](https://codingpractice.online/)
 - Exécuter du code Python en ligne depuis n'importe quel ordinateur, sans installation :
-  - Sur [JupyterLab](https://jupyter.org/try-jupyter/lab/)
   - Dans une [console python](https://fr.futurecoder.io/course/#ide)
+  - Sur [JupyterLab](https://jupyter.org/try-jupyter/lab/)
 
 ## Questions fréquentes
 
