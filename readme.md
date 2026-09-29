@@ -17,17 +17,27 @@ Les TD sont réalisés sur l'environnement de développement *JupyterLab*.
 
 A chaque début de séance, il est demandé d'ouvrir un terminal dans le dossier de travail `intro-python` : c'est une opération "clasique" qu'il faut savoir refaire (cf. [ici](#comment-ouvrir-un-terminal-dans-mon-dossier-de-travail-intro-python-)).
 
-| Numéro de séance | Thématique    | Supports                                                                                                  |
-| ---------------- | ------------- | --------------------------------------------------------------------------------------------------------- |
-| Séance 1         | Prise en main | [Présentation](https://thomaslvz.github.io/intro-python-student/01_prise-en-main) / [TD](td/01/readme.md) |
-| Séance 2         |               |                                                                                                           |
-| Séance 3         |               |                                                                                                           |
-| Séance 4         |               |                                                                                                           |
-| Séance 5         |               |                                                                                                           |
-| Séance 6         |               |                                                                                                           |
-| Séance 7         |               |                                                                                                           |
-| Séance 8         |               |                                                                                                           |
-| Séance 9         |               |                                                                                                           |
+| Numéro de séance | Thématique                              | Supports                                                                                                  | Ressources utiles                                                     |
+| ---------------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| Séance 1         | Prise en main                           | [Présentation](https://thomaslvz.github.io/intro-python-student/01_prise-en-main) / [TD](td/01/readme.md) | [Guide syntaxe Markdown](https://www.markdownguide.org/basic-syntax/) |
+| Séance 2         | Variables, types, structures de données | [Présentation](#) / [TD](#)                                                                               |                                                                       |
+| Séance 3         |                                         |                                                                                                           |                                                                       |
+| Séance 4         |                                         |                                                                                                           |                                                                       |
+| Séance 5         |                                         |                                                                                                           |                                                                       |
+| Séance 6         |                                         |                                                                                                           |                                                                       |
+| Séance 7         |                                         |                                                                                                           |                                                                       |
+| Séance 8         |                                         |                                                                                                           |                                                                       |
+| Séance 9         |                                         |                                                                                                           |                                                                       |
+
+### Ressources externes / Bibliographie
+
+- Apprendre Python avec d'autres cours :
+  - capsules vidéo niv. débutant.e sur [learn.microsoft.com](https://learn.microsoft.com/en-us/shows/intro-to-python-development/) (en anglais)
+  - le très complet [cours](https://python.sdv.u-paris.fr/) de Patrick Fuchs & Pierre Poulain (Université Paris Cité)
+  - des cours, ateliers, exercices, mini-projets pour les économistes, niv. intermédiaire et avancé, sur [QuantEcon](https://quantecon.org/) (en anglais)
+- Exécuter du code Python en ligne depuis n'importe quel ordinateur, sans installation :
+  - Sur [JupyterLab](https://jupyter.org/try-jupyter/lab/)
+  - Dans une [console python](https://fr.futurecoder.io/course/#ide)
 
 ## Questions fréquentes
 
@@ -74,3 +84,14 @@ EnvironmentLocationNotFound: Not a conda environment: /.../envs/intro-python-feg
 ```
 
 Solution : il faut refaire l'étape 2 du [Configuration initiale](#setup)
+
+
+### Comment obtenir les présentations en PDF ?
+
+*A faire avec le navigateur Firefox ou Chrome*
+
+- ouvrez la présentation
+- cliquez sur le menu en haut à gauche, puis, `Tools` > `PDF export mode`
+- dans le navigateur, faire menu > `Imprimer` et sélectionner `Enregistrer au format PDF`
+- vérifiez que la case "imprimer les arrières plans" soit cochée, et que l'option "ajuster à la largeur de la page" soit activée
+- cliquez sur "Enregistrer"
