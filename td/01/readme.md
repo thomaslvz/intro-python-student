@@ -62,8 +62,7 @@ A faire :
 Comme au début du TD, ouvrez un terminal dans le dossier `intro-python`, puis lancez *JupyterLab* :
 
 ```bash
-conda activate intro-python-feg-l3
-jupyter lab
+conda run -n intro-python-feg-l3 jupyter lab
 ```
 
 Ouvrez le dossier du TD1, puis lancez le notebook intitulé `04_fonctions.ipynb`, et suivez les consignes.
