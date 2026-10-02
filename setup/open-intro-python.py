@@ -7,21 +7,24 @@ import subprocess
 course_directory = Path.home() / "intro-python"
 
 if not course_directory.is_dir():
-    raise FileNotFoundError(f"The directory does not exist: {course_directory}")
-
-system = platform.system()
-
-if system == "Windows":
-    subprocess.Popen(["explorer", str(course_directory)])
-
-elif system == "Darwin":
-    subprocess.Popen(["open", str(course_directory)])
-
-elif system == "Linux":
-    if shutil.which("xdg-open") is None:
-        raise RuntimeError("xdg-open is not available on this system.")
-
-    subprocess.Popen(["xdg-open", str(course_directory)])
-
+    print(
+        f"❌ Le dossier {course_directory} n'existe pas. Il faut (re)faire l'étape 2 de la configuration initiale."
+    )
 else:
-    raise RuntimeError(f"Unsupported operating system: {system}")
+    parent_directory = course_directory.parent
+    system = platform.system()
+
+    if system == "Windows":
+        subprocess.Popen(["explorer", str(parent_directory)])
+
+    elif system == "Darwin":
+        subprocess.Popen(["open", str(parent_directory)])
+
+    elif system == "Linux":
+        if shutil.which("xdg-open") is None:
+            print("❌ xdg-open is not available on this system.")
+        else:
+            subprocess.Popen(["xdg-open", str(parent_directory)])
+
+    else:
+        print(f"❌ Unsupported operating system: {system}")

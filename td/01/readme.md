@@ -30,9 +30,24 @@ conda run -n intro-python-feg-l3 jupyter lab
 
 Localisez votre dossier `intro-python`.
 
-Sur celui-ci, faites un `clic droit` puis `Ouvrir dans un Terminal`.
+<details>
+<summary>Aide : je n'arrive pas à trouver mon dossier <code>intro-python</code>`</summary>
 
-Exécutez cette commande :
+Ouvrez le terminal et lancez :
+
+```bash
+conda run --no-capture-output -n intro-python-feg-l3 python -X utf8 -c "import sys, urllib.request; exec(urllib.request.urlopen('https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/open-intro-python.py').read())"
+```
+
+Vous pouvez fermer le terminal, et une fenêtre s'est ouverte automatiquement. Le dossier `intro-python` y est visible.
+
+</details>
+
+<br>
+
+Sur le dossier `intro-python`, faites un `clic droit` puis `Ouvrir dans un Terminal`.
+
+Dans le terminal, exécutez cette commande :
 
 ```bash
 conda run --no-capture-output -n intro-python-feg-l3 python -X utf8 -c "import sys, urllib.request; sys.argv = ['bootstrap_td.py', '01']; exec(urllib.request.urlopen('https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/bootstrap_td.py').read())"
