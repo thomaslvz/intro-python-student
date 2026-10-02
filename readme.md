@@ -17,17 +17,17 @@ Les TD sont réalisés sur l'environnement de développement *JupyterLab*.
 
 A chaque début de séance, il est demandé d'ouvrir un terminal dans le dossier de travail `intro-python` : c'est une opération "clasique" qu'il faut savoir refaire (cf. [ici](#comment-ouvrir-un-terminal-dans-mon-dossier-de-travail-intro-python-)).
 
-| Numéro de séance | Thématique                              | Supports                                                                                                  | Ressources utiles                                                     |
-| ---------------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| Séance 1         | Prise en main                           | [Présentation](https://thomaslvz.github.io/intro-python-student/01_prise-en-main) / [TD](td/01/readme.md) | [Guide syntaxe Markdown](https://www.markdownguide.org/basic-syntax/) |
-| Séance 2         | Variables, types, structures de données | [Présentation](#) / [TD](#)                                                                               |                                                                       |
-| Séance 3         |                                         |                                                                                                           |                                                                       |
-| Séance 4         |                                         |                                                                                                           |                                                                       |
-| Séance 5         |                                         |                                                                                                           |                                                                       |
-| Séance 6         |                                         |                                                                                                           |                                                                       |
-| Séance 7         |                                         |                                                                                                           |                                                                       |
-| Séance 8         |                                         |                                                                                                           |                                                                       |
-| Séance 9         |                                         |                                                                                                           |                                                                       |
+| Numéro de séance | Thématique                              | Supports                                                                                                                    | Ressources utiles                                                     |
+| ---------------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| Séance 1         | Prise en main                           | [Présentation](https://thomaslvz.github.io/intro-python-student/01_prise-en-main){:target="_blank"} / [TD](td/01/readme.md) | [Guide syntaxe Markdown](https://www.markdownguide.org/basic-syntax/) |
+| Séance 2         | Variables, types, structures de données | [Présentation](#) / [TD](#)                                                                                                 |                                                                       |
+| Séance 3         |                                         |                                                                                                                             |                                                                       |
+| Séance 4         |                                         |                                                                                                                             |                                                                       |
+| Séance 5         |                                         |                                                                                                                             |                                                                       |
+| Séance 6         |                                         |                                                                                                                             |                                                                       |
+| Séance 7         |                                         |                                                                                                                             |                                                                       |
+| Séance 8         |                                         |                                                                                                                             |                                                                       |
+| Séance 9         |                                         |                                                                                                                             |                                                                       |
 
 ### Ressources externes / Bibliographie
 
@@ -44,12 +44,18 @@ A chaque début de séance, il est demandé d'ouvrir un terminal dans le dossier
 
 ## Questions fréquentes
 
-### Comment ouvrir un terminal dans mon dossier de travail `intro-python` ?
+### Comment ouvrir un terminal dans mon `intro-python` ?
 
 <details>
 <summary>Sur un ordinateur UGA</summary>
 
-Ouvrir l'explorateur de fichiers, cliquer sur `Ce PC` puis sur son espace personnel dans les *Emplacements réseaux*. Faire `Shift+Clic droit` sur le dossier `intro-python` et choisir `Ouvrir dans le terminal` ou `Ouvrir dans Powershell`.
+Lancez *Anaconda Prompt*, puis exécutez :
+
+```shell
+cd H:/intro-python
+```
+
+Vous y êtes !
 
 </details>
 
@@ -62,12 +68,12 @@ Ouvrir l'explorateur de fichiers, cliquer sur `Ce PC` puis sur le disque dur qui
 <details>
 <summary>Sur son ordinateur perso sous Mac</summary>
 
-Ouvrir l'application *Terminal* et rentrer la commande `cd ~/intro-python && open .`. Le terminal est désormais dans le dossier de travail, et *Finder* s'est ouvert pour afficher le contenu du répertoire.
+Ouvrir l'application *Terminal* et rentrer la commande `cd ~/intro-python && open .`. Le terminal est désormais dans le dossier `intro-python`, et *Finder* s'est ouvert pour afficher le contenu du répertoire.
 </details>
 <details>
 <summary>Sur son ordinateur perso sous Linux</summary>
 
-Ouvrir l'application *Terminal* et rentrer la commande `cd ~/intro-python && xdg-open .`. Le terminal est désormais dans le dossier de travail, et le navigateur de fichiers s'est ouvert pour afficher le contenu du répertoire.
+Ouvrir l'application *Terminal* et rentrer la commande `cd ~/intro-python && xdg-open .`. Le terminal est désormais dans le dossier `intro-python`, et le navigateur de fichiers s'est ouvert pour afficher le contenu du répertoire.
 </details>
 
 
@@ -86,7 +92,7 @@ Message d'erreur type :
 EnvironmentLocationNotFound: Not a conda environment: /.../envs/intro-python-feg-l3
 ```
 
-Solution : il faut refaire l'étape 2 du [Configuration initiale](#setup)
+Solution : il faut refaire l'étape 2 de la [Configuration initiale](#setup)
 
 
 ### Comment obtenir les présentations en PDF ?

@@ -2,20 +2,51 @@
 
 # TD n°1
 
->⚠️ Si vous êtes sur un ordinateur UGA, vous devez au préalable **[configurer l'ordinateur](../../setup/setup-w11.md)** avant de débuter ce TD. Si vous êtes sur un ordinateur personnel, il faut avoir terminé le travail préparatoire demandé sur Moodle. Si vous avez déjà réalisé ces étapes, vous pouvez démarrer ce qui suit.
+>⚠️ Vous devez au préalable **configurer l'ordinateur** avant de débuter ce TD. Les instructions sont sur Moodle, c'est à réaliser une seule fois lors du 1er TD.
 
-Ouvrez un terminal dans le dossier `intro-python`.
+## Chargement des fichiers et démarrage de JupyterLab
 
-Exécutez la commande suivante pour récupérer les fichiers du TD1 :
+<details>
+<Summary><b>Si vous êtes sur un ordinateur UGA</b></Summary>
+
+Lancez l'application *Anaconda Prompt*, puis excécutez-y ces commandes :
+
+```powershell
+cd H:/intro-python
+conda run --no-capture-output -n intro-python-feg-l3 python -X utf8 -c "import sys, urllib.request; sys.argv = ['bootstrap_td.py', '01']; exec(urllib.request.urlopen('https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/bootstrap_td.py').read())"
+```
+
+Si vous avez une phrase du type "Le TD.. a été installé dans...", vous pouvez continuer. Lancez cette commande :
+
+```powershell
+conda run -n intro-python-feg-l3 jupyter lab
+```
+</details>
+
+<br>
+
+<details>
+<summary><b>Si vous êtes sur votre ordinateur personnel</b></summary>
+
+Localisez votre dossier `intro-python`.
+
+Sur celui-ci, faites un `clic droit` puis `Ouvrir dans un Terminal`.
+
+Exécutez cette commande :
 
 ```bash
 conda run --no-capture-output -n intro-python-feg-l3 python -X utf8 -c "import sys, urllib.request; sys.argv = ['bootstrap_td.py', '01']; exec(urllib.request.urlopen('https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/bootstrap_td.py').read())"
 ```
-Lancez *JupyterLab* avec cette commande :
+
+Si vous avez une phrase du type "Le TD.. a été installé dans...", vous pouvez continuer. Lancez cette commande :
 
 ```bash
 conda run -n intro-python-feg-l3 jupyter lab
 ```
+</details>
+<br>
+
+# Exercice 1
 
 Dans *JupyterLab*, repérer l'explorateur de fichiers (panneau de gauche). Localiser le répertoire du 1er TD et l'ouvrir.
 
@@ -25,8 +56,6 @@ Vous découvrez les différents fichiers de ce TD. Repérez l'extension des fich
 - les fichiers terminant par `.py` sont des *Scripts Python*
 
 Nous allons découvrir leur fonctionnement aujourd'hui.
-
-# Exercice 1
 
 Ouvrez le premier Notebook intitulé `01_prise_en_main.ipynb` et suivez les instructions.
 
@@ -40,7 +69,7 @@ Ouvrez à nouveau un navigateur web et collez l'adresse précédente (`Ctrl+V`).
 
 > 💡 Ce que l'on doit comprendre : l'application *Jupyterlab* tourne en arrière plan, et le navigateur web permet uniquement d'afficher à l'application, pas de la démarrer ou l'arrêter.
 
-Pour fermer réellement *JupyterLab*, allez désormais dans le terminal que vous avez ouvert au tout début du TD. Cliquez dans le Terminal puis faites `Ctrl+C`, et répondez "y" à la question "Shut down this Jupyter server". Cette fois-ci, l'application n'est plus accessible via un navigateur. Vous pouvez fermer le terminal.
+Pour fermer réellement *JupyterLab*, allez désormais dans le terminal que vous avez ouvert au tout début du TD (appelé "Anaconda Prompt" ou "Terminal" selon les machines). Cliquez dans le Terminal puis faites `Ctrl+C`, et répondez "y" à la question "Shut down this Jupyter server". Cette fois-ci, l'application n'est plus accessible via un navigateur. Vous pouvez fermer cette fenêtre.
 
 # Exercice 3
 
@@ -59,11 +88,18 @@ A faire :
 
 # Exercice 4
 
-Comme au début du TD, ouvrez un terminal dans le dossier `intro-python`, puis lancez *JupyterLab* :
+Comme au début du TD, ouvrez un terminal dans le dossier `intro-python` :
 
-```bash
-conda run -n intro-python-feg-l3 jupyter lab
-```
+* Si vous êtes sur une machine UGA, lancez *Anaconda Prompt* puis exécutez
+   ```powershell
+   cd H:/intro-python
+   conda run -n intro-python-feg-l3 jupyter lab
+   ```
+* Si vous êtes sur votre ordinateur personnel, localisez votre dossier `intro-python`, puis `clic droit` > `Ouvrir dans un Terminal` et exécutez
+
+   ```bash
+   conda run -n intro-python-feg-l3 jupyter lab
+   ```
 
 Ouvrez le dossier du TD1, puis lancez le notebook intitulé `04_fonctions.ipynb`, et suivez les consignes.
 
