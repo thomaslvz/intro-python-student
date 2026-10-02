@@ -14,8 +14,7 @@ conda run --no-capture-output -n intro-python-feg-l3 python -X utf8 -c "import s
 Lancez *JupyterLab* avec cette commande :
 
 ```bash
-conda activate intro-python-feg-l3
-jupyter lab
+conda run -n intro-python-feg-l3 jupyter lab
 ```
 
 Dans *JupyterLab*, repérer l'explorateur de fichiers (panneau de gauche). Localiser le répertoire du 1er TD et l'ouvrir.
