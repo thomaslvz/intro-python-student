@@ -15,7 +15,7 @@ Pour configurer l'ordinateur, suivez les instructions de _setup_ :
 
 Les TD sont réalisés sur l'environnement de développement _JupyterLab_.
 
-A chaque début de séance, il est demandé d'ouvrir un terminal dans le dossier de travail `intro-python` : c'est une opération "clasique" qu'il faut savoir refaire (cf. [ici](#comment-ouvrir-un-terminal-dans-mon-dossier-de-travail-intro-python-)).
+A chaque début de séance, il est demandé d'ouvrir un terminal dans le dossier de travail `intro-python` : c'est une opération "clasique" qu'il faut savoir refaire (cf. [ici](#comment-ouvrir-un-terminal-dans-mon-dossier-intro-python-)).
 
 | Numéro de séance | Thématique                              | Supports                                                                                                  | Ressources utiles                                                     |
 | ---------------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
@@ -44,7 +44,7 @@ A chaque début de séance, il est demandé d'ouvrir un terminal dans le dossier
 
 ## Questions fréquentes
 
-### Comment ouvrir un terminal dans mon `intro-python` ?
+### Comment ouvrir un terminal dans mon dossier `intro-python` ?
 
 <details>
 <summary>Sur un ordinateur UGA</summary>
@@ -87,7 +87,12 @@ Message d'erreur type :
 - sur windows: `conda : The term 'conda' is not recognized as the name of a cmdlet, function, script file, or operable program.`
 - sur mac/linux : `conda: command not found`
 
-Solution : il faut (ré)installer Miniconda, cf. [Configuration initiale](#setup)
+Solution :
+
+- sur `Windows` :
+  - rééssayez depuis l'application _Anaconda Prompt_ plutôt que le terminal
+  - si vous n'avez pas _Anaconda Prompt_ faut installer Miniconda, cf. [Configuration initiale](setup/setup-w11.md)
+- sur `Mac`/`Linux` : il faut installer Miniconda : cf. [Configuration initiale](setup/setup-mac-linux.md)
 
 ### J'ai une erreur `EnvironmentLocationNotFound`
 
@@ -97,7 +102,16 @@ Message d'erreur type :
 EnvironmentLocationNotFound: Not a conda environment: /.../envs/intro-python-feg-l3
 ```
 
-Solution : il faut refaire l'étape 2 de la [Configuration initiale](#setup)
+Solution :
+
+- sur `Windows` (ordinateur perso ou UGA), ouvrez un terminal et lancez :
+  ```powershell
+    $script="$env:TEMP\intro-python-setup.ps1"; Invoke-WebRequest "https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/setup-uga.ps1" -OutFile $script; Unblock-File $script; & $script --SkipDir
+  ```
+- sur `Mac`/`Linux`, ouvrez un terminal et lancez :
+  ```bash
+  curl -fsSL "https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/setup.sh" | bash -s -- --SkipDir
+  ```
 
 ### Comment obtenir les présentations en PDF ?
 
