@@ -196,6 +196,10 @@ catch {
 
 Write-Step "Creating Python environment"
 
+& $condaExe tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main
+& $condaExe tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
+& $condaExe tos accept --override-channels --channel https://repo.anaconda.com/pkgs/msys2
+
 & $condaExe env create -f $environmentFile --quiet
 
 if ($LASTEXITCODE -ne 0) {
