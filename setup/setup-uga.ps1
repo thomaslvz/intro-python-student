@@ -82,6 +82,116 @@ catch {
     Stop-Script "Could not create or access '$courseDirectory'. Details: $($_.Exception.Message)"
 }
 
+
+# ----------------------------------------------------------------------------
+# Finding conda installation
+# ----------------------------------------------------------------------------
+
+
+function Find-CondaInstallations {
+
+    $installations = @()
+
+    # 1. CONDA_EXE environment variable
+    if ($env:CONDA_EXE -and (Test-Path $env:CONDA_EXE)) {
+        $installations += [PSCustomObject]@{
+            CondaExe = $env:CONDA_EXE
+            BasePath = Split-Path (Split-Path $env:CONDA_EXE)
+            Source   = "CONDA_EXE"
+        }
+    }
+
+    # 2. Conda available in PATH
+    $condaCommand = Get-Command conda -ErrorAction SilentlyContinue
+
+    if ($condaCommand) {
+        $condaExe = $condaCommand.Source
+
+        if (Test-Path $condaExe) {
+            $installations += [PSCustomObject]@{
+                CondaExe = $condaExe
+                BasePath = Split-Path (Split-Path $condaExe)
+                Source   = "PATH"
+            }
+        }
+    }
+
+    # 3. Windows Registry
+    $registryPaths = @(
+        "HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*",
+        "HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*",
+        "HKLM:\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*"
+    )
+
+    foreach ($registryPath in $registryPaths) {
+
+        $entries = Get-ItemProperty `
+            -Path $registryPath `
+            -ErrorAction SilentlyContinue |
+            Where-Object {
+                $_.DisplayName -match "^(Anaconda|Miniconda)" -and
+                $_.InstallLocation
+            }
+
+        foreach ($entry in $entries) {
+
+            $basePath = $entry.InstallLocation
+            $condaExe = Join-Path $basePath "Scripts\conda.exe"
+
+            if (Test-Path $condaExe) {
+                $installations += [PSCustomObject]@{
+                    CondaExe = $condaExe
+                    BasePath = $basePath
+                    Source   = "Registry"
+                    Name     = $entry.DisplayName
+                }
+            }
+        }
+    }
+
+    # 4. Standard installation locations
+    $standardPaths = @(
+        (Join-Path $HOME "anaconda3"),
+        (Join-Path $HOME "Anaconda3"),
+        (Join-Path $HOME "miniconda3"),
+        (Join-Path $HOME "Miniconda3"),
+        (Join-Path $env:ProgramData "Anaconda3"),
+        (Join-Path $env:ProgramData "Miniconda3")
+    )
+
+    foreach ($basePath in $standardPaths) {
+
+        $condaExe = Join-Path $basePath "Scripts\conda.exe"
+
+        if (Test-Path $condaExe) {
+            $installations += [PSCustomObject]@{
+                CondaExe = $condaExe
+                BasePath = $basePath
+                Source   = "Standard path"
+            }
+        }
+    }
+
+    # Remove duplicates
+    $installations |
+        Sort-Object CondaExe -Unique
+}
+
+$condaInstallations = Find-CondaInstallations
+
+if ($condaInstallations.Count -eq 0) {
+    Write-Host "No Conda installation found."
+    # → installation de Miniconda
+}
+else {
+    Write-Host "Conda installation(s) found:"
+
+    foreach ($installation in $condaInstallations) {
+        Write-Host "  $($installation.CondaExe)"
+        Write-Host "  Source: $($installation.Source)"
+    }
+}
+
 # ----------------------------------------------------------------------------
 # Python environment creation
 # ----------------------------------------------------------------------------
@@ -106,7 +216,7 @@ catch {
 
 Write-Step "Creating Python environment"
 
-conda env create -f $environmentFile --quiet
+& $condaExe env create -f $environmentFile --quiet
 
 if ($LASTEXITCODE -ne 0) {
     Remove-Item -Force $environmentFile
