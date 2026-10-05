@@ -17,7 +17,9 @@ $checkSetupUrl = "$repoBaseUrl/setup/check_setup.py"
 # Command-line options
 # ----------------------------------------------------------------------------
 
-$envOnly = $args -contains "--EnvOnly"
+$skipDir = $args -contains "--SkipDir"
+$skipEnv = $args -contains "--SkipEnv"
+$skipCheck = $args -contains "--SkipCheck"
 
 # ----------------------------------------------------------------------------
 # Helper functions
@@ -41,10 +43,6 @@ function Stop-Script {
     Write-Host "ERROR: $Message" -ForegroundColor Red
     exit 1
 }
-
-# ----------------------------------------------------------------------------
-# Finding conda installation
-# ----------------------------------------------------------------------------
 
 
 function Find-CondaInstallations {
@@ -108,6 +106,32 @@ function Find-CondaInstallations {
         Sort-Object CondaExe -Unique
 }
 
+function Test-CondaEnvironment {
+    param (
+        [string]$CondaExe,
+        [string]$EnvironmentName
+    )
+
+    $environmentList = & $CondaExe env list --json 2>$null
+
+    if ($LASTEXITCODE -ne 0) {
+        return $false
+    }
+
+    $environmentInfo = $environmentList | ConvertFrom-Json
+
+    return $environmentInfo.envs |
+        Where-Object {
+            Split-Path $_ -Leaf -eq $EnvironmentName
+        }
+}
+
+# ----------------------------------------------------------------------------
+# Finding conda installation
+# ----------------------------------------------------------------------------
+
+
+
 Write-Step "Looking for conda installation"
 
 $condaInstallations = Find-CondaInstallations
@@ -169,10 +193,10 @@ Write-Step "Preparing course directory"
 
 $courseDirectory = "${drive}:\intro-python"
 
-if ($envOnly) {
+if ($skipDir) {
 
     if (-not (Test-Path $courseDirectory -PathType Container)) {
-        Stop-Script "The course directory does not exist: $courseDirectory"
+        Stop-Script "The course directory does not exist: $courseDirectory. You cannot run this script with --SkipDir flag."
     }
 
     Write-Host "Course directory found: $courseDirectory" -ForegroundColor Green
@@ -202,96 +226,121 @@ catch {
     Stop-Script "Could not access '$courseDirectory'. Details: $($_.Exception.Message)"
 }
 
-# ----------------------------------------------------------------------------
-# Python environment creation
-# ----------------------------------------------------------------------------
-
-$environmentFile = Join-Path $courseDirectory "environment.yml"
-
-Write-Step "Downloading Python environment definition"
-
-try {
-    Invoke-WebRequest `
-        -Uri $environmentUrl `
-        -OutFile $environmentFile `
-        -ErrorAction Stop
-}
-catch {
-    if (Test-Path $environmentFile) {
-        Remove-Item -Force $environmentFile
-    }
-
-    Stop-Script "Could not download environment.yml. Details: $($_.Exception.Message)"
-}
-
-Write-Step "Creating Python environment"
-
-& $condaExe tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main
-& $condaExe tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
-& $condaExe tos accept --override-channels --channel https://repo.anaconda.com/pkgs/msys2
-
-& $condaExe env create -f $environmentFile --quiet
-
-if ($LASTEXITCODE -ne 0) {
-    Remove-Item -Force $environmentFile
-    Stop-Script "Could not create the Python environment."
-}
-
-Remove-Item -Force $environmentFile
-
-if ($envOnly) {
-    Write-Host ""
-    Write-Host "Python environment created successfully." -ForegroundColor Green
-    exit 0
-}
 
 # ----------------------------------------------------------------------------
 # Initialization of the course directory
 # ----------------------------------------------------------------------------
 
-Write-Step "Populating the course directory"
 
-New-Item -ItemType Directory -Force ./data
-New-Item -ItemType File -Force ./data/sample.txt
-New-Item -ItemType Directory -Force ./td
+if (-not $skipDir) {
 
+    Write-Step "Populating the course directory"
+
+    New-Item -ItemType Directory -Force ./data
+    New-Item -ItemType File -Force ./data/sample.txt
+    New-Item -ItemType Directory -Force ./td
+}
+else {
+    Write-Host "Skipping course directory creation and population." -ForegroundColor Yellow
+}
+
+# ----------------------------------------------------------------------------
+# Python environment creation
+# ----------------------------------------------------------------------------
+
+$environmentExists = Test-CondaEnvironment `
+    -CondaExe $condaExe `
+    -EnvironmentName $environmentName
+
+if ($skipEnv) {
+
+    if (-not $environmentExists) {
+        Stop-Script "The Python environment '$environmentName' does not exist. You cannot run this script with the --SkipEnv flag."
+    }
+
+    Write-Host "Python environment '$environmentName' already exists. Skipping creation." `
+        -ForegroundColor Green
+}
+else {
+
+    $environmentFile = Join-Path $courseDirectory "environment.yml"
+
+    Write-Step "Downloading Python environment definition"
+
+    try {
+        Invoke-WebRequest `
+            -Uri $environmentUrl `
+            -OutFile $environmentFile `
+            -ErrorAction Stop
+    }
+    catch {
+        if (Test-Path $environmentFile) {
+            Remove-Item -Force $environmentFile
+        }
+
+        Stop-Script "Could not download environment.yml. Details: $($_.Exception.Message)"
+    }
+
+    Write-Step "Creating Python environment"
+
+    & $condaExe tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main
+    & $condaExe tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
+    & $condaExe tos accept --override-channels --channel https://repo.anaconda.com/pkgs/msys2
+
+    & $condaExe env create -f $environmentFile --quiet
+
+    if ($LASTEXITCODE -ne 0) {
+        Remove-Item -Force $environmentFile
+        Stop-Script "Could not create the Python environment."
+    }
+
+    Remove-Item -Force $environmentFile
+}
 
 # ----------------------------------------------------------------------------
 # Run setup check
 # ----------------------------------------------------------------------------
+# ----------------------------------------------------------------------------
+# Run setup check
+# ----------------------------------------------------------------------------
 
-$checkSetupFile = Join-Path $courseDirectory "check_setup.py"
-Write-Step "Downloading setup check"
+if (-not $skipCheck) {
 
-try {
-    Invoke-WebRequest `
-        -Uri $checkSetupUrl `
-        -OutFile $checkSetupFile `
-        -ErrorAction Stop
-}
-catch {
-    if (Test-Path $checkSetupFile) {
-        Remove-Item -Force $checkSetupFile
+    $checkSetupFile = Join-Path $courseDirectory "check_setup.py"
+
+    Write-Step "Downloading setup check"
+
+    try {
+        Invoke-WebRequest `
+            -Uri $checkSetupUrl `
+            -OutFile $checkSetupFile `
+            -ErrorAction Stop
+    }
+    catch {
+        if (Test-Path $checkSetupFile) {
+            Remove-Item -Force $checkSetupFile
+        }
+
+        Stop-Script "Could not download check_setup.py. Details: $($_.Exception.Message)"
     }
 
-    Stop-Script "Could not download check_setup.py. Details: $($_.Exception.Message)"
+    Write-Step "Running setup check"
+
+    & $condaExe run --no-capture-output `
+        -n $environmentName `
+        python -X utf8 $checkSetupFile
+
+    $setupCheckExitCode = $LASTEXITCODE
+
+    Remove-Item -Force $checkSetupFile
+
+    if ($setupCheckExitCode -ne 0) {
+        Stop-Script "The setup check failed."
+    }
 }
-
-Write-Step "Running setup check"
-
-
-& $condaExe run --no-capture-output `
-    -n $environmentName `
-    python -X utf8 $checkSetupFile
-
-$setupCheckExitCode = $LASTEXITCODE
-
-Remove-Item -Force $checkSetupFile
-
-if ($setupCheckExitCode -ne 0) {
-    Stop-Script "The setup check failed."
+else {
+    Write-Host "Skipping setup check." -ForegroundColor Yellow
 }
-
 
 
 # ----------------------------------------------------------------------------
