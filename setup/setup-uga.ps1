@@ -10,7 +10,7 @@
 $repoBaseUrl = "https://raw.githubusercontent.com/thomaslvz/intro-python-student/main"
 
 $environmentUrl = "$repoBaseUrl/environment.yml"
-$environmentName = "intro-python-l3-feg"
+$environmentName = "intro-python-feg-l3"
 $checkSetupUrl = "$repoBaseUrl/setup/check_setup.py"
 
 # ----------------------------------------------------------------------------
