@@ -33,15 +33,15 @@ conda run -n intro-python-feg-l3 jupyter lab
 Localisez votre dossier `intro-python`.
 
 <details>
-<summary>Aide : je n'arrive pas à trouver mon dossier <code>intro-python</code>`</summary>
+<summary>💡 Aide : je n'arrive pas à trouver mon dossier <code>intro-python</code></summary>
 
-Ouvrez le terminal et lancez :
+Ouvrez un terminal et lancez :
 
 ```bash
 conda run --no-capture-output -n intro-python-feg-l3 python -X utf8 -c "import sys, urllib.request; exec(urllib.request.urlopen('https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/open-intro-python.py').read())"
 ```
 
-Vous pouvez fermer le terminal, et une fenêtre s'est ouverte automatiquement. Le dossier `intro-python` y est visible.
+Vous pouvez fermer le terminal, et une fenêtre s'est ouverte automatiquement. Le dossier `intro-python` y est visible. Il est conseillé d'ajouter ce dossier à vos _accès rapides_, pour le retrouver rapidement.
 
 </details>
 
@@ -64,7 +64,7 @@ conda run -n intro-python-feg-l3 jupyter lab
 </details>
 <br>
 
-# Exercice 1
+## Exercice 1
 
 Dans _JupyterLab_, repérer l'explorateur de fichiers (panneau de gauche). Localiser le répertoire du 1er TD et l'ouvrir.
 
@@ -77,7 +77,7 @@ Nous allons découvrir leur fonctionnement aujourd'hui.
 
 Ouvrez le premier Notebook intitulé `01_prise_en_main.ipynb` et suivez les instructions.
 
-# Exercice 2
+## Exercice 2
 
 Le but de cet exercice est d'apprendre à fermer proprement _JupyerLab_.
 
@@ -89,7 +89,7 @@ Ouvrez à nouveau un navigateur web et collez l'adresse précédente (`Ctrl+V`).
 
 Pour fermer réellement _JupyterLab_, allez désormais dans le terminal que vous avez ouvert au tout début du TD (appelé "Anaconda Prompt" ou "Terminal" selon les machines). Cliquez dans le Terminal puis faites `Ctrl+C`, et répondez "y" à la question "Shut down this Jupyter server". Cette fois-ci, l'application n'est plus accessible via un navigateur. Vous pouvez fermer cette fenêtre.
 
-# Exercice 3
+## Exercice 3
 
 Cet exercice se déroule désormais hors de _JupyterLab_ et a pour but de découvrir Python en pratiquant (_Learn by doing_).
 
@@ -105,7 +105,7 @@ A faire :
    - String Garden
    - Number Peak
 
-# Exercice 4
+## Exercice 4
 
 Comme au début du TD, ouvrez un terminal dans le dossier `intro-python` :
 
@@ -122,7 +122,7 @@ Comme au début du TD, ouvrez un terminal dans le dossier `intro-python` :
 
 Ouvrez le dossier du TD1, puis lancez le notebook intitulé `04_fonctions.ipynb`, et suivez les consignes.
 
-# (bonus) Exercice 5
+## (bonus) Exercice 5
 
 Dans JupyterLab, cliquez sur le _Launcher_ (bouton `+`), et créez un notebook que vous appellerez `exercice_05.ipynb`.
 
