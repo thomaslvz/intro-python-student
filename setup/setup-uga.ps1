@@ -12,7 +12,7 @@ $repoBaseUrl = "https://raw.githubusercontent.com/thomaslvz/intro-python-student
 $environmentUrl = "$repoBaseUrl/environment.yml"
 $environmentName = "intro-python-feg-l3"
 $checkSetupUrl = "$repoBaseUrl/setup/check_setup.py"
-$universityDomainPattern = "ad.u-ga.fr"
+$universityDomainPattern = "ad.u-ga.fr*home"
 
 # ----------------------------------------------------------------------------
 # Command-line options
@@ -174,11 +174,11 @@ $drive = (
     Get-PSDrive -PSProvider FileSystem |
     Where-Object {
         $_.DisplayRoot -and
-        $_.DisplayRoot -like "*$universityDomainPattern*home*$env:USERNAME*"
+        $_.DisplayRoot -like "*$universityDomainPattern*$env:USERNAME*"
     }
 ).Name
 
-if $drive {
+if ($drive) {
     $courseDirectory = "${drive}:\intro-python"
 }
 else {
