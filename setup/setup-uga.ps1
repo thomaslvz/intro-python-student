@@ -42,71 +42,6 @@ function Stop-Script {
     exit 1
 }
 
-
-# ----------------------------------------------------------------------------
-# Finding network drive
-# ----------------------------------------------------------------------------
-
-Write-Step "Looking for the network home drive"
-
-$drive = (
-    Get-PSDrive -PSProvider FileSystem |
-    Where-Object {
-        $_.DisplayRoot -and
-        $_.DisplayRoot -like "*home*$env:USERNAME*"
-    }
-).Name
-
-if (-not $drive) {
-    Stop-Script "Could not find the network home drive for user '$env:USERNAME'."
-}
-
-if ($drive.Count -gt 1) {
-    Stop-Script "Multiple network home drives were found for user '$env:USERNAME'."
-}
-
-
-# ----------------------------------------------------------------------------
-# Create and enter the course directory
-# ----------------------------------------------------------------------------
-
-Write-Step "Preparing course directory"
-
-
-$courseDirectory = "${drive}:\intro-python"
-
-if ($envOnly) {
-
-    if (-not (Test-Path $courseDirectory -PathType Container)) {
-        Stop-Script "The course directory does not exist: $courseDirectory"
-    }
-
-    Write-Host "Course directory found: $courseDirectory" -ForegroundColor Green
-}
-else {
-
-    try {
-        New-Item `
-            -ItemType Directory `
-            -Path $courseDirectory `
-            -Force `
-            -ErrorAction Stop | Out-Null
-
-        Write-Host "Course directory: $courseDirectory" -ForegroundColor Green
-    }
-    catch {
-        Stop-Script "Could not create '$courseDirectory'. Details: $($_.Exception.Message)"
-    }
-}
-
-try {
-    Set-Location -Path $courseDirectory -ErrorAction Stop
-
-    Write-Host "Working directory: $(Get-Location)" -ForegroundColor Green
-}
-catch {
-    Stop-Script "Could not access '$courseDirectory'. Details: $($_.Exception.Message)"
-}
 # ----------------------------------------------------------------------------
 # Finding conda installation
 # ----------------------------------------------------------------------------
@@ -174,6 +109,7 @@ $condaInstallations = Find-CondaInstallations
 
 if ($condaInstallations.Count -eq 0) {
     Write-Host "No Conda installation found."
+    Stop-Script "Please install Anaconda (or miniconda) and run this script again."
 }
 else {
     Write-Host "Conda installation(s) found:"
@@ -195,6 +131,71 @@ else {
     }
 }
 
+
+# ----------------------------------------------------------------------------
+# Finding network drive
+# ----------------------------------------------------------------------------
+
+Write-Step "Looking for the network home drive"
+
+$drive = (
+    Get-PSDrive -PSProvider FileSystem |
+    Where-Object {
+        $_.DisplayRoot -and
+        $_.DisplayRoot -like "*home*$env:USERNAME*"
+    }
+).Name
+
+if (-not $drive) {
+    Stop-Script "Could not find the network home drive for user '$env:USERNAME'."
+}
+
+if ($drive.Count -gt 1) {
+    Stop-Script "Multiple network home drives were found for user '$env:USERNAME'."
+}
+
+
+# ----------------------------------------------------------------------------
+# Create and enter the course directory
+# ----------------------------------------------------------------------------
+
+Write-Step "Preparing course directory"
+
+
+$courseDirectory = "${drive}:\intro-python"
+
+if ($envOnly) {
+
+    if (-not (Test-Path $courseDirectory -PathType Container)) {
+        Stop-Script "The course directory does not exist: $courseDirectory"
+    }
+
+    Write-Host "Course directory found: $courseDirectory" -ForegroundColor Green
+}
+else {
+
+    try {
+        New-Item `
+            -ItemType Directory `
+            -Path $courseDirectory `
+            -Force `
+            -ErrorAction Stop | Out-Null
+
+        Write-Host "Course directory: $courseDirectory" -ForegroundColor Green
+    }
+    catch {
+        Stop-Script "Could not create '$courseDirectory'. Details: $($_.Exception.Message)"
+    }
+}
+
+try {
+    Set-Location -Path $courseDirectory -ErrorAction Stop
+
+    Write-Host "Working directory: $(Get-Location)" -ForegroundColor Green
+}
+catch {
+    Stop-Script "Could not access '$courseDirectory'. Details: $($_.Exception.Message)"
+}
 
 # ----------------------------------------------------------------------------
 # Python environment creation
