@@ -168,8 +168,6 @@ else {
 
 Write-Step "Looking for UGA network home drive"
 
-
-
 $drive = (
     Get-PSDrive -PSProvider FileSystem |
     Where-Object {
@@ -179,6 +177,7 @@ $drive = (
 ).Name
 
 if ($drive) {
+    Write-Host "Network drive found at ${drive}."
     $courseDirectory = "${drive}:\intro-python"
 }
 else {
@@ -253,6 +252,8 @@ else {
 # Python environment creation
 # ----------------------------------------------------------------------------
 
+Write-Step "Python environment creation"
+
 $environmentExists = Test-CondaEnvironment `
     -CondaExe $condaExe `
     -EnvironmentName $environmentName
@@ -263,14 +264,13 @@ if ($skipEnv) {
         Stop-Script "The Python environment '$environmentName' does not exist. You cannot run this script with the --SkipEnv flag."
     }
 
-    Write-Host "Python environment '$environmentName' already exists. Skipping creation." `
-        -ForegroundColor Green
+    Write-Host "Python environment '$environmentName' already exists. Skipping creation." -ForegroundColor Yellow
 }
 else {
 
     $environmentFile = Join-Path $courseDirectory "environment.yml"
 
-    Write-Step "Downloading Python environment definition"
+    Write-Host "Downloading Python environment definition"
 
     try {
         Invoke-WebRequest `
@@ -286,7 +286,7 @@ else {
         Stop-Script "Could not download environment.yml. Details: $($_.Exception.Message)"
     }
 
-    Write-Step "Creating Python environment"
+    Write-Host "Creating Python environment"
 
     & $condaExe tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main
     & $condaExe tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
@@ -305,15 +305,15 @@ else {
 # ----------------------------------------------------------------------------
 # Run setup check
 # ----------------------------------------------------------------------------
-# ----------------------------------------------------------------------------
-# Run setup check
-# ----------------------------------------------------------------------------
+
+Write-Step "Setup check"
+
 
 if (-not $skipCheck) {
 
     $checkSetupFile = Join-Path $courseDirectory "check_setup.py"
 
-    Write-Step "Downloading setup check"
+    Write-Host "Downloading setup check"
 
     try {
         Invoke-WebRequest `
@@ -329,7 +329,7 @@ if (-not $skipCheck) {
         Stop-Script "Could not download check_setup.py. Details: $($_.Exception.Message)"
     }
 
-    Write-Step "Running setup check"
+    Write-Host "Running setup check"
 
     & $condaExe run --no-capture-output `
         -n $environmentName `
