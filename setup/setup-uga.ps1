@@ -10,8 +10,8 @@
 $repoBaseUrl = "https://raw.githubusercontent.com/thomaslvz/intro-python-student/main"
 
 $environmentUrl = "$repoBaseUrl/environment.yml"
+$environmentName = "intro-python-l3-feg"
 $checkSetupUrl = "$repoBaseUrl/setup/check_setup.py"
-
 
 # ----------------------------------------------------------------------------
 # Helper functions
@@ -218,6 +218,45 @@ Write-Step "Populating the course directory"
 New-Item -ItemType Directory -Force ./data
 New-Item -ItemType File -Force ./data/sample.txt
 New-Item -ItemType Directory -Force ./td
+
+
+# ----------------------------------------------------------------------------
+# Run setup check
+# ----------------------------------------------------------------------------
+
+$checkSetupFile = Join-Path $courseDirectory "check_setup.py"
+Write-Step "Downloading setup check"
+
+try {
+    Invoke-WebRequest `
+        -Uri $checkSetupUrl `
+        -OutFile $checkSetupFile `
+        -ErrorAction Stop
+}
+catch {
+    if (Test-Path $checkSetupFile) {
+        Remove-Item -Force $checkSetupFile
+    }
+
+    Stop-Script "Could not download check_setup.py. Details: $($_.Exception.Message)"
+}
+
+Write-Step "Running setup check"
+
+
+& $condaExe run --no-capture-output `
+    -n $environmentName `
+    python -X utf8 $checkSetupFile
+
+$setupCheckExitCode = $LASTEXITCODE
+
+Remove-Item -Force $checkSetupFile
+
+if ($setupCheckExitCode -ne 0) {
+    Stop-Script "The setup check failed."
+}
+
+
 
 # ----------------------------------------------------------------------------
 # Done
