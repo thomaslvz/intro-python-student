@@ -10,19 +10,40 @@
 repoBaseUrl="https://raw.githubusercontent.com/thomaslvz/intro-python-student/main"
 
 environmentUrl="$repoBaseUrl/environment.yml"
+environmentName="intro-python-feg-l3"
 checkSetupUrl="$repoBaseUrl/setup/check_setup.py"
-bootstrapUrl="$repoBaseUrl/setup/bootstrap_td.py"
+courseDirectory="$HOME/intro-python"
+
+environmentFile=""
+checkSetupFile=""
+# Always remove temporary setup files when the script exits.
+cleanup() {
+    rm -f "$environmentFile" "$checkSetupFile"
+}
+
+trap cleanup EXIT
 
 # ----------------------------------------------------------------------------
-# Error message displayed when Conda is not available.
-# This can be overridden before running the script:
-#   export INTRO_PYTHON_CONDA_ERROR="Please install Miniconda first."
+# Command-line options
 # ----------------------------------------------------------------------------
 
-if [ -z "${INTRO_PYTHON_CONDA_ERROR:-}" ]; then
-    INTRO_PYTHON_CONDA_ERROR="Miniconda ne semble pas installé sur cette machine.
-Procédez d'abord à l'installation de Miniconda, puis relancez ce script."
-fi
+skipDir=false
+skipEnv=false
+skipCheck=false
+
+for arg in "$@"; do
+    case "$arg" in
+        --SkipDir)
+            skipDir=true
+            ;;
+        --SkipEnv)
+            skipEnv=true
+            ;;
+        --SkipCheck)
+            skipCheck=true
+            ;;
+    esac
+done
 
 # ----------------------------------------------------------------------------
 # Helper functions
@@ -43,13 +64,14 @@ stop_script() {
 # Check Conda
 # ----------------------------------------------------------------------------
 
-write_step "Checking Conda installation"
+write_step "Looking for conda installation"
 
 if ! conda_version=$(conda --version 2>&1); then
-    stop_script "$INTRO_PYTHON_CONDA_ERROR"
+    echo "No Conda installation found in PATH."
+    stop_script "Please install Anaconda (or miniconda), add it to PATH, and run this script again."
 fi
 
-echo "Conda found: $conda_version"
+echo "Conda: $conda_version"
 
 # ----------------------------------------------------------------------------
 # Create and enter the course directory
@@ -57,51 +79,50 @@ echo "Conda found: $conda_version"
 
 write_step "Preparing course directory"
 
-course_directory="$HOME/intro-python"
 
-if ! mkdir -p "$course_directory"; then
-    stop_script "Could not create or access '$course_directory'."
+if $skipDir; then
+
+    if [[ ! -d "$courseDirectory" ]]; then
+        stop_script "The course directory does not exist: $courseDirectory. You cannot run this script with the --SkipDir flag."
+    fi
+
+    echo "Course directory found: $courseDirectory"
+
+else
+
+    if ! mkdir -p "$courseDirectory"; then
+        stop_script "Could not create '$courseDirectory'."
+    fi
+
+    echo "Course directory: $courseDirectory"
 fi
 
-if ! cd "$course_directory"; then
-    stop_script "Could not enter '$course_directory'."
+if ! cd "$courseDirectory"; then
+    stop_script "Could not access '$courseDirectory'."
 fi
 
 echo "Working directory: $(pwd)"
 
+
 # ----------------------------------------------------------------------------
-# Configure Conda repositories
+# Initialization of the course directory
 # ----------------------------------------------------------------------------
 
-write_step "Accepting Anaconda repository Terms of Service"
+write_step "Populating the course directory"
 
-conda_channels=(
-    "https://repo.anaconda.com/pkgs/main"
-    "https://repo.anaconda.com/pkgs/r"
-)
+if ! $skipDir; then
 
-for channel in "${conda_channels[@]}"; do
-    echo "Accepting TOS for: $channel"
-
-    if ! conda tos accept --override-channels --channel "$channel"; then
-        stop_script "Failed to accept the Terms of Service for '$channel'."
+    if ! mkdir -p ./data ./td; then
+        stop_script "Could not create the course directories."
     fi
-done
 
+    if ! touch ./data/sample.txt; then
+        stop_script "Could not create ./data/sample.txt."
+    fi
 
-# ----------------------------------------------------------------------------
-# Temporary files
-# ----------------------------------------------------------------------------
-
-environmentFile="$course_directory/.intro-python-environment.yml"
-checkSetupFile="$course_directory/.intro-python-check_setup.py"
-
-# Always remove temporary setup files when the script exits.
-cleanup() {
-    rm -f "$environmentFile" "$checkSetupFile"
-}
-
-trap cleanup EXIT
+else
+    echo "Skipped by user."
+fi
 
 
 # ----------------------------------------------------------------------------
@@ -110,51 +131,92 @@ trap cleanup EXIT
 
 write_step "Downloading Python environment definition"
 
-if ! curl -fsSL "$environmentUrl" -o "$environmentFile"; then
-    stop_script "Could not download environment.yml."
+environmentExists=false
+
+if conda env list | awk '{print $1}' | grep -Fxq "$environmentName"; then
+    environmentExists=true
 fi
 
-write_step "Creating Python environment"
+if $skipEnv; then
 
-conda env create -f "$environmentFile" --quiet
+    if ! $environmentExists; then
+        stop_script "The Python environment '$environmentName' does not exist. You cannot run this script with the --SkipEnv flag."
+    fi
 
-if [ $? -ne 0 ]; then
-    stop_script "Could not create the Python environment."
+    echo "Skipped by user (python environment '$environmentName' already exists)."
+
+else
+
+    environmentFile="$courseDirectory/.environment.yml"
+
+
+    if ! curl -fsSL "$environmentUrl" -o "$environmentFile"; then
+        stop_script "Could not download environment.yml."
+    fi
+
+
+    write_step "Accepting Anaconda repository Terms of Service"
+
+    conda_channels=(
+        "https://repo.anaconda.com/pkgs/main"
+        "https://repo.anaconda.com/pkgs/r"
+    )
+
+    for channel in "${conda_channels[@]}"; do
+        echo "Accepting TOS for: $channel"
+
+        if ! conda tos accept --override-channels --channel "$channel"; then
+            stop_script "Failed to accept the Terms of Service for '$channel'."
+        fi
+    done
+
+    write_step "Creating Python environment"
+
+    if ! conda env create -f "$environmentFile" --quiet; then
+        stop_script "Could not create the Python environment."
+    fi
 fi
 
-# ----------------------------------------------------------------------------
-# Initialization of the course directory
-# ----------------------------------------------------------------------------
 
-write_step "Populating the course directory"
-
-mkdir -p ./data
-touch ./data/sample.txt
-mkdir -p ./td
 
 # ----------------------------------------------------------------------------
 # Run setup check
 # ----------------------------------------------------------------------------
 
-write_step "Downloading setup check"
 
-if ! curl -fsSL "$checkSetupUrl" -o "$checkSetupFile"; then
-    stop_script "Could not download check_setup.py."
+write_step "Setup check"
+
+
+if ! $skipCheck; then
+
+    checkSetupFile="$courseDirectory/.check_setup.py"
+
+    echo "Downloading setup check"
+
+    if ! curl -fsSL "$checkSetupUrl" -o "$checkSetupFile"; then
+        stop_script "Could not download check_setup.py."
+    fi
+
+    echo "Running setup check"
+
+    conda run --no-capture-output \
+        -n "$environmentName" \
+        python -X utf8 "$checkSetupFile"
+
+    setupCheckExitCode=$?
+
+    if [[ $setupCheckExitCode -ne 0 ]]; then
+        stop_script "The setup check failed."
+    fi
+
+else
+    echo "Skipped by user."
 fi
 
-write_step "Running setup check"
-
-conda run -n intro-python-feg-l3 python "$checkSetupFile"
-
-setupCheckExitCode=$?
-
-if [ "$setupCheckExitCode" -ne 0 ]; then
-    stop_script "The setup check failed."
-fi
 
 # ----------------------------------------------------------------------------
 # Done
 # ----------------------------------------------------------------------------
 
 echo
-echo "Le dossier de travail de ce cours est : $course_directory"
+echo "Le dossier de travail de ce cours est : $courseDirectory"
