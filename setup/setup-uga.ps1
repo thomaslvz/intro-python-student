@@ -116,40 +116,7 @@ function Find-CondaInstallations {
         }
     }
 
-    # 3. Windows Registry
-    $registryPaths = @(
-        "HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*",
-        "HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*",
-        "HKLM:\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*"
-    )
-
-    foreach ($registryPath in $registryPaths) {
-
-        $entries = Get-ItemProperty `
-            -Path $registryPath `
-            -ErrorAction SilentlyContinue |
-            Where-Object {
-                $_.DisplayName -match "^(Anaconda|Miniconda)" -and
-                $_.InstallLocation
-            }
-
-        foreach ($entry in $entries) {
-
-            $basePath = $entry.InstallLocation
-            $condaExe = Join-Path $basePath "Scripts\conda.exe"
-
-            if (Test-Path $condaExe) {
-                $installations += [PSCustomObject]@{
-                    CondaExe = $condaExe
-                    BasePath = $basePath
-                    Source   = "Registry"
-                    Name     = $entry.DisplayName
-                }
-            }
-        }
-    }
-
-    # 4. Standard installation locations
+    # 3. Standard installation locations
     $standardPaths = @(
         (Join-Path $HOME "anaconda3"),
         (Join-Path $HOME "Anaconda3"),
@@ -177,11 +144,12 @@ function Find-CondaInstallations {
         Sort-Object CondaExe -Unique
 }
 
+Write-Step "Looking for conda installation"
+
 $condaInstallations = Find-CondaInstallations
 
 if ($condaInstallations.Count -eq 0) {
     Write-Host "No Conda installation found."
-    # → installation de Miniconda
 }
 else {
     Write-Host "Conda installation(s) found:"
@@ -190,7 +158,19 @@ else {
         Write-Host "  $($installation.CondaExe)"
         Write-Host "  Source: $($installation.Source)"
     }
+
+    $condaInstallation = $condaInstallations[0]
+    $condaExe = $condaInstallation.CondaExe
+
+    Write-Host "Conda executable: [$condaExe]"
+    Write-Host "Exists: $(Test-Path $condaExe)"
+
+    & $condaExe --version
+    if ($LASTEXITCODE -ne 0) {
+        Stop-Script "The detected Conda installation could not be executed."
+    }
 }
+
 
 # ----------------------------------------------------------------------------
 # Python environment creation
