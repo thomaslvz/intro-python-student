@@ -3,31 +3,31 @@
 <details>
 <summary id="setup">Configuration initiale</summary>
 
-Pour configurer l'ordinateur, suivez les instructions de *setup* :
+Pour configurer l'ordinateur, suivez les instructions de _setup_ :
 
-- [Sur Windows 11 (machine UGA ou machine perso)](setup/setup-w11.md)
-- [Sur une machine personnelle tournant sur Mac ou Linux](setup/setup-mac-linux.md)
-
+- [Sur une machine UGA](setup/setup-w11-uga.md)
+- [Sur une machine perso avec`Windows 11`](setup/setup-w11.md)
+- [Sur une machine perso avec `Mac` ou `Linux`](setup/setup-mac-linux.md)
 
 </details>
 
 ## Déroulé des séances
 
-Les TD sont réalisés sur l'environnement de développement *JupyterLab*.
+Les TD sont réalisés sur l'environnement de développement _JupyterLab_.
 
 A chaque début de séance, il est demandé d'ouvrir un terminal dans le dossier de travail `intro-python` : c'est une opération "clasique" qu'il faut savoir refaire (cf. [ici](#comment-ouvrir-un-terminal-dans-mon-dossier-de-travail-intro-python-)).
 
-| Numéro de séance | Thématique                              | Supports                                                                                                                    | Ressources utiles                                                     |
-| ---------------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| Séance 1         | Prise en main                           | [Présentation](https://thomaslvz.github.io/intro-python-student/01_prise-en-main){:target="_blank"} / [TD](td/01/readme.md) | [Guide syntaxe Markdown](https://www.markdownguide.org/basic-syntax/) |
-| Séance 2         | Variables, types, structures de données | [Présentation](#) / [TD](#)                                                                                                 |                                                                       |
-| Séance 3         |                                         |                                                                                                                             |                                                                       |
-| Séance 4         |                                         |                                                                                                                             |                                                                       |
-| Séance 5         |                                         |                                                                                                                             |                                                                       |
-| Séance 6         |                                         |                                                                                                                             |                                                                       |
-| Séance 7         |                                         |                                                                                                                             |                                                                       |
-| Séance 8         |                                         |                                                                                                                             |                                                                       |
-| Séance 9         |                                         |                                                                                                                             |                                                                       |
+| Numéro de séance | Thématique                              | Supports                                                                                                  | Ressources utiles                                                     |
+| ---------------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| Séance 1         | Prise en main                           | [Présentation](https://thomaslvz.github.io/intro-python-student/01_prise-en-main) / [TD](td/01/readme.md) | [Guide syntaxe Markdown](https://www.markdownguide.org/basic-syntax/) |
+| Séance 2         | Variables, types, structures de données | [Présentation](#) / [TD](#)                                                                               |                                                                       |
+| Séance 3         |                                         |                                                                                                           |                                                                       |
+| Séance 4         |                                         |                                                                                                           |                                                                       |
+| Séance 5         |                                         |                                                                                                           |                                                                       |
+| Séance 6         |                                         |                                                                                                           |                                                                       |
+| Séance 7         |                                         |                                                                                                           |                                                                       |
+| Séance 8         |                                         |                                                                                                           |                                                                       |
+| Séance 9         |                                         |                                                                                                           |                                                                       |
 
 ### Ressources externes / Bibliographie
 
@@ -49,10 +49,11 @@ A chaque début de séance, il est demandé d'ouvrir un terminal dans le dossier
 <details>
 <summary>Sur un ordinateur UGA</summary>
 
-Lancez *Anaconda Prompt*, puis exécutez :
+Lancez _Anaconda Prompt_, puis exécutez :
 
 ```shell
-cd H:/intro-python
+H:
+cd intro-python
 ```
 
 Vous y êtes !
@@ -62,24 +63,27 @@ Vous y êtes !
 <details>
 <summary>Sur son ordinateur perso sous Windows</summary>
 
-Ouvrir l'explorateur de fichiers, cliquer sur `Ce PC` puis sur le disque dur qui contient Windows. Aller ensuite dans *Utilisateurs* et cliquer sur son nom d'utilisateur. Faire `Shift+Clic droit` sur le dossier `intro-python` et choisir `Ouvrir dans le terminal` ou `Ouvrir dans Powershell`.
+Ouvrir l'explorateur de fichiers, cliquer sur `Ce PC` puis sur le disque dur qui contient Windows. Aller ensuite dans _Utilisateurs_ et cliquer sur son nom d'utilisateur. Faire `Shift+Clic droit` sur le dossier `intro-python` et choisir `Ouvrir dans le terminal` ou `Ouvrir dans Powershell`.
+
 </details>
 
 <details>
 <summary>Sur son ordinateur perso sous Mac</summary>
 
-Ouvrir l'application *Terminal* et rentrer la commande `cd ~/intro-python && open .`. Le terminal est désormais dans le dossier `intro-python`, et *Finder* s'est ouvert pour afficher le contenu du répertoire.
+Ouvrir l'application _Terminal_ et rentrer la commande `cd ~/intro-python && open .`. Le terminal est désormais dans le dossier `intro-python`, et _Finder_ s'est ouvert pour afficher le contenu du répertoire.
+
 </details>
 <details>
 <summary>Sur son ordinateur perso sous Linux</summary>
 
-Ouvrir l'application *Terminal* et rentrer la commande `cd ~/intro-python && xdg-open .`. Le terminal est désormais dans le dossier `intro-python`, et le navigateur de fichiers s'est ouvert pour afficher le contenu du répertoire.
-</details>
+Ouvrir l'application _Terminal_ et rentrer la commande `cd ~/intro-python && xdg-open .`. Le terminal est désormais dans le dossier `intro-python`, et le navigateur de fichiers s'est ouvert pour afficher le contenu du répertoire.
 
+</details>
 
 ### J'ai une erreur me disant que `conda` n'existe pas
 
 Message d'erreur type :
+
 - sur windows: `conda : The term 'conda' is not recognized as the name of a cmdlet, function, script file, or operable program.`
 - sur mac/linux : `conda: command not found`
 
@@ -88,16 +92,16 @@ Solution : il faut (ré)installer Miniconda, cf. [Configuration initiale](#setup
 ### J'ai une erreur `EnvironmentLocationNotFound`
 
 Message d'erreur type :
+
 ```bash
 EnvironmentLocationNotFound: Not a conda environment: /.../envs/intro-python-feg-l3
 ```
 
 Solution : il faut refaire l'étape 2 de la [Configuration initiale](#setup)
 
-
 ### Comment obtenir les présentations en PDF ?
 
-*A faire avec le navigateur Firefox ou Chrome*
+_A faire avec le navigateur Firefox ou Chrome_
 
 - ouvrez la présentation
 - cliquez sur le menu en haut à gauche, puis, `Tools` > `PDF export mode`

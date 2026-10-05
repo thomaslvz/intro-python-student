@@ -10,20 +10,17 @@
 $repoBaseUrl = "https://raw.githubusercontent.com/thomaslvz/intro-python-student/main"
 
 $environmentUrl = "$repoBaseUrl/environment.yml"
+$environmentName = "intro-python-feg-l3"
 $checkSetupUrl = "$repoBaseUrl/setup/check_setup.py"
+$universityDomainPattern = "ad.u-ga.fr"
 
+# ----------------------------------------------------------------------------
+# Command-line options
+# ----------------------------------------------------------------------------
 
-
-
-# Error message displayed when Conda is not available.
-# This can be overridden before running the script:
-#   $env:INTRO_PYTHON_CONDA_ERROR = "Please install Miniconda first."
-if (-not $env:INTRO_PYTHON_CONDA_ERROR) {
-    $env:INTRO_PYTHON_CONDA_ERROR = @"
-Miniconda ne semble pas installé sur cette machine.
-Procédez d'abord à l'installation de Miniconda, puis relancez ce script.
-"@
-}
+$skipDir = $args -contains "--SkipDir"
+$skipEnv = $args -contains "--SkipEnv"
+$skipCheck = $args -contains "--SkipCheck"
 
 # ----------------------------------------------------------------------------
 # Helper functions
@@ -48,72 +45,152 @@ function Stop-Script {
     exit 1
 }
 
-# ----------------------------------------------------------------------------
-# Check Conda
-# ----------------------------------------------------------------------------
 
-Write-Step "Checking Conda installation"
+function Find-CondaInstallations {
 
-try {
-    $condaVersion = conda --version 2>&1
+    $installations = @()
+
+    # 1. CONDA_EXE environment variable
+    if ($env:CONDA_EXE -and (Test-Path $env:CONDA_EXE)) {
+        $installations += [PSCustomObject]@{
+            CondaExe = $env:CONDA_EXE
+            BasePath = Split-Path (Split-Path $env:CONDA_EXE)
+            Source   = "CONDA_EXE"
+        }
+    }
+
+    # 2. Conda available in PATH
+    $condaCommand = Get-Command conda -ErrorAction SilentlyContinue
+
+    if ($condaCommand) {
+        $condaExe = $condaCommand.Source
+
+        if (Test-Path $condaExe) {
+            $installations += [PSCustomObject]@{
+                CondaExe = $condaExe
+                BasePath = Split-Path (Split-Path $condaExe)
+                Source   = "PATH"
+            }
+        }
+    }
+
+    # 3. Standard installation locations
+    $standardPaths = @(
+    # User installation
+    (Join-Path $HOME "anaconda3"),
+    (Join-Path $HOME "miniconda3"),
+
+    # User-local installation
+    (Join-Path $env:LOCALAPPDATA "anaconda3"),
+    (Join-Path $env:LOCALAPPDATA "miniconda3"),
+
+    # System-wide installation
+    (Join-Path $env:ProgramData "anaconda3"),
+    (Join-Path $env:ProgramData "miniconda3")
+    )
+
+    foreach ($basePath in $standardPaths) {
+
+        $condaExe = Join-Path $basePath "Scripts\conda.exe"
+
+        if (Test-Path $condaExe) {
+            $installations += [PSCustomObject]@{
+                CondaExe = $condaExe
+                BasePath = $basePath
+                Source   = "Standard path"
+            }
+        }
+    }
+
+    # Remove duplicates
+    $installations |
+        Sort-Object CondaExe -Unique
+}
+
+function Test-CondaEnvironment {
+    param (
+        [string]$CondaExe,
+        [string]$EnvironmentName
+    )
+
+    $environmentList = & $CondaExe env list --json 2>$null
 
     if ($LASTEXITCODE -ne 0) {
-        throw "Conda command returned exit code $LASTEXITCODE."
+        return $false
     }
 
-    Write-Host "Conda found: $condaVersion" -ForegroundColor Green
-}
-catch {
-    Stop-Script $env:INTRO_PYTHON_CONDA_ERROR
+    $environmentInfo = $environmentList | ConvertFrom-Json
+
+    return $environmentInfo.envs |
+        Where-Object {
+            (Split-Path $_ -Leaf) -eq $EnvironmentName
+        }
 }
 
 # ----------------------------------------------------------------------------
-# Select machine type
+# Finding conda installation
 # ----------------------------------------------------------------------------
 
-Write-Step "Selecting machine type"
 
-Write-Host "Sur quel type d'ordinateur êtes-vous actuellement ?"
-Write-Host ""
-Write-Host "  1 - Ordinateur personnel"
-Write-Host "  2 - Ordinateur de l'UGA"
-Write-Host ""
 
-$machineType = Read-Host "Entrez 1 ou 2"
+Write-Step "Looking for conda installation"
 
-switch ($machineType) {
-    "1" {
-        $courseDirectory = Join-Path $HOME "intro-python"
+$condaInstallations = Find-CondaInstallations
+
+if ($condaInstallations.Count -eq 0) {
+    Write-Host "No Conda installation found."
+    Stop-Script "Please install Anaconda (or miniconda) and run this script again."
+}
+else {
+    Write-Host "Conda installation(s) found:"
+
+    foreach ($installation in $condaInstallations) {
+        Write-Host "  $($installation.CondaExe)"
+        Write-Host "  Source: $($installation.Source)"
     }
 
-    "2" {
-        Write-Step "Looking for the network home drive"
+    $condaInstallation = $condaInstallations[0]
+    $condaExe = $condaInstallation.CondaExe
 
-        $drive = (
-            Get-PSDrive -PSProvider FileSystem |
-            Where-Object {
-                $_.DisplayRoot -and
-                $_.DisplayRoot -like "*home*$env:USERNAME*"
-            }
-        ).Name
+    Write-Host "Conda executable: [$condaExe]"
+    Write-Host "Exists: $(Test-Path $condaExe)"
 
-        if (-not $drive) {
-            Stop-Script "Could not find the network home drive for user '$env:USERNAME'."
-        }
-
-        if ($drive.Count -gt 1) {
-            Stop-Script "Multiple network home drives were found for user '$env:USERNAME'."
-        }
-
-        $courseDirectory = "${drive}:\intro-python"
-    }
-
-    default {
-        Stop-Script "Invalid choice. Please enter 1 or 2."
+    & $condaExe --version
+    if ($LASTEXITCODE -ne 0) {
+        Stop-Script "The detected Conda installation could not be executed."
     }
 }
 
-Write-Host "Course directory: $courseDirectory" -ForegroundColor Green
+
+# ----------------------------------------------------------------------------
+# Finding UGA network drive
+# ----------------------------------------------------------------------------
+
+Write-Step "Looking for UGA network home drive"
+
+
+
+$drive = (
+    Get-PSDrive -PSProvider FileSystem |
+    Where-Object {
+        $_.DisplayRoot -and
+        $_.DisplayRoot -like "*$universityDomainPattern*home*$env:USERNAME*"
+    }
+).Name
+
+if $drive {
+    $courseDirectory = "${drive}:\intro-python"
+}
+else {
+    Write-Host "Could not find the UGA network home drive for user '$env:USERNAME'."
+    Write-Host "Will use Home directory instead."
+    $courseDirectory = "${HOME}\intro-python"
+}
+
+if ($drive.Count -gt 1) {
+    Stop-Script "Multiple network home drives were found for user '$env:USERNAME'."
+}
+
 
 # ----------------------------------------------------------------------------
 # Create and enter the course directory
@@ -121,112 +198,153 @@ Write-Host "Course directory: $courseDirectory" -ForegroundColor Green
 
 Write-Step "Preparing course directory"
 
+if ($skipDir) {
+
+    if (-not (Test-Path $courseDirectory -PathType Container)) {
+        Stop-Script "The course directory does not exist: $courseDirectory. You cannot run this script with --SkipDir flag."
+    }
+
+    Write-Host "Course directory found: $courseDirectory" -ForegroundColor Green
+}
+else {
+
+    try {
+        New-Item `
+            -ItemType Directory `
+            -Path $courseDirectory `
+            -Force `
+            -ErrorAction Stop | Out-Null
+
+        Write-Host "Course directory: $courseDirectory" -ForegroundColor Green
+    }
+    catch {
+        Stop-Script "Could not create '$courseDirectory'. Details: $($_.Exception.Message)"
+    }
+}
+
 try {
-    New-Item -ItemType Directory -Path $courseDirectory -Force -ErrorAction Stop | Out-Null
     Set-Location -Path $courseDirectory -ErrorAction Stop
 
     Write-Host "Working directory: $(Get-Location)" -ForegroundColor Green
 }
 catch {
-    Stop-Script "Could not create or access '$courseDirectory'. Details: $($_.Exception.Message)"
+    Stop-Script "Could not access '$courseDirectory'. Details: $($_.Exception.Message)"
 }
 
+
 # ----------------------------------------------------------------------------
-# Configure Miniconda repositories
+# Initialization of the course directory
 # ----------------------------------------------------------------------------
 
-Write-Step "Accepting Anaconda repository Terms of Service"
 
-$condaChannels = @(
-    "https://repo.anaconda.com/pkgs/main"
-    "https://repo.anaconda.com/pkgs/r"
-    "https://repo.anaconda.com/pkgs/msys2"
-)
+if (-not $skipDir) {
 
-foreach ($channel in $condaChannels) {
-    Write-Host "Accepting TOS for: $channel"
+    Write-Step "Populating the course directory"
 
-    conda tos accept --override-channels --channel $channel
-
-    if ($LASTEXITCODE -ne 0) {
-        Stop-Script "Failed to accept the Terms of Service for '$channel'."
-    }
+    New-Item -ItemType Directory -Force ./data
+    New-Item -ItemType File -Force ./data/sample.txt
+    New-Item -ItemType Directory -Force ./td
+}
+else {
+    Write-Host "Skipping course directory creation and population." -ForegroundColor Yellow
 }
 
 # ----------------------------------------------------------------------------
 # Python environment creation
 # ----------------------------------------------------------------------------
 
-$environmentFile = Join-Path $courseDirectory "environment.yml"
+$environmentExists = Test-CondaEnvironment `
+    -CondaExe $condaExe `
+    -EnvironmentName $environmentName
 
-Write-Step "Downloading Python environment definition"
+if ($skipEnv) {
 
-try {
-    Invoke-WebRequest `
-        -Uri $environmentUrl `
-        -OutFile $environmentFile `
-        -ErrorAction Stop
-}
-catch {
-    if (Test-Path $environmentFile) {
-        Remove-Item -Force $environmentFile
+    if (-not $environmentExists) {
+        Stop-Script "The Python environment '$environmentName' does not exist. You cannot run this script with the --SkipEnv flag."
     }
 
-    Stop-Script "Could not download environment.yml. Details: $($_.Exception.Message)"
+    Write-Host "Python environment '$environmentName' already exists. Skipping creation." `
+        -ForegroundColor Green
 }
+else {
 
-Write-Step "Creating Python environment"
+    $environmentFile = Join-Path $courseDirectory "environment.yml"
 
-conda env create -f $environmentFile --quiet
+    Write-Step "Downloading Python environment definition"
 
-if ($LASTEXITCODE -ne 0) {
+    try {
+        Invoke-WebRequest `
+            -Uri $environmentUrl `
+            -OutFile $environmentFile `
+            -ErrorAction Stop
+    }
+    catch {
+        if (Test-Path $environmentFile) {
+            Remove-Item -Force $environmentFile
+        }
+
+        Stop-Script "Could not download environment.yml. Details: $($_.Exception.Message)"
+    }
+
+    Write-Step "Creating Python environment"
+
+    & $condaExe tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main
+    & $condaExe tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
+    & $condaExe tos accept --override-channels --channel https://repo.anaconda.com/pkgs/msys2
+
+    & $condaExe env create -f $environmentFile --quiet
+
+    if ($LASTEXITCODE -ne 0) {
+        Remove-Item -Force $environmentFile
+        Stop-Script "Could not create the Python environment."
+    }
+
     Remove-Item -Force $environmentFile
-    Stop-Script "Could not create the Python environment."
 }
-
-Remove-Item -Force $environmentFile
-
-# ----------------------------------------------------------------------------
-# Initialization of the course directory
-# ----------------------------------------------------------------------------
-
-Write-Step "Populating the course directory"
-
-New-Item -ItemType Directory -Force ./data
-New-Item -ItemType File -Force ./data/sample.txt
-New-Item -ItemType Directory -Force ./td
 
 # ----------------------------------------------------------------------------
 # Run setup check
 # ----------------------------------------------------------------------------
+# ----------------------------------------------------------------------------
+# Run setup check
+# ----------------------------------------------------------------------------
 
-$checkSetupFile = Join-Path $courseDirectory "check_setup.py"
-Write-Step "Downloading setup check"
+if (-not $skipCheck) {
 
-try {
-    Invoke-WebRequest `
-        -Uri $checkSetupUrl `
-        -OutFile $checkSetupFile `
-        -ErrorAction Stop
-}
-catch {
-    if (Test-Path $checkSetupFile) {
-        Remove-Item -Force $checkSetupFile
+    $checkSetupFile = Join-Path $courseDirectory "check_setup.py"
+
+    Write-Step "Downloading setup check"
+
+    try {
+        Invoke-WebRequest `
+            -Uri $checkSetupUrl `
+            -OutFile $checkSetupFile `
+            -ErrorAction Stop
+    }
+    catch {
+        if (Test-Path $checkSetupFile) {
+            Remove-Item -Force $checkSetupFile
+        }
+
+        Stop-Script "Could not download check_setup.py. Details: $($_.Exception.Message)"
     }
 
-    Stop-Script "Could not download check_setup.py. Details: $($_.Exception.Message)"
+    Write-Step "Running setup check"
+
+    & $condaExe run --no-capture-output `
+        -n $environmentName `
+        python -X utf8 $checkSetupFile
+
+    $setupCheckExitCode = $LASTEXITCODE
+
+    Remove-Item -Force $checkSetupFile
+
+    if ($setupCheckExitCode -ne 0) {
+        Stop-Script "The setup check failed."
+    }
 }
-
-Write-Step "Running setup check"
-
-conda run --no-capture-output -n intro-python-feg-l3 python -X utf8 $checkSetupFile
-
-$setupCheckExitCode = $LASTEXITCODE
-
-Remove-Item -Force $checkSetupFile
-
-if ($setupCheckExitCode -ne 0) {
-    Stop-Script "The setup check failed."
+else {
+    Write-Host "Skipping setup check." -ForegroundColor Yellow
 }
 
 
