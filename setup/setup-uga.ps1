@@ -177,7 +177,7 @@ $drive = (
 ).Name
 
 if ($drive) {
-    Write-Host "Network drive found at ${drive}."
+    Write-Host "UGA network drive found : '${drive}:\'."
     $courseDirectory = "${drive}:\intro-python"
 }
 else {
