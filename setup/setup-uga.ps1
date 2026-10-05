@@ -122,7 +122,7 @@ function Test-CondaEnvironment {
 
     return $environmentInfo.envs |
         Where-Object {
-            Split-Path $_ -Leaf -eq $EnvironmentName
+            (Split-Path $_ -Leaf) -eq $EnvironmentName
         }
 }
 
