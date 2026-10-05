@@ -32,6 +32,8 @@ conda run -n intro-python-feg-l3 jupyter lab
 
 Localisez votre dossier `intro-python`.
 
+---
+
 <details>
 <summary>💡 Aide : je n'arrive pas à trouver mon dossier <code>intro-python</code></summary>
 
@@ -45,7 +47,7 @@ Vous pouvez fermer le terminal, et une fenêtre s'est ouverte automatiquement. L
 
 </details>
 
-<br>
+---
 
 Sur le dossier `intro-python`, faites un `clic droit` puis `Ouvrir dans un Terminal`.
 
@@ -63,6 +65,8 @@ conda run -n intro-python-feg-l3 jupyter lab
 
 </details>
 <br>
+
+Il faut garder ce terminal ouvert tant que JupyterLab est utilisé.
 
 ## Exercice 1
 
