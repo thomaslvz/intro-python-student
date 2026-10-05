@@ -12,6 +12,7 @@ $repoBaseUrl = "https://raw.githubusercontent.com/thomaslvz/intro-python-student
 $environmentUrl = "$repoBaseUrl/environment.yml"
 $environmentName = "intro-python-feg-l3"
 $checkSetupUrl = "$repoBaseUrl/setup/check_setup.py"
+$universityDomainPattern = "ad.u-ga.fr"
 
 # ----------------------------------------------------------------------------
 # Command-line options
@@ -162,21 +163,28 @@ else {
 
 
 # ----------------------------------------------------------------------------
-# Finding network drive
+# Finding UGA network drive
 # ----------------------------------------------------------------------------
 
-Write-Step "Looking for the network home drive"
+Write-Step "Looking for UGA network home drive"
+
+
 
 $drive = (
     Get-PSDrive -PSProvider FileSystem |
     Where-Object {
         $_.DisplayRoot -and
-        $_.DisplayRoot -like "*home*$env:USERNAME*"
+        $_.DisplayRoot -like "*$universityDomainPattern*home*$env:USERNAME*"
     }
 ).Name
 
-if (-not $drive) {
-    Stop-Script "Could not find the network home drive for user '$env:USERNAME'."
+if $drive {
+    $courseDirectory = "${drive}:\intro-python"
+}
+else {
+    Write-Host "Could not find the UGA network home drive for user '$env:USERNAME'."
+    Write-Host "Will use Home directory instead."
+    $courseDirectory = "${HOME}\intro-python"
 }
 
 if ($drive.Count -gt 1) {
@@ -189,9 +197,6 @@ if ($drive.Count -gt 1) {
 # ----------------------------------------------------------------------------
 
 Write-Step "Preparing course directory"
-
-
-$courseDirectory = "${drive}:\intro-python"
 
 if ($skipDir) {
 
