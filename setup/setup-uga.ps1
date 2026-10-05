@@ -14,6 +14,12 @@ $environmentName = "intro-python-l3-feg"
 $checkSetupUrl = "$repoBaseUrl/setup/check_setup.py"
 
 # ----------------------------------------------------------------------------
+# Command-line options
+# ----------------------------------------------------------------------------
+
+$envOnly = $args -contains "--EnvOnly"
+
+# ----------------------------------------------------------------------------
 # Helper functions
 # ----------------------------------------------------------------------------
 
@@ -69,20 +75,38 @@ Write-Step "Preparing course directory"
 
 $courseDirectory = "${drive}:\intro-python"
 
+if ($envOnly) {
 
-Write-Host "Course directory: $courseDirectory" -ForegroundColor Green
+    if (-not (Test-Path $courseDirectory -PathType Container)) {
+        Stop-Script "The course directory does not exist: $courseDirectory"
+    }
+
+    Write-Host "Course directory found: $courseDirectory" -ForegroundColor Green
+}
+else {
+
+    try {
+        New-Item `
+            -ItemType Directory `
+            -Path $courseDirectory `
+            -Force `
+            -ErrorAction Stop | Out-Null
+
+        Write-Host "Course directory: $courseDirectory" -ForegroundColor Green
+    }
+    catch {
+        Stop-Script "Could not create '$courseDirectory'. Details: $($_.Exception.Message)"
+    }
+}
 
 try {
-    New-Item -ItemType Directory -Path $courseDirectory -Force -ErrorAction Stop | Out-Null
     Set-Location -Path $courseDirectory -ErrorAction Stop
 
     Write-Host "Working directory: $(Get-Location)" -ForegroundColor Green
 }
 catch {
-    Stop-Script "Could not create or access '$courseDirectory'. Details: $($_.Exception.Message)"
+    Stop-Script "Could not access '$courseDirectory'. Details: $($_.Exception.Message)"
 }
-
-
 # ----------------------------------------------------------------------------
 # Finding conda installation
 # ----------------------------------------------------------------------------
@@ -208,6 +232,12 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 Remove-Item -Force $environmentFile
+
+if ($envOnly) {
+    Write-Host ""
+    Write-Host "Python environment created successfully." -ForegroundColor Green
+    exit 0
+}
 
 # ----------------------------------------------------------------------------
 # Initialization of the course directory
