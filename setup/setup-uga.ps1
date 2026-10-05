@@ -77,12 +77,17 @@ function Find-CondaInstallations {
 
     # 3. Standard installation locations
     $standardPaths = @(
-        (Join-Path $HOME "anaconda3"),
-        (Join-Path $HOME "Anaconda3"),
-        (Join-Path $HOME "miniconda3"),
-        (Join-Path $HOME "Miniconda3"),
-        (Join-Path $env:ProgramData "Anaconda3"),
-        (Join-Path $env:ProgramData "Miniconda3")
+    # User installation
+    (Join-Path $HOME "anaconda3"),
+    (Join-Path $HOME "miniconda3"),
+
+    # User-local installation
+    (Join-Path $env:LOCALAPPDATA "anaconda3"),
+    (Join-Path $env:LOCALAPPDATA "miniconda3"),
+
+    # System-wide installation
+    (Join-Path $env:ProgramData "anaconda3"),
+    (Join-Path $env:ProgramData "miniconda3")
     )
 
     foreach ($basePath in $standardPaths) {
