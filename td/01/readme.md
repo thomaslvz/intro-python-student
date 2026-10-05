@@ -115,7 +115,8 @@ Comme au début du TD, ouvrez un terminal dans le dossier `intro-python` :
 
 - Si vous êtes sur une machine UGA, lancez _Anaconda Prompt_ puis exécutez
   ```powershell
-  cd H:/intro-python
+  H:
+  cd intro-python
   conda run -n intro-python-feg-l3 jupyter lab
   ```
 - Si vous êtes sur votre ordinateur personnel, localisez votre dossier `intro-python`, puis `clic droit` > `Ouvrir dans un Terminal` et exécutez
@@ -128,7 +129,7 @@ Ouvrez le dossier du TD1, puis lancez le notebook intitulé `04_fonctions.ipynb`
 
 ## (bonus) Exercice 5
 
-Dans JupyterLab, cliquez sur le _Launcher_ (bouton `+`), et créez un notebook que vous appellerez `exercice_05.ipynb`.
+Dans JupyterLab, cliquez sur le _Launcher_ (bouton `+`), et créez un notebook que vous appellerez `05_predictions.ipynb`.
 
 En utilisant le notebook, réalisez l'exercice 5, dont les consignes sont ci-dessous.
 
