@@ -70,13 +70,25 @@ Ouvrir l'explorateur de fichiers, cliquer sur `Ce PC` puis sur le disque dur qui
 <details>
 <summary>Sur son ordinateur perso sous Mac</summary>
 
-Ouvrir l'application _Terminal_ et rentrer la commande `cd ~/intro-python && open .`. Le terminal est désormais dans le dossier `intro-python`, et _Finder_ s'est ouvert pour afficher le contenu du répertoire.
+Ouvrir l'application _Terminal_ et rentrer la commande
+
+```bash
+cd ~/intro-python && open .
+```
+
+Le terminal est désormais dans le dossier `intro-python`, et _Finder_ s'est ouvert pour afficher le contenu du répertoire.
 
 </details>
 <details>
 <summary>Sur son ordinateur perso sous Linux</summary>
 
-Ouvrir l'application _Terminal_ et rentrer la commande `cd ~/intro-python && xdg-open .`. Le terminal est désormais dans le dossier `intro-python`, et le navigateur de fichiers s'est ouvert pour afficher le contenu du répertoire.
+Ouvrir l'application _Terminal_ et rentrer la commande
+
+```bash
+cd ~/intro-python && xdg-open .
+```
+
+Le terminal est désormais dans le dossier `intro-python`, et le navigateur de fichiers s'est ouvert pour afficher le contenu du répertoire.
 
 </details>
 
