@@ -63,3 +63,27 @@ conda run -n intro-python-feg-l3 jupyter lab
 <br>
 
 Il faut garder ce terminal ouvert tant que JupyterLab est utilisé.
+
+## Exercices
+
+Les 3 exercices sont à faire dans _JupyterLab_, il y a un notebook par exercice, à faire dans l'ordre de numérotation :
+
+- `01_types.ipynb`
+- `02_lists.ipynb`
+- `03_dictionnaries.ipynb`
+
+## Bonus
+
+- Si vous avez terminé, vous pouvez faire les exercices n°4 et 5 (bonus) du TD 1.
+
+- Une fois terminé, vous pouvez chercher les challenges suivants sur _Coding Practice_. Attention, ces exercices sont à faire **_sans utiliser aucune boucle `for`_** !
+  - [Average of a list](https://codingpractice.online/problems/fix-the-bug-average)
+  - [Is it a palindrome phrase ?](https://codingpractice.online/problems/is-palindrome-phrase)
+  - [Find the missing number](https://codingpractice.online/problems/find-missing-number)
+    <details>
+    <summary>Indice</summary>
+
+    on a vu en maths en L1 que la somme des $n$ entiers de 1 à $n$ vaut $n(n+1)/2$...
+    </details>
+
+  - [Reverse a sublist between 2 positions](https://codingpractice.online/problems/reverse-linked-list-between-positions)

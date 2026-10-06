@@ -109,7 +109,7 @@ A faire :
    - String Garden
    - Number Peak
 
-## Exercice 4
+## (bonus) Exercice 4
 
 Comme au début du TD, ouvrez un terminal dans le dossier `intro-python` :
 
