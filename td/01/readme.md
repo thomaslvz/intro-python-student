@@ -54,13 +54,13 @@ Sur le dossier `intro-python`, faites un `clic droit` puis `Ouvrir dans un Termi
 Dans le terminal, exécutez cette commande :
 
 ```bash
-conda run --no-capture-output -n intro-python-feg-l3 python -X utf8 -c "import sys, urllib.request; sys.argv = ['bootstrap_td.py', '01']; exec(urllib.request.urlopen('https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/bootstrap_td.py').read())"
+conda run -s -n intro-python-feg-l3 python -X utf8 -c "import sys, urllib.request; sys.argv = ['bootstrap_td.py', '01']; exec(urllib.request.urlopen('https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/bootstrap_td.py').read())"
 ```
 
 Si vous avez une phrase du type "Le TD.. a été installé dans...", vous pouvez continuer. Lancez cette commande :
 
 ```bash
-conda run -n intro-python-feg-l3 jupyter lab
+conda run -s -n intro-python-feg-l3 jupyter lab
 ```
 
 </details>
