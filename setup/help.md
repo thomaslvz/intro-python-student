@@ -17,7 +17,7 @@
 
 - run du script de setup pour localiser conda
   ```powershell
-  $script="$env:TEMP\intro-python-setup.ps1"; Invoke-WebRequest "https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/setup-uga.ps1" -OutFile $script; Unblock-File $script; & $script --SkipEnv --SkipCheck --SkipDir
+  powershell -ExecutionPolicy Bypass -Command "$script='$env:TEMP\intro-python-setup.ps1'; Invoke-WebRequest 'https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/setup-uga.ps1' -OutFile $script; Unblock-File $script; & $script --SkipDir"
   ```
 - ajout manuel dans le PATH : aller dans "modifier les variables d'environnement pour votre compte"
 
