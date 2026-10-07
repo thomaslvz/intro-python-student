@@ -15,7 +15,7 @@ Dans la barre de recherche windows en bas de l'écran, taper _Terminal_ et lance
 Copier-coller la commande suivante et la lancer en appuyant sur la touche entrée :
 
 ```powershell
-Invoke-RestMethod "https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/setup-uga.ps1" | Invoke-Expression
+Invoke-RestMethod "https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/setup.ps1" | Invoke-Expression
 ```
 
 Tant que le curseur en bas du terminal clignote, l'installation est en cours. Au bout de quelques minutes, on doit voir le message ci-dessous :

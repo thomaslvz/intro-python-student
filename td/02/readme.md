@@ -8,7 +8,7 @@
 Lancez l'application \*Terminal, puis excécutez-y cette commande pour vérifier l'installation de conda depuis le dernier TD :
 
 ```powershell
-$script="$env:TEMP\intro-python-setup.ps1"; Invoke-WebRequest "https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/setup-uga.ps1" -OutFile $script; Unblock-File $script; & $script --SkipDir
+$script="$env:TEMP\intro-python-setup.ps1"; Invoke-WebRequest "https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/setup.ps1" -OutFile $script; Unblock-File $script; & $script --SkipDir
 ```
 
 Si cela fonctionne, fermez le terminal et lancez l'application \* _Anaconda Prompt_. Exécutez ensuite :

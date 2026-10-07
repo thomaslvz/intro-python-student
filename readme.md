@@ -116,9 +116,10 @@ EnvironmentLocationNotFound: Not a conda environment: /.../envs/intro-python-feg
 
 Solution :
 
-- sur `Windows` (ordinateur perso ou UGA), ouvrez un terminal et lancez :
+- sur `Windows` (ordinateur perso ou UGA), ouvrez l'application _Terminal_ et lancez :
   ```powershell
-    $script="$env:TEMP\intro-python-setup.ps1"; Invoke-WebRequest "https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/setup-uga.ps1" -OutFile $script; Unblock-File $script; & $script --SkipDir
+  Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+  $script="$env:TEMP\intro-python-setup.ps1"; Invoke-WebRequest "https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/setup.ps1" -OutFile $script; Unblock-File $script; & $script --SkipDir
   ```
 - sur `Mac`/`Linux`, ouvrez un terminal et lancez :
   ```bash
