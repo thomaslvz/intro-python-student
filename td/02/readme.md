@@ -5,7 +5,13 @@
 <details>
 <Summary><b>Si vous êtes sur un ordinateur UGA</b></Summary>
 
-Lancez l'application _Anaconda Prompt_, puis excécutez-y ces commandes :
+Lancez l'application _Anaconda Prompt_, puis excécutez-y cette commande pour vérifier l'installation de conda depuis le dernier TD :
+
+```powershell
+$script="$env:TEMP\intro-python-setup.ps1"; Invoke-WebRequest "https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/setup-uga.ps1" -OutFile $script; Unblock-File $script; & $script --SkipDir
+```
+
+Si cela fonctionne, exécutez ensuite :
 
 ```powershell
 H:
