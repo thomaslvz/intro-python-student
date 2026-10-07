@@ -16,7 +16,8 @@ conda run --no-capture-output -n intro-python-feg-l3 python -X utf8 -c "import s
 Si vous avez une phrase du type "Le TD.. a été installé dans...", vous pouvez continuer. Lancez cette commande :
 
 ```powershell
-conda run -s -n intro-python-feg-l3 jupyter lab
+conda activate intro-python-feg-l3
+jupyter lab
 ```
 
 </details>
@@ -56,7 +57,8 @@ conda run -s -n intro-python-feg-l3 python -X utf8 -c "import sys, urllib.reques
 Si vous avez une phrase du type "Le TD.. a été installé dans...", vous pouvez continuer. Lancez cette commande :
 
 ```bash
-conda run -s -n intro-python-feg-l3 jupyter lab
+conda activate intro-python-feg-l3
+jupyter lab
 ```
 
 </details>
