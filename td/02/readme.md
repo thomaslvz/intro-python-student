@@ -5,13 +5,16 @@
 <details>
 <Summary><b>Si vous êtes sur un ordinateur UGA</b></Summary>
 
-Lancez l'application \*Terminal, puis excécutez-y cette commande pour vérifier l'installation de conda depuis le dernier TD :
+Lancez l'application _Terminal_, puis excécutez-y cette commande pour vérifier l'installation de conda depuis le dernier TD :
 
 ```powershell
-$script="$env:TEMP\intro-python-setup.ps1"; Invoke-WebRequest "https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/setup.ps1" -OutFile $script; Unblock-File $script; & $script --SkipDir
+$script = Join-Path $env:TEMP 'intro-python-setup.ps1'
+Invoke-WebRequest 'https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/setup.ps1' -OutFile $script
+Unblock-File $script
+& $script --SkipDir
 ```
 
-Si cela fonctionne, fermez le terminal et lancez l'application \* _Anaconda Prompt_. Exécutez ensuite :
+Si cela fonctionne, fermez le terminal et lancez l'application _Anaconda Prompt_. Exécutez ensuite :
 
 ```powershell
 H:
@@ -57,7 +60,7 @@ Sur le dossier `intro-python`, faites un `clic droit` puis `Ouvrir dans un Termi
 Dans le terminal, exécutez cette commande :
 
 ```bash
-conda run -s -n intro-python-feg-l3 python -X utf8 -c "import sys, urllib.request; sys.argv = ['bootstrap_td.py', '02']; exec(urllib.request.urlopen('https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/bootstrap_td.py').read())"
+conda run --no-capture-output -n intro-python-feg-l3 python -X utf8 -c "import sys, urllib.request; sys.argv = ['bootstrap_td.py', '02']; exec(urllib.request.urlopen('https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/bootstrap_td.py').read())"
 ```
 
 Si vous avez une phrase du type "Le TD.. a été installé dans...", vous pouvez continuer. Lancez cette commande :
