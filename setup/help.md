@@ -21,7 +21,16 @@
   ```
 - ajout manuel dans le PATH : aller dans "modifier les variables d'environnement pour votre compte"
 
-## Machine perso Mac
+## Machine perso Mac/Linux
+
+### Lancement du script de config
+
+Flags disponibles : `--SkipEnv`, `SkipCheck`, `--SkipDir`
+
+```bash
+#Exemple pour le check uniquement
+  curl -fsSL "https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/setup.sh" | bash -s -- --SkipDir --SkipEnv
+```
 
 ### Ajouter conda au PATH
 
