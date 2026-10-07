@@ -28,7 +28,11 @@ REPO_URL = (
 
 # Vérifier le répertoire courant
 if os.path.basename(os.getcwd()) != "intro-python":
-    print("Erreur : ce script doit être lancé depuis le dossier 'intro-python'.")
+    print("""
+          ***
+          Erreur : ce script doit être lancé depuis le dossier 'intro-python'.
+          ***
+          """)
     sys.exit(1)
 
 
@@ -69,7 +73,7 @@ if os.path.exists(destination):
 
 
 # Télécharger le dépôt
-print("Téléchargement des fichiers du cours...")
+print("Téléchargement des fichiers...")
 
 try:
     with urllib.request.urlopen(REPO_URL) as response:
