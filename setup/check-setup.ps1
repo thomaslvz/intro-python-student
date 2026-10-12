@@ -30,7 +30,8 @@
 param (
     [string]$CondaPath,
     [switch]$ForceCourseDirectory,
-    [switch]$ForceEnvironment
+    [switch]$ForceEnvironment,
+    [string]$BootstrapTD
 )
 
 # ----------------------------------------------------------------------------
@@ -44,8 +45,14 @@ $environmentUrl = "$repoBaseUrl/environment.yml"
 $environmentName = "intro-python-feg-l3"
 $universityDomainPattern = "ad.u-ga.fr*home"
 
-$condaMissingMessage = "Il faut installer Miniconda ou Anaconda sur cet ordinateur pour ce cours. Allez sur https://www.anaconda.com/download/success?reg=skipped et procédez à l'installation."
+$condaMissingMessage = @"
+Il faut installer Miniconda ou Anaconda sur cet ordinateur pour ce cours.
 
+Téléchargez et installez Anaconda ou Miniconda depuis :
+https://www.anaconda.com/download/success?reg=skipped
+
+
+"@
 # ----------------------------------------------------------------------------
 # Helper functions
 # ----------------------------------------------------------------------------
@@ -417,13 +424,50 @@ else {
 }
 
 # ----------------------------------------------------------------------------
+# Bootstrap TD (optional)
+# ----------------------------------------------------------------------------
+
+if ($BootstrapTD) {
+    Write-Step "Bootstrapping TD $BootstrapTD"
+
+    $bootstrapUrl = "$repoBaseUrl/setup/bootstrap_td.py"
+    $bootstrapFile = Join-Path $env:TEMP "bootstrap_td.py"
+
+    try {
+        Invoke-WebRequest `
+            -Uri $bootstrapUrl `
+            -OutFile $bootstrapFile `
+            -ErrorAction Stop
+    }
+    catch {
+        Stop-Script "Could not download bootstrap_td.py. Details: $($_.Exception.Message)"
+    }
+
+    try {
+        & $condaExe run `
+            --name $environmentName `
+            python $bootstrapFile $BootstrapTD
+
+        if ($LASTEXITCODE -ne 0) {
+            Stop-Script "Bootstrap failed for TD '$BootstrapTD'."
+        }
+    }
+    finally {
+        Remove-Item -LiteralPath $bootstrapFile -Force -ErrorAction SilentlyContinue
+    }
+}
+
+# ----------------------------------------------------------------------------
 # Done
 # ----------------------------------------------------------------------------
 
-Write-Step "Bilan : tout est prêt ! ✅"
+Write-Step "Tout est en ordre ! ✅"
 Write-Host ""
 Write-Host "📂 Le dossier de travail intro-python est situé dans :" -ForegroundColor Green
 Write-Host "    $courseDirectory" -ForegroundColor Green
+if ($BootstrapTD) {
+    Write-Host "Il contient désormais les fichiers du TD $BootstrapTD." -ForegroundColor Green
+}
 Write-Host ""
 Write-Host "🖥️ Vous pouvez lancer JupyterLab depuis l'application Anaconda PowerShell Prompt, avec les commandes :" -ForegroundColor Green
 Write-Host ""
