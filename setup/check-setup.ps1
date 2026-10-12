@@ -53,6 +53,16 @@ https://www.anaconda.com/download/success?reg=skipped
 
 
 "@
+
+
+# ----------------------------------------------------------------------------
+# PowerShell 5 compatibility
+# ----------------------------------------------------------------------------
+
+$Utf8Encoding = New-Object System.Text.UTF8Encoding($false)
+[Console]::OutputEncoding = $Utf8Encoding
+$OutputEncoding = $Utf8Encoding
+
 # ----------------------------------------------------------------------------
 # Helper functions
 # ----------------------------------------------------------------------------
@@ -465,15 +475,15 @@ if ($BootstrapTD) {
 # Done
 # ----------------------------------------------------------------------------
 
-Write-Step "Tout est en ordre !"
+Write-Step "Tout est en ordre ! ✅"
 Write-Host ""
-Write-Host "Le dossier de travail intro-python est situé dans :" -ForegroundColor Green
+Write-Host "📂 Le dossier de travail intro-python est situé dans :" -ForegroundColor Green
 Write-Host "    $courseDirectory" -ForegroundColor Green
 if ($BootstrapTD) {
     Write-Host "Il contient les fichiers du TD $BootstrapTD." -ForegroundColor Green
 }
 Write-Host ""
-Write-Host "Vous pouvez lancer JupyterLab depuis l'application Anaconda PowerShell Prompt, avec les commandes :" -ForegroundColor Green
+Write-Host "🖥️ Vous pouvez lancer JupyterLab depuis l'application Anaconda PowerShell Prompt, avec les commandes :" -ForegroundColor Green
 Write-Host ""
 Write-Host "    conda activate $environmentName" -ForegroundColor Green
 Write-Host "    jupyter lab" -ForegroundColor Green
