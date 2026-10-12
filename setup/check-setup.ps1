@@ -442,17 +442,21 @@ if ($BootstrapTD) {
     catch {
         Stop-Script "Could not download bootstrap_td.py. Details: $($_.Exception.Message)"
     }
-
     try {
-        & $condaExe run `
+        $env:PYTHONUTF8 = "1"
+        $env:PYTHONIOENCODING = "utf-8"
+
+        & $condaExe run --no-capture-output `
             --name $environmentName `
-            python $bootstrapFile $BootstrapTD
+            python -u $bootstrapFile $BootstrapTD
 
         if ($LASTEXITCODE -ne 0) {
             Stop-Script "Bootstrap failed for TD '$BootstrapTD'."
         }
     }
     finally {
+        Remove-Item Env:PYTHONUTF8 -ErrorAction SilentlyContinue
+        Remove-Item Env:PYTHONIOENCODING -ErrorAction SilentlyContinue
         Remove-Item -LiteralPath $bootstrapFile -Force -ErrorAction SilentlyContinue
     }
 }
