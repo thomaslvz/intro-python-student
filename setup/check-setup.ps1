@@ -1,3 +1,27 @@
+### Instructions
+# Execute this script in a powershell terminal.
+# It will check if the conda environment and the file structure are correctly set up for the course.
+# If not, it will set them up.
+# When the script stops with no errors, the prompt is located in the course directory.
+#
+# Steps included:
+# 1. Check if conda is installed
+# 2. Check if the conda environment is installed
+# 3. Check if the course directory is set up (automatically detects UGA domain if existing)
+#
+# Params:
+# -CondaPath: Path to the conda executable (to force conda command localization)
+# -ForceCourseDirectory: Force the course directory to be (re)set up
+# -ForceEnvironment: Force the conda environment to be (re)installed
+#
+# Examples :
+# 1) Without parameters (recommended)
+# Invoke-RestMethod 'https://raw.githubusercontent.com/URL' | Invoke-Expression
+# 2) With parameters
+# $ScriptPath = Join-Path $env:TEMP "script.ps1"
+# Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/URL' -OutFile $ScriptPath
+# & $ScriptPath -ForceCourseDirectory -CondaPath "C:/conda"
+
 
 # ----------------------------------------------------------------------------
 # Command-line options
@@ -332,7 +356,7 @@ if ($pathConda -and $pathConda.Source -and
     Write-Host "Conda is available in PATH." -ForegroundColor Green
 }
 else {
-    Write-WarningMessage "Conda is not available in PATH. Use Anaconda Prompt, you will have to use Anaconda Prompt."
+    Write-WarningMessage "Conda is not available in PATH. You will have to use Anaconda PowerShell Prompt."
 }
 
 # ----------------------------------------------------------------------------
@@ -396,11 +420,11 @@ else {
 # Done
 # ----------------------------------------------------------------------------
 
+Write-Step "Bilan : tout est prêt ! ✅ "
 Write-Host ""
-Write-Host "Le dossier de travail intro-python est situé dans :" -ForegroundColor Green
-Write-Host "  $courseDirectory" -ForegroundColor Green
+Write-Host "📂 Le dossier de travail intro-python est situé dans :" -ForegroundColor Green
+Write-Host "    $courseDirectory" -ForegroundColor Green
 Write-Host ""
-Write-Host "Vous pouvez lancer JupyterLab depuis l'application Anaconda Prompt, avec les commandes :" -ForegroundColor Green
-Write-Host ""
-Write-Host "  conda activate $environmentName" -ForegroundColor Green
-Write-Host "  jupyter lab" -ForegroundColor Green
+Write-Host "🖥️ Vous pouvez lancer JupyterLab depuis l'application Anaconda PowerShell Prompt, avec les commandes :" -ForegroundColor Green
+Write-Host "    conda activate $environmentName" -ForegroundColor Green
+Write-Host "    jupyter lab" -ForegroundColor Green
