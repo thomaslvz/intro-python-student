@@ -68,7 +68,7 @@ function Stop-Script {
 
     Write-Host ""
     Write-Host "ERROR: $Message" -ForegroundColor Red
-    exit 1
+    throw $Message
 }
 
 function Test-Executable {
@@ -420,11 +420,12 @@ else {
 # Done
 # ----------------------------------------------------------------------------
 
-Write-Step "Bilan : tout est prêt ! ✅ "
+Write-Step "Bilan : tout est prêt ! ✅"
 Write-Host ""
 Write-Host "📂 Le dossier de travail intro-python est situé dans :" -ForegroundColor Green
 Write-Host "    $courseDirectory" -ForegroundColor Green
 Write-Host ""
 Write-Host "🖥️ Vous pouvez lancer JupyterLab depuis l'application Anaconda PowerShell Prompt, avec les commandes :" -ForegroundColor Green
+Write-Host ""
 Write-Host "    conda activate $environmentName" -ForegroundColor Green
 Write-Host "    jupyter lab" -ForegroundColor Green
