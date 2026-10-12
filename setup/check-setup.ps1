@@ -48,7 +48,7 @@ $universityDomainPattern = "ad.u-ga.fr*home"
 $condaMissingMessage = @"
 Il faut installer Miniconda ou Anaconda sur cet ordinateur pour ce cours.
 
-Téléchargez et installez Anaconda ou Miniconda depuis :
+Installez Anaconda ou Miniconda depuis :
 https://www.anaconda.com/download/success?reg=skipped
 
 

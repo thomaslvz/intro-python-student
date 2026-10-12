@@ -38,8 +38,9 @@ def choose_existing_folder_action(destination):
     print()
     print("- Appuyez sur Entrée pour ne toucher à rien")
     print("et conserver les fichiers existants.")
-    print("- Tapez 'remplacer' pour mettre ce dossier a la corbeille")
+    print("- Tapez 'remplacer' pour supprimer ce dossier")
     print("et installer les fichiers vierges du TD.")
+    print("Attention, risque de perte du travail déjà effectué !")
     print("- Tapez 'renommer' pour conserver tous vos fichiers existants")
     print("et installer les fichiers vierges du TD.")
     print()
@@ -130,8 +131,8 @@ def unique_backup_path(path):
 def install_td_files(destination, files, action):
     """Install pristine files, optionally preserving local versions."""
     if action == "remplacer" and os.path.exists(destination):
-        print("Mise a la corbeille du dossier existant...")
-        send2trash(destination)
+        print("Suppression du dossier existant...")
+        send2trash(destination)  # Delete permanently on UGA Network drive
 
     os.makedirs(destination, exist_ok=True)
 
