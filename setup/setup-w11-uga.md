@@ -25,7 +25,7 @@ Cela vérifie que tout est bien configuré, et si besoin, réinstalle les élém
 Au bout de quelques minutes, on doit voir le message ci-dessous :
 
 > ```bash
-> Bilan : tout est prêt ! ✅
+> ==> Tout est en ordre !
 > ```
 
 ## Etape 3 : Localisation du dossier de travail
