@@ -56,14 +56,6 @@ https://www.anaconda.com/download/success?reg=skipped
 
 
 # ----------------------------------------------------------------------------
-# PowerShell 5 compatibility
-# ----------------------------------------------------------------------------
-
-$Utf8Encoding = New-Object System.Text.UTF8Encoding($false)
-[Console]::OutputEncoding = $Utf8Encoding
-$OutputEncoding = $Utf8Encoding
-
-# ----------------------------------------------------------------------------
 # Helper functions
 # ----------------------------------------------------------------------------
 
@@ -475,6 +467,12 @@ if ($BootstrapTD) {
 # Done
 # ----------------------------------------------------------------------------
 
+# PowerShell 5 compatibility
+$Utf8Encoding = New-Object System.Text.UTF8Encoding($false)
+[Console]::OutputEncoding = $Utf8Encoding
+$OutputEncoding = $Utf8Encoding
+
+# Final output
 Write-Step "Tout est en ordre !"
 Write-Host ""
 Write-Host "Le dossier de travail intro-python est situé dans :" -ForegroundColor Green
