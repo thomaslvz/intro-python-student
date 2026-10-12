@@ -467,15 +467,10 @@ if ($BootstrapTD) {
 # Done
 # ----------------------------------------------------------------------------
 
-# PowerShell 5 compatibility
-$Utf8Encoding = New-Object System.Text.UTF8Encoding($false)
-[Console]::OutputEncoding = $Utf8Encoding
-$OutputEncoding = $Utf8Encoding
-
-# Final output
+# Warning: special characters & accents not rendered in powershell 5
 Write-Step "Tout est en ordre !"
 Write-Host ""
-Write-Host "Le dossier de travail intro-python est situé dans :" -ForegroundColor Green
+Write-Host "Le dossier de travail intro-python est dans :" -ForegroundColor Green
 Write-Host "    $courseDirectory" -ForegroundColor Green
 if ($BootstrapTD) {
     Write-Host "Il contient les fichiers du TD $BootstrapTD." -ForegroundColor Green
