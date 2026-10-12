@@ -200,7 +200,7 @@ def main():
         error(f"probleme lors de l'installation : {exc}")
 
     print()
-    print(f"Le TD {td} a ete installe dans : {os.path.abspath(destination)}")
+    print(f"Le TD {td} a été installé dans : {os.path.abspath(destination)}")
 
     if action == "renommer":
         print(
