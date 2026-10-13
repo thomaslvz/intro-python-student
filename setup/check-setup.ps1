@@ -9,10 +9,11 @@
 # 2. Check if the conda environment is installed
 # 3. Check if the course directory is set up (automatically detects UGA domain if existing)
 #
-# Params:
+# Params (optional):
 # -CondaPath: Path to the conda executable (to force conda command localization)
 # -ForceCourseDirectory: Force the course directory to be (re)set up
 # -ForceEnvironment: Force the conda environment to be (re)installed
+# -BootstrapTD: tutorial (TD) number, to copy exercices in the course directory. If not provided, skipped.
 #
 # Examples :
 # 1) Without parameters (recommended)

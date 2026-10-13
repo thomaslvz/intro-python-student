@@ -153,7 +153,9 @@ else
         done
 
         printf '\nVeuillez ajouter le dossier bin de votre installation Conda au PATH, puis relancer ce script.\n'
-        printf 'Consultez la documentation de votre shell pour configurer le PATH.\n'
+        printf "Les instructions ont été données lors de l'installation de Conda.\n"
+        printf "Souvent, il suffit de lancer 'conda activate', ou d'initialiser conda post installation avec 'conda init'.\n"
+        printf "Appelez l'enseignant si vous avez besoin d'aide.\n"
         exit 1
     fi
 
