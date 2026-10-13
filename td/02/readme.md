@@ -1,3 +1,5 @@
+[< Revenir à la page d'Accueil](../../readme.md)
+
 # TD n°2
 
 ## Récupération des fichiers (à faire lors du 1er lancement uniquement)
