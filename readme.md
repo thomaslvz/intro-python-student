@@ -53,6 +53,12 @@ Peu importe que ce soit la première fois ou non, il faut suivre toutes les inst
 
 Les notebooks corrigés sont déposés sur Moodle progressivement. Vous pouvez les télécharger et les ranger dans votre dossier `intro-python`, afin de les ouvrir comme n'importe quel notebook.
 
+### Je peux travailler sur un autre ordinateur UGA que celui de d'habitude ?
+
+C'est possible, mais à **chaque fois** que vous voulez travailler sur un ordinateur différent, il faut refaire la [configuration initiale](https://github.com/thomaslvz/intro-python-student/blob/main/setup/setup-w11-uga.md). Cela n'effacera **pas** vos fichiers, et si l'ordinateur possède déjà Python installé, ce sera très rapide.
+
+Votre dossier `intro-python` est conservé d'un ordinateur à l'autre, sur tout le réseau UGA.
+
 ### Comment lancer JupyterLab ?
 
 Si vous (re)faites un TD, suivez les instructions du TD.
