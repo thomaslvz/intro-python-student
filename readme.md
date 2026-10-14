@@ -15,19 +15,20 @@ Pour configurer l'ordinateur, suivez les instructions de _setup_ :
 
 Les TD sont réalisés sur l'environnement de développement _JupyterLab_.
 
-A chaque début de séance, il est demandé d'ouvrir un terminal dans le dossier de travail `intro-python` : c'est une opération "clasique" qu'il faut savoir refaire (cf. [ici](#comment-ouvrir-un-terminal-dans-mon-dossier-intro-python-)).
+A chaque début de séance, une commande est lancée dans un terminal pour vérifier la configuration et démarrer _JupyterLab_.
 
-| Numéro de séance | Thématique                              | Supports                                                                                                              | Ressources utiles                                                     |
-| ---------------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| Séance 1         | Prise en main                           | [Présentation](https://thomaslvz.github.io/intro-python-student/01_prise-en-main) / [TD](td/01/readme.md)             | [Guide syntaxe Markdown](https://www.markdownguide.org/basic-syntax/) |
-| Séance 2         | Variables, types, structures de données | [Présentation](https://thomaslvz.github.io/intro-python-student/02_variables-types-list-dict) / [TD](td/02/readme.md) |                                                                       |
-| Séance 3         |                                         |                                                                                                                       |                                                                       |
-| Séance 4         |                                         |                                                                                                                       |                                                                       |
-| Séance 5         |                                         |                                                                                                                       |                                                                       |
-| Séance 6         |                                         |                                                                                                                       |                                                                       |
-| Séance 7         |                                         |                                                                                                                       |                                                                       |
-| Séance 8         |                                         |                                                                                                                       |                                                                       |
-| Séance 9         |                                         |                                                                                                                       |                                                                       |
+| Numéro de séance  | Thématique                                                       | Supports                                                                                                                                                                                                                | Ressources utiles                                                     |
+| ----------------- | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| Séance 1          | Prise en main                                                    | [Présentation](https://thomaslvz.github.io/intro-python-student/01_prise-en-main) / [TD](td/01/readme.md)<br><br>A finir chez soi : [Python Quest](https://utileaf.com/tools/python-quest) (niv. 1 à 4)                 | [Guide syntaxe Markdown](https://www.markdownguide.org/basic-syntax/) |
+| Séance 2          | Variables, types, structures de données                          | [Présentation](https://thomaslvz.github.io/intro-python-student/02_variables-types-list-dict) / [TD](td/02/readme.md)                                                                                                   |                                                                       |
+| Séance 3          | Fonctions, strutures conditionnelles, boucles                    | [Présentation](https://thomaslvz.github.io/intro-python-student/03_fonctions-boucles-conditions) / [TD](td/03/readme.md)<br><br> A finir chez soi : [Python Quest](https://utileaf.com/tools/python-quest) (niv. 5 à 9) |                                                                       |
+| Séance 4          | Numpy                                                            |                                                                                                                                                                                                                         |                                                                       |
+| _Pause Toussaint_ |
+| Séance 5          | pandas, premiers pas<br><br>📄 _Evaluation 1h (sans ordinateur)_ |                                                                                                                                                                                                                         |                                                                       |
+| Séance 6          |                                                                  |                                                                                                                                                                                                                         |                                                                       |
+| Séance 7          |                                                                  |                                                                                                                                                                                                                         |                                                                       |
+| Séance 8          | \*                                                               |                                                                                                                                                                                                                         |                                                                       |
+| Séance 9          |                                                                  |                                                                                                                                                                                                                         |                                                                       |
 
 ### Ressources externes / Bibliographie
 
@@ -48,8 +49,7 @@ A chaque début de séance, il est demandé d'ouvrir un terminal dans le dossier
 
 <details>
 <summary>Sur un ordinateur UGA</summary>
-
-Lancez _Anaconda Prompt_, puis exécutez :
+Lancez *Anaconda Prompt*, puis exécutez :
 
 ```shell
 H:
@@ -59,18 +59,14 @@ cd intro-python
 Vous y êtes !
 
 </details>
-
 <details>
 <summary>Sur son ordinateur perso sous Windows</summary>
-
-Ouvrir l'explorateur de fichiers, cliquer sur `Ce PC` puis sur le disque dur qui contient Windows. Aller ensuite dans _Utilisateurs_ et cliquer sur son nom d'utilisateur. Faire `Shift+Clic droit` sur le dossier `intro-python` et choisir `Ouvrir dans le terminal` ou `Ouvrir dans Powershell`.
+Ouvrir l'explorateur de fichiers, cliquer sur `Ce PC` puis sur le disque dur qui contient Windows. Aller ensuite dans *Utilisateurs* et cliquer sur son nom d'utilisateur. Faire `Shift+Clic droit` sur le dossier `intro-python` et choisir `Ouvrir dans le terminal` ou `Ouvrir dans Powershell`.
 
 </details>
-
 <details>
 <summary>Sur son ordinateur perso sous Mac</summary>
-
-Ouvrir l'application _Terminal_ et rentrer la commande
+Ouvrir l'application *Terminal* et rentrer la commande
 
 ```bash
 cd ~/intro-python && open .
@@ -81,8 +77,7 @@ Le terminal est désormais dans le dossier `intro-python`, et _Finder_ s'est ouv
 </details>
 <details>
 <summary>Sur son ordinateur perso sous Linux</summary>
-
-Ouvrir l'application _Terminal_ et rentrer la commande
+Ouvrir l'application *Terminal* et rentrer la commande
 
 ```bash
 cd ~/intro-python && xdg-open .
@@ -91,7 +86,6 @@ cd ~/intro-python && xdg-open .
 Le terminal est désormais dans le dossier `intro-python`, et le navigateur de fichiers s'est ouvert pour afficher le contenu du répertoire.
 
 </details>
-
 ### J'ai une erreur me disant que `conda` n'existe pas
 
 Message d'erreur type :
@@ -117,13 +111,16 @@ EnvironmentLocationNotFound: Not a conda environment: /.../envs/intro-python-feg
 Solution :
 
 - sur `Windows` (ordinateur perso ou UGA), ouvrez l'application _Terminal_ et lancez :
+
   ```powershell
   $script = Join-Path $env:TEMP 'intro-python-setup.ps1'
   Invoke-WebRequest 'https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/setup.ps1' -OutFile $script
   Unblock-File $script
   & $script --SkipDir
   ```
+
 - sur `Mac`/`Linux`, ouvrez un terminal et lancez :
+
   ```bash
   curl -fsSL "https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/setup.sh" | bash --no-capture-output -- --SkipDir
   ```
