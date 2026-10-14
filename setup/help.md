@@ -29,6 +29,8 @@ Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/thomaslvz/intro-python
 & $ScriptPath -BootstrapTD "03"
 ```
 
+On peut aussi essayer `Unblock-File $ScriptPath`.
+
 ### Ajouter conda au PATH
 
 - run du script de setup pour localiser conda

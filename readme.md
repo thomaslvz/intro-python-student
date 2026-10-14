@@ -19,16 +19,16 @@ A chaque début de séance, une commande est lancée dans un terminal pour véri
 
 | Numéro de séance  | Thématique                                                       | Supports                                                                                                                                                                                                                | Ressources utiles                                                     |
 | ----------------- | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| Séance 1          | Prise en main                                                    | [Présentation](https://thomaslvz.github.io/intro-python-student/01_prise-en-main) / [TD](td/01/readme.md)<br><br>A finir chez soi : [Python Quest](https://utileaf.com/tools/python-quest) (niv. 1 à 4)                 | [Guide syntaxe Markdown](https://www.markdownguide.org/basic-syntax/) |
-| Séance 2          | Variables, types, structures de données                          | [Présentation](https://thomaslvz.github.io/intro-python-student/02_variables-types-list-dict) / [TD](td/02/readme.md)                                                                                                   |                                                                       |
-| Séance 3          | Fonctions, strutures conditionnelles, boucles                    | [Présentation](https://thomaslvz.github.io/intro-python-student/03_fonctions-boucles-conditions) / [TD](td/03/readme.md)<br><br> A finir chez soi : [Python Quest](https://utileaf.com/tools/python-quest) (niv. 5 à 9) |                                                                       |
-| Séance 4          | Numpy                                                            |                                                                                                                                                                                                                         |                                                                       |
+| **Séance 1**      | Prise en main                                                    | [Présentation](https://thomaslvz.github.io/intro-python-student/01_prise-en-main) / [TD](td/01/readme.md)<br><br>A finir chez soi : [Python Quest](https://utileaf.com/tools/python-quest) (niv. 1 à 4)                 | [Guide syntaxe Markdown](https://www.markdownguide.org/basic-syntax/) |
+| **Séance 2**      | Variables, types, structures de données                          | [Présentation](https://thomaslvz.github.io/intro-python-student/02_variables-types-list-dict) / [TD](td/02/readme.md)                                                                                                   |                                                                       |
+| **Séance 3**      | Fonctions, strutures conditionnelles, boucles                    | [Présentation](https://thomaslvz.github.io/intro-python-student/03_fonctions-boucles-conditions) / [TD](td/03/readme.md)<br><br> A finir chez soi : [Python Quest](https://utileaf.com/tools/python-quest) (niv. 5 à 9) |                                                                       |
+| **Séance 4**      | Numpy                                                            |                                                                                                                                                                                                                         |                                                                       |
 | _Pause Toussaint_ |
-| Séance 5          | pandas, premiers pas<br><br>📄 _Evaluation 1h (sans ordinateur)_ |                                                                                                                                                                                                                         |                                                                       |
-| Séance 6          |                                                                  |                                                                                                                                                                                                                         |                                                                       |
-| Séance 7          |                                                                  |                                                                                                                                                                                                                         |                                                                       |
-| Séance 8          | \*                                                               |                                                                                                                                                                                                                         |                                                                       |
-| Séance 9          |                                                                  |                                                                                                                                                                                                                         |                                                                       |
+| **Séance 5**      | pandas, premiers pas<br><br>📄 _Evaluation 1h (sans ordinateur)_ |                                                                                                                                                                                                                         |                                                                       |
+| **Séance 6**      |                                                                  |                                                                                                                                                                                                                         |                                                                       |
+| **Séance 7**      |                                                                  |                                                                                                                                                                                                                         |                                                                       |
+| **Séance 8**      |                                                                  |                                                                                                                                                                                                                         |                                                                       |
+| **Séance 9**      |                                                                  |                                                                                                                                                                                                                         |                                                                       |
 
 ### Ressources externes / Bibliographie
 
@@ -45,60 +45,92 @@ A chaque début de séance, une commande est lancée dans un terminal pour véri
 
 ## Questions fréquentes
 
+### Si je veux refaire un TD que j'ai déjà fait, comment m'y prendre ?
+
+Peu importe que ce soit la première fois ou non, il faut suivre toutes les instructions préparatoires du début du TD. Cela permet de vérifier que l'ordinateur est bien configuré. Si les fichiers du TD sont déjà présents sur votre ordinateur, le script d'initialisation vous demandera si vous voulez les conserver (c'est conseillé !) ou les remplacer.
+
+### Où sont les corrigés des TD ?
+
+Les notebooks corrigés sont déposés sur Moodle progressivement. Vous pouvez les télécharger et les ranger dans votre dossier `intro-python`, afin de les ouvrir comme n'importe quel notebook.
+
+### Comment lancer JupyterLab ?
+
+Si vous (re)faites un TD, suivez les instructions du TD.
+
+Si vous voulez simplement lancer JupyterLab pour travailler sur vos fichiers, suivez les instructions ci-dessous.
+
+- sur `Windows` (ordinateur perso ou UGA), ouvrez l'application _Anaconda Powershell Prompt_ et lancez :
+
+  ```powershell
+  Invoke-RestMethod 'https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/check-setup.ps1' | Invoke-Expression
+  ```
+
+- sur `MacOS`/`Linux`, ouvrez un _Terminal_ et lancez :
+
+  ```bash
+  curl -fsSL "https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/check-setup.sh" | bash
+  ```
+
+Les instructions pour lancer _JupyterLab_ seront affichées à l'écran.
+
 ### Comment ouvrir un terminal dans mon dossier `intro-python` ?
 
-<details>
-<summary>Sur un ordinateur UGA</summary>
-Lancez *Anaconda Prompt*, puis exécutez :
+Etape 1 :
 
-```shell
-H:
-cd intro-python
-```
+- Sous `Windows`, lancez l'application _Anaconda PowersShell Prompt_
+- Sous `MacOS`, ou `Linux`, lancez l'application _Terminal_
 
-Vous y êtes !
+Etape 2 :
 
-</details>
-<details>
-<summary>Sur son ordinateur perso sous Windows</summary>
-Ouvrir l'explorateur de fichiers, cliquer sur `Ce PC` puis sur le disque dur qui contient Windows. Aller ensuite dans *Utilisateurs* et cliquer sur son nom d'utilisateur. Faire `Shift+Clic droit` sur le dossier `intro-python` et choisir `Ouvrir dans le terminal` ou `Ouvrir dans Powershell`.
+Pour vous localiser dans le dossier `intro-python` :
 
-</details>
-<details>
-<summary>Sur son ordinateur perso sous Mac</summary>
-Ouvrir l'application *Terminal* et rentrer la commande
+- Si vous êtes sur un ordinateur UGA, tapez la commande
+  ```shell
+  cd H:/intro-python
+  ```
+- Si vous êtes sur votre ordinateur personnel, tapez la commande
+  ```shell
+  cd ~/intro-python
+  ```
+  Vous y êtes !
 
-```bash
-cd ~/intro-python && open .
-```
+### Comment localiser dossier `intro-python` sur le disque dur ?
 
-Le terminal est désormais dans le dossier `intro-python`, et _Finder_ s'est ouvert pour afficher le contenu du répertoire.
+**Si vous êtes sur un PC UGA :**
 
-</details>
-<details>
-<summary>Sur son ordinateur perso sous Linux</summary>
-Ouvrir l'application *Terminal* et rentrer la commande
+- Lancez l'explorateur de fichiers
+- Cliquez sur `Ce PC`
+- Dans les emplacements réseaux, ouvrir le disque correspondant à votre nom d'utilisateur (dique `H:`)
+- Le dossier `intro-python` est là
 
-```bash
-cd ~/intro-python && xdg-open .
-```
+**Si vous êtes sur un PC perso :**
 
-Le terminal est désormais dans le dossier `intro-python`, et le navigateur de fichiers s'est ouvert pour afficher le contenu du répertoire.
+- Ouvrez l'application _Anaconda Powershell Prompt_ (`Windows`) ou _Terminal_ (`MacOS/Linux`)
+- Lancez la commande
+  ````bash
+  conda run --no-capture-output -n intro-python-feg-l3 python -X utf8 -c "import sys, urllib.request; exec(urllib.request.urlopen('https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/open-intro-python.py').read())"  ```
+  ````
+- Vous pouvez fermer le terminal, et une fenêtre s'est ouverte automatiquement. Le dossier `intro-python` y est visible. Il est conseillé d'ajouter ce dossier à vos _accès rapides_, pour le retrouver rapidement.
 
-</details>
-### J'ai une erreur me disant que `conda` n'existe pas
+### Quand je veux lancer jupyterlab, j'ai une erreur me disant que `conda` n'existe pas
 
 Message d'erreur type :
 
-- sur windows: `conda : The term 'conda' is not recognized as the name of a cmdlet, function, script file, or operable program.`
-- sur mac/linux : `conda: command not found`
+- sur `Windows`: `conda : The term 'conda' is not recognized as the name of a cmdlet, function, script file, or operable program.`
+- sur `MacOS/Linux` : `conda: command not found`
 
 Solution :
 
 - sur `Windows` :
-  - rééssayez depuis l'application _Anaconda Prompt_ plutôt que le terminal
-  - si vous n'avez pas _Anaconda Prompt_ faut installer Miniconda, cf. [Configuration initiale](setup/setup-w11.md)
-- sur `Mac`/`Linux` : il faut installer Miniconda : cf. [Configuration initiale](setup/setup-mac-linux.md)
+  - rééssayez depuis l'application _Anaconda PowerShell Prompt_ plutôt que le terminal
+  - si vous n'avez pas _Anaconda PowerShell Prompt_, il faut (re)faire l'étape 1 de la [Configuration initiale](setup/setup-w11.md)
+- sur `Mac`/`Linux` :
+  - Ouvez un terminal et exécutez-y la commande suivante :
+    ```python
+    curl -fsSL "https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/check-setup.sh" | bash
+    ```
+  - Si vous voyez un messsage `==> Tout est en ordre !`, la commande `conda` doit fonctionner.
+  - Si vous ne voyez pas ce message, faites une capture d'écran et envoyez la à l'enseignant pour obtenir de l'aide.
 
 ### J'ai une erreur `EnvironmentLocationNotFound`
 
@@ -110,19 +142,22 @@ EnvironmentLocationNotFound: Not a conda environment: /.../envs/intro-python-feg
 
 Solution :
 
-- sur `Windows` (ordinateur perso ou UGA), ouvrez l'application _Terminal_ et lancez :
+- sur `Windows` (ordinateur perso ou UGA), ouvrez l'application _Anaconda Powershell Prompt_ et lancez :
 
   ```powershell
-  $script = Join-Path $env:TEMP 'intro-python-setup.ps1'
-  Invoke-WebRequest 'https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/setup.ps1' -OutFile $script
-  Unblock-File $script
-  & $script --SkipDir
+  $ScriptPath = Join-Path $env:TEMP "script.ps1"
+  Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/check-setup.ps1' -OutFile $ScriptPath
+  & $ScriptPath -ForceEnvironment
   ```
 
-- sur `Mac`/`Linux`, ouvrez un terminal et lancez :
+- sur `MacOS`/`Linux`, ouvrez un terminal et lancez :
 
   ```bash
-  curl -fsSL "https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/setup.sh" | bash --no-capture-output -- --SkipDir
+  script=$(mktemp) || exit 1
+  trap 'rm -f "$script"' EXIT
+
+  curl -fsSL "https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/check-setup.sh" -o "$script" &&
+  bash "$script" --force-environment
   ```
 
 ### Comment obtenir les présentations en PDF ?
