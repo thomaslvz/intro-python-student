@@ -16,6 +16,19 @@
 
 ## Machine perso Windows
 
+### Script non sécurisé (`ExecutionPolicy` error)
+
+On ajoute la commande `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` avant le reste.
+
+Exemple (adapter les flags du script à la fin) :
+
+```powershel
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+$ScriptPath = Join-Path $env:TEMP "script.ps1"
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/check-setup.ps1' -OutFile $ScriptPath
+& $ScriptPath -BootstrapTD "03"
+```
+
 ### Ajouter conda au PATH
 
 - run du script de setup pour localiser conda

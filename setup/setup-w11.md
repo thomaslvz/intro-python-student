@@ -4,54 +4,15 @@
 
 NB : si vous êtes sur une machine perso tournant sur Windows 10, il est conseillé d'utiliser plutôt les machines de l'UGA. En effet, les mises à jours de sécurité [ne sont plus publiées pour Windows 10](https://www.microsoft.com/fr-fr/windows/end-of-support), ce qui représente un risque.
 
-## Etape 1 : Installer Miniconda
+## Etape 1 : Vérifier si Anaconda est installé
 
-Télécharger Miniconda depuis le [site officiel](https://www.anaconda.com/download/success), et procéder à l'installation **en suivant très précisément les étapes ci-dessous**.
+Dans le menu Windows, cherchez "Anaconda PowerShell Prompt". Si vous le trouvez, passez à la deuxième étape.
 
-⚠️ à l'étape 5, il y a des cases à cocher.
+Si vous ne le trouvez pas, il faut l'installer :
 
-<details>
-<summary>Étape 1</summary>
-
-![](img/miniconda-windows-1.png)
-
-</details>
-<details>
-<summary>Étape 2</summary>
-
-![](img/miniconda-windows-2.png)
-
-</details>
-<details>
-<summary>Étape 3</summary>
-
-![](img/miniconda-windows-3.png)
-
-</details>
-<details>
-<summary>Étape 4</summary>
-
-![](img/miniconda-windows-4.png)
-
-</details>
-<details>
-<summary>Étape 5</summary>
-
-![](img/miniconda-windows-5.png)
-
-</details>
-<details>
-<summary>Étape 6</summary>
-
-![](img/miniconda-windows-6.png)
-
-</details>
-<details>
-<summary>Étape 7</summary>
-
-![](img/miniconda-windows-7.png)
-
-</details>
+- Téléchargez Anaconda ou Miniconda depuis le [site officiel](https://www.anaconda.com/download/success). Les deux distribution fonctionnent, mais Anaconda prend plus de place sur votre disque dur.
+- Lancez l'installation en laissant les options par défau.t
+- Quand c'est terminé, vérifiez qu'Anaconda PowerShell Prompt est disponible dans les applications de l'ordinateur
 
 ## Etape 2 : Création du dossier de travail
 
