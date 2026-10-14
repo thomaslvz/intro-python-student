@@ -2,7 +2,7 @@
 
 # TD3
 
-## Configuration du TD
+## Configuration du TD & lancement de _JupyterLab_
 
 <details>
 <Summary><b>Si vous êtes sur Windows (PC UGA ou PC perso)</b></Summary>

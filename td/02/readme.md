@@ -2,120 +2,60 @@
 
 # TD n°2
 
-## Récupération des fichiers (à faire lors du 1er lancement uniquement)
+## Configuration du TD & lancement de _JupyterLab_
 
 <details>
-<Summary><b>Si vous êtes sur un ordinateur UGA</b></Summary>
+<Summary><b>Si vous êtes sur Windows (PC UGA ou PC perso)</b></Summary>
 
-Lancez l'application _Terminal_, puis excécutez-y cette commande pour vérifier l'installation de conda depuis le dernier TD :
-
-```powershell
-$script = Join-Path $env:TEMP 'intro-python-setup.ps1'
-Invoke-WebRequest 'https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/setup.ps1' -OutFile $script
-Unblock-File $script
-& $script --SkipDir
-```
-
-Si cela fonctionne, fermez le terminal et lancez l'application _Anaconda Prompt_. Exécutez ensuite :
+Ouvrez l'application "Anaconda Powershell Prompt" et lancez la commande suivante :
 
 ```powershell
-H:
-cd intro-python
-conda run --no-capture-output -n intro-python-feg-l3 python -X utf8 -c "import sys, urllib.request; sys.argv = ['bootstrap_td.py', '02']; exec(urllib.request.urlopen('https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/bootstrap_td.py').read())"
+$ScriptPath = Join-Path $env:TEMP "script.ps1"
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/check-setup.ps1' -OutFile $ScriptPath
+& $ScriptPath -BootstrapTD "02"
 ```
 
-Si vous avez une phrase du type "Le TD.. a été installé dans...", vous pouvez continuer.
+Vous devez voir un message du type :
+
+> ```bash
+> ==> Tout est en ordre !
+> ```
+
+suivi des instructions pour lancer jupyter lab : suivez ces instructions pour démarrer le TD.
 
 </details>
 
-<br>
-
 <details>
-<summary><b>Si vous êtes sur votre ordinateur personnel</b></summary>
-
-Localisez votre dossier `intro-python`.
-
----
-
-<details>
-<summary>💡 Aide : je n'arrive pas à trouver mon dossier <code>intro-python</code></summary>
+<summary><b>Si vous êtes sur Mac ou Linux</b></summary>
 
 Ouvrez un terminal et lancez :
 
 ```bash
-conda run --no-capture-output -n intro-python-feg-l3 python -X utf8 -c "import sys, urllib.request; exec(urllib.request.urlopen('https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/open-intro-python.py').read())"
+script=$(mktemp) || exit 1
+trap 'rm -f "$script"' EXIT
+
+curl -fsSL "https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/check-setup.sh" -o "$script" &&
+bash "$script" --bootstrap-td 02
+
 ```
 
-Vous pouvez fermer le terminal, et une fenêtre s'est ouverte automatiquement. Le dossier `intro-python` y est visible. Il est conseillé d'ajouter ce dossier à vos _accès rapides_, pour le retrouver rapidement.
+<!-- alternative (non interactive?)
+curl -fsSL "https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/check-setup.sh" | bash -s -- --bootstrap-td 03
+ -->
+
+Vous devez voir un message du type :
+
+> ```bash
+> ==> Tout est en ordre !
+> ```
+
+suivi des instructions pour lancer jupyter lab : suivez ces instructions pour démarrer le TD.
 
 </details>
-
----
-
-Sur le dossier `intro-python`, faites un `clic droit` puis `Ouvrir dans un Terminal`.
-
-Dans le terminal, exécutez cette commande :
-
-```bash
-conda run --no-capture-output -n intro-python-feg-l3 python -X utf8 -c "import sys, urllib.request; sys.argv = ['bootstrap_td.py', '02']; exec(urllib.request.urlopen('https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/bootstrap_td.py').read())"
-```
-
-Si vous avez une phrase du type "Le TD.. a été installé dans...", vous pouvez continuer.
-
-</details>
-<br>
-
-## Ouverture de JupyerLab
-
-<details>
-<Summary><b>Si vous êtes sur un ordinateur UGA</b></Summary>
-
-Lancez l'application _Anaconda Prompt_. Exécutez ensuite :
-
-```powershell
-conda activate intro-python-feg-l3
-jupyter lab
-```
-
-</details>
-
-<br>
-
-<details>
-<summary><b>Si vous êtes sur votre ordinateur personnel</b></summary>
-
-Sur le dossier `intro-python`, faites un `clic droit` puis `Ouvrir dans un Terminal`.
-
----
-
-<details>
-<summary>💡 Aide : je n'arrive pas à trouver mon dossier <code>intro-python</code></summary>
-
-Ouvrez un terminal et lancez :
-
-```bash
-conda run --no-capture-output -n intro-python-feg-l3 python -X utf8 -c "import sys, urllib.request; exec(urllib.request.urlopen('https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/open-intro-python.py').read())"
-```
-
-Vous pouvez fermer le terminal, et une fenêtre s'est ouverte automatiquement. Le dossier `intro-python` y est visible. Il est conseillé d'ajouter ce dossier à vos _accès rapides_, pour le retrouver rapidement.
-
-</details>
-
----
-
-Dans le terminal, exécutez cette commande :
-
-```bash
-conda activate intro-python-feg-l3
-jupyter lab
-```
-
-</details>
-<br>
-
-Il faut garder ce terminal ouvert tant que JupyterLab est utilisé.
 
 ## Exercices
+
+Il faut garder ce terminal ouvert tant que JupyterLab est utilisé.
 
 Les 3 exercices sont à faire dans _JupyterLab_, il y a un notebook par exercice, à faire dans l'ordre de numérotation :
 

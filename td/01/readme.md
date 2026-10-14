@@ -2,75 +2,62 @@
 
 # TD n°1
 
-> ⚠️ Vous devez au préalable **configurer l'ordinateur** avant de débuter ce TD. Les instructions sont sur Moodle, c'est à réaliser une seule fois lors du 1er TD.
+> ⚠️ Vous devez au préalable **configurer l'ordinateur** avant de débuter ce TD. Les instructions sont sur la page d'accueil, en haut ("configuration initiale"). C'est à réaliser une seule fois lors du 1er TD.
 
-## Chargement des fichiers et démarrage de JupyterLab
+## Configuration du TD & lancement de _JupyterLab_
 
 <details>
-<Summary><b>Si vous êtes sur un ordinateur UGA</b></Summary>
+<Summary><b>Si vous êtes sur Windows (PC UGA ou PC perso)</b></Summary>
 
-Lancez l'application _Anaconda Prompt_, puis excécutez-y ces commandes :
+Ouvrez l'application "Anaconda Powershell Prompt" et lancez la commande suivante :
 
 ```powershell
-H:
-cd intro-python
-conda run --no-capture-output -n intro-python-feg-l3 python -X utf8 -c "import sys, urllib.request; sys.argv = ['bootstrap_td.py', '01']; exec(urllib.request.urlopen('https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/bootstrap_td.py').read())"
+$ScriptPath = Join-Path $env:TEMP "script.ps1"
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/check-setup.ps1' -OutFile $ScriptPath
+& $ScriptPath -BootstrapTD "01"
 ```
 
-Si vous avez une phrase du type "Le TD.. a été installé dans...", vous pouvez continuer. Lancez cette commande :
+Vous devez voir un message du type :
 
-```bash
-conda activate intro-python-feg-l3
-jupyter lab
-```
+> ```bash
+> ==> Tout est en ordre !
+> ```
+
+suivi des instructions pour lancer jupyter lab : suivez ces instructions pour démarrer le TD.
 
 </details>
 
-<br>
-
 <details>
-<summary><b>Si vous êtes sur votre ordinateur personnel</b></summary>
-
-Localisez votre dossier `intro-python`.
-
----
-
-<details>
-<summary>💡 Aide : je n'arrive pas à trouver mon dossier <code>intro-python</code></summary>
+<summary><b>Si vous êtes sur Mac ou Linux</b></summary>
 
 Ouvrez un terminal et lancez :
 
 ```bash
-conda run --no-capture-output -n intro-python-feg-l3 python -X utf8 -c "import sys, urllib.request; exec(urllib.request.urlopen('https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/open-intro-python.py').read())"
+script=$(mktemp) || exit 1
+trap 'rm -f "$script"' EXIT
+
+curl -fsSL "https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/check-setup.sh" -o "$script" &&
+bash "$script" --bootstrap-td 01
+
 ```
 
-Vous pouvez fermer le terminal, et une fenêtre s'est ouverte automatiquement. Le dossier `intro-python` y est visible. Il est conseillé d'ajouter ce dossier à vos _accès rapides_, pour le retrouver rapidement.
+<!-- alternative (non interactive?)
+curl -fsSL "https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/check-setup.sh" | bash -s -- --bootstrap-td 03
+ -->
+
+Vous devez voir un message du type :
+
+> ```bash
+> ==> Tout est en ordre !
+> ```
+
+suivi des instructions pour lancer jupyter lab : suivez ces instructions pour démarrer le TD.
 
 </details>
-
----
-
-Sur le dossier `intro-python`, faites un `clic droit` puis `Ouvrir dans un Terminal`.
-
-Dans le terminal, exécutez cette commande :
-
-```bash
-conda run --no-capture-output -n intro-python-feg-l3 python -X utf8 -c "import sys, urllib.request; sys.argv = ['bootstrap_td.py', '01']; exec(urllib.request.urlopen('https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/bootstrap_td.py').read())"
-```
-
-Si vous avez une phrase du type "Le TD.. a été installé dans...", vous pouvez continuer. Lancez cette commande :
-
-```bash
-conda activate intro-python-feg-l3
-jupyter lab
-```
-
-</details>
-<br>
-
-Il faut garder ce terminal ouvert tant que JupyterLab est utilisé.
 
 ## Exercice 1
+
+Il faut garder ce terminal ouvert tant que JupyterLab est utilisé.
 
 Dans _JupyterLab_, repérer l'explorateur de fichiers (panneau de gauche). Localiser le répertoire du 1er TD et l'ouvrir.
 
@@ -87,13 +74,15 @@ Ouvrez le premier Notebook intitulé `01_prise_en_main.ipynb` et suivez les inst
 
 Le but de cet exercice est d'apprendre à fermer proprement _JupyerLab_.
 
-Commencez par sauvegarder votre fichier `01_prise_en_main.ipynb`. Repérez ensuite l'adresse utilisée dans le navigateur pour accéder à _JupyterLab_ (du style `localhost:8888/lab...`) et copiez-la (`Ctrl+C`). Fermez ensuite le navigateur.
+Commencez par sauvegarder votre fichier `01_prise_en_main.ipynb`. Repérez ensuite l'adresse utilisée dans le navigateur pour accéder à _JupyterLab_ (du style `localhost:8888/lab...`) et copiez-la (`Ctrl+C`).
+
+Fermez ensuite le navigateur web.
 
 Ouvrez à nouveau un navigateur web et collez l'adresse précédente (`Ctrl+V`). _JupyterLab_ s'affiche à nouveau : il n'était donc pas réellement fermé.
 
 > 💡 Ce que l'on doit comprendre : l'application _Jupyterlab_ tourne en arrière plan, et le navigateur web permet uniquement d'afficher à l'application, pas de la démarrer ou l'arrêter.
 
-Pour fermer réellement _JupyterLab_, allez désormais dans le terminal que vous avez ouvert au tout début du TD (appelé "Anaconda Prompt" ou "Terminal" selon les machines). Cliquez dans le Terminal puis faites `Ctrl+C`, et répondez "y" à la question "Shut down this Jupyter server". Cette fois-ci, l'application n'est plus accessible via un navigateur. Vous pouvez fermer cette fenêtre.
+Pour fermer réellement _JupyterLab_, allez désormais dans le terminal que vous avez ouvert au tout début du TD (appelé "Anaconda PowerShell Prompt" ou "Terminal" selon les machines). Cliquez dans le Terminal puis faites `Ctrl+C`, et répondez "y" à la question "Shut down this Jupyter server". Cette fois-ci, l'application n'est plus accessible via un navigateur. Vous pouvez fermer cette fenêtre.
 
 ## Exercice 3
 
