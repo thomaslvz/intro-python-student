@@ -2,7 +2,7 @@
 
 # Configurer une machine UGA (`Windows 11`)
 
-## Etape 1 : Vérifier si Anaconda est installé
+## Etape 1 : Vérifier si Python est installé
 
 Dans le menu Windows, cherchez "Anaconda PowerShell Prompt". Si vous le trouvez, passez à la deuxième étape.
 
