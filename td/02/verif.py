@@ -61,14 +61,14 @@ def check_sells(s):
 
 @test_checker_var
 def check_revenue(rev):
-    assert rev == 12238.56
+    assert rev == 8999.82
 
 
 @test_checker_var
 def check_bilan(t):
     assert t in [
-        "Smartphone: 15 units - Revenue: 12238.56€",
-        "Smartphone: 15 units - Revenue: 12238.56 €",
+        "Smartphone: 15 units - Revenue: 8999.82€",
+        "Smartphone: 15 units - Revenue: 8999.82 €",
     ]
 
 
@@ -166,6 +166,10 @@ def check_dict_3(d):
     assert "sector" not in d.keys(), (
         "Le dictionnaire actuel comporte encore une clé 'sector'."
     )
-    assert d == {"name": "EcoTech", "employees": 45, "revenue": 1250000}, (
-        "Le dictionnaire doit avoir les clés 'name', \n'employees' (45 employés désormais), et 'revenue'."
-    )
+    assert d == {
+        "name": "EcoTech",
+        "employees": 45,
+        "revenue": 1250000,
+        "city": "Lyon",
+    }, """Le dictionnaire doit avoir les clés 'name',
+        'employees' (45 employés désormais), 'city', et 'revenue'."""
