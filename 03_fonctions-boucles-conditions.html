@@ -224,7 +224,7 @@
 </section>
 <section id="un-exemple-et-du-vocabulaire" class="slide level2 small-slide">
 <h2>Un exemple et du vocabulaire</h2>
-<div id="853e3f3f" class="cell" data-execution_count="1">
+<div id="ff27a81b" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> half(number):</span>
 <span id="cb1-2"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> number<span class="op">*</span><span class="fl">0.5</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -234,7 +234,7 @@
 <li class="fragment">Elle retourne un <code>float</code></li>
 </ul>
 <div class="fragment">
-<div id="0e382820" class="cell" data-execution_count="2">
+<div id="c10b8491" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> half(<span class="dv">10</span>)</span>
 <span id="cb2-2"><a href="" aria-hidden="true" tabindex="-1"></a>result</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
@@ -251,7 +251,7 @@
 <h2>Ce qui se passe dans une fonction reste dans la fonction</h2>
 <p>💡 A l’intérieur de la fonction, le code est <em>indenté</em> (tabulation).</p>
 <div class="fragment">
-<div id="c6f72831" class="cell" data-execution_count="3">
+<div id="bd0381b2" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_tax(price):</span>
 <span id="cb4-2"><a href="" aria-hidden="true" tabindex="-1"></a>    total <span class="op">=</span> price <span class="op">*</span> <span class="fl">1.2</span></span>
 <span id="cb4-3"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> total</span>
@@ -264,7 +264,7 @@
 </div>
 </div>
 <div class="fragment">
-<div id="266d415c" class="cell" data-execution_count="4">
+<div id="e352371b" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(total)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -285,12 +285,12 @@
 <section id="plusieurs-arguments" class="slide level2">
 <h2>Plusieurs arguments ?</h2>
 <p>On peut passer plusieurs arguments à une fonction, et les rendre facultatifs.</p>
-<div id="1b4b740c" class="cell" data-execution_count="5">
+<div id="ad1e571d" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_tax(price, rate<span class="op">=</span><span class="fl">0.2</span>):</span>
 <span id="cb7-2"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> price <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> rate)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
-<div id="1636bed6" class="cell" data-execution_count="6">
+<div id="57280760" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="" aria-hidden="true" tabindex="-1"></a>add_tax(<span class="dv">100</span>, rate<span class="op">=</span><span class="fl">0.05</span>) <span class="co"># tax rate is 5/100</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>105.0</code></pre>
@@ -298,7 +298,7 @@
 </div>
 </div>
 <div class="fragment">
-<div id="e470782f" class="cell" data-execution_count="7">
+<div id="825d6319" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="" aria-hidden="true" tabindex="-1"></a>add_tax(<span class="dv">100</span>)  <span class="co"># tax rate not provided, default value is used</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>120.0</code></pre>
@@ -316,7 +316,7 @@
 <p>… ou simplement deux valeurs, séparées par une virgule.</p>
 </div>
 <div class="fragment">
-<div id="41138ca2" class="cell" data-execution_count="8">
+<div id="d9ec28db" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> format_name(name):</span>
 <span id="cb12-2"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> name.upper(), name.lower()</span>
 <span id="cb12-3"><a href="" aria-hidden="true" tabindex="-1"></a></span>
@@ -332,7 +332,7 @@
 <p>💡 En réalité <code>return a, b</code> renvoie un <strong>tuple</strong> <code>(a, b)</code>. Le tuble est un type de données qui ressemble aux listes.</p>
 <div class="fragment">
 <p>On peut récupérer chacun des éléments du tuple en utilisant l’<em><a href="https://www.w3schools.com/python/python_tuples_unpack.asp" class="external" target="_blank">unpacking</a></em> :</p>
-<div id="4e97cbe1" class="cell" data-execution_count="9">
+<div id="76ff4711" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="" aria-hidden="true" tabindex="-1"></a>upper_name, lower_name <span class="op">=</span> format_name(<span class="st">"jOhn LEnNon"</span>)</span>
 <span id="cb14-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(upper_name)</span>
 <span id="cb14-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(lower_name)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
@@ -350,7 +350,7 @@ john lennon</code></pre>
 </section>
 <section id="tout-est-dit-en-un-exemple" class="slide level2">
 <h2>Tout est dit en un exemple</h2>
-<div id="2063d02e" class="cell" data-execution_count="10">
+<div id="5b609d4c" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="" aria-hidden="true" tabindex="-1"></a>inflation <span class="op">=</span> <span class="fl">3.2</span></span>
 <span id="cb16-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> inflation <span class="op">&gt;</span> <span class="dv">2</span>:</span>
 <span id="cb16-3"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"au-dessus de la cible"</span>)</span>
@@ -377,7 +377,7 @@ john lennon</code></pre>
 </section>
 <section id="parcourir-une-liste" class="slide level2">
 <h2>Parcourir une liste</h2>
-<div id="8f6d50b5" class="cell" data-execution_count="11">
+<div id="5eb777bb" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="" aria-hidden="true" tabindex="-1"></a>countries <span class="op">=</span> [<span class="st">"France"</span>, <span class="st">"Allemagne"</span>, <span class="st">"Italie"</span>]</span>
 <span id="cb18-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> c <span class="kw">in</span> countries:</span>
 <span id="cb18-3"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(c.upper())</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
@@ -390,7 +390,7 @@ ITALIE</code></pre>
 <p>À chaque <em>itération</em>, le curseur <code>c</code> prend la valeur suivante de la liste.</p>
 <div class="fragment">
 <p>On peut aussi boucler en récupérant à la fois la valeur et l’index :</p>
-<div id="131cf223" class="cell" data-execution_count="12">
+<div id="844c3bbd" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="" aria-hidden="true" tabindex="-1"></a>countries <span class="op">=</span> [<span class="st">"France"</span>, <span class="st">"Allemagne"</span>, <span class="st">"Italie"</span>]</span>
 <span id="cb20-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, c <span class="kw">in</span> <span class="bu">enumerate</span>(countries):</span>
 <span id="cb20-3"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(index, <span class="st">" - "</span>, c.upper())</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
@@ -405,7 +405,7 @@ ITALIE</code></pre>
 <section id="parcourir-des-valeurs-numériques" class="slide level2">
 <h2>Parcourir des valeurs numériques</h2>
 <p>On utilise la clause <code>range(start, stop, step)</code>. Comme pour les listes, <code>stop</code> n’est pas inclus, et <code>step</code> est optionnel.</p>
-<div id="78bf50e3" class="cell" data-execution_count="13">
+<div id="f2a50479" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> year <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2020</span>, <span class="dv">2023</span>):  <span class="co"># 2023 not included</span></span>
 <span id="cb22-2"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(year)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -415,7 +415,7 @@ ITALIE</code></pre>
 </div>
 </div>
 <div class="fragment">
-<div id="ae20a088" class="cell" data-execution_count="14">
+<div id="70bad36f" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">2</span>):</span>
 <span id="cb24-2"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(n)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -428,7 +428,7 @@ ITALIE</code></pre>
 <section class="slide level2">
 
 <p>Très souvent, on utilise <code>range(n)</code> pour répéter un traitement <code>n</code> fois :</p>
-<div id="4b587b42" class="cell" data-execution_count="15">
+<div id="032e7409" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
 <span id="cb26-2"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Hello !'</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -443,12 +443,12 @@ Hello !</code></pre>
 <section id="parcourir-un-dictionnaire" class="slide level2">
 <h2>Parcourir un dictionnaire</h2>
 <p>Rappel : Un dictionnaire contient des paires <strong>clé–valeur</strong>.</p>
-<div id="b4e28029" class="cell" data-execution_count="16">
+<div id="3f911ee3" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="" aria-hidden="true" tabindex="-1"></a>scores <span class="op">=</span> {<span class="st">"Alice"</span>: <span class="dv">15</span>, <span class="st">"Bob"</span>: <span class="dv">12</span>, <span class="st">"Charlie"</span>: <span class="dv">18</span>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
 <p>Avec une boucle <code>for</code>, on peut parcourir ses clés, ses valeurs ou les deux simultanément.</p>
-<div id="2165e891" class="cell columns column-output-location" data-execution_count="17">
+<div id="32f8346c" class="cell columns column-output-location" data-execution_count="17">
 <div class="column">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name <span class="kw">in</span> scores.keys():</span>
 <span id="cb29-2"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(name)</span>
@@ -475,7 +475,7 @@ Charlie: 18</code></pre>
 </section>
 <section id="utiliser-une-boucle-pour-construire-une-liste" class="slide level2">
 <h2>Utiliser une boucle pour construire une liste</h2>
-<div id="d45fb392" class="cell" data-execution_count="18">
+<div id="f8770176" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="" aria-hidden="true" tabindex="-1"></a>capital <span class="op">=</span> <span class="dv">1000</span></span>
 <span id="cb31-2"><a href="" aria-hidden="true" tabindex="-1"></a>history <span class="op">=</span> []</span>
 <span id="cb31-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> year <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
@@ -490,7 +490,7 @@ Charlie: 18</code></pre>
 <section class="slide level2">
 
 <p>🤯 Version compacte (<em>list comprehension</em>), cf.&nbsp;exercice 4 :</p>
-<div id="17668776" class="cell" data-execution_count="19">
+<div id="843eabb0" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="" aria-hidden="true" tabindex="-1"></a>history <span class="op">=</span> [<span class="bu">round</span>(<span class="dv">1000</span> <span class="op">*</span> (<span class="fl">1.03</span>) <span class="op">**</span> year, <span class="dv">2</span>) <span class="cf">for</span> year <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>)]</span>
 <span id="cb33-2"><a href="" aria-hidden="true" tabindex="-1"></a>history</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
@@ -505,7 +505,7 @@ Charlie: 18</code></pre>
 </section>
 <section id="un-exemple" class="slide level2">
 <h2>Un exemple</h2>
-<div id="0f688621" class="cell" data-execution_count="20">
+<div id="0258fbc8" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="" aria-hidden="true" tabindex="-1"></a>capital, year <span class="op">=</span> <span class="dv">1000</span>, <span class="dv">0</span></span>
 <span id="cb35-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> capital <span class="op">&lt;</span> <span class="dv">2000</span>:</span>
 <span id="cb35-3"><a href="" aria-hidden="true" tabindex="-1"></a>    capital <span class="op">=</span> capital <span class="op">*</span> <span class="fl">1.05</span></span>
