@@ -10,6 +10,14 @@
 Ouvrez l'application "Anaconda Powershell Prompt" et lancez la commande suivante :
 
 ```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+```
+
+Puis dites "Oui".
+
+Ensuite, lancez la commande suivante :
+
+```powershell
 $ScriptPath = Join-Path $env:TEMP "script.ps1"
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/check-setup.ps1' -OutFile $ScriptPath
 & $ScriptPath -BootstrapTD "03"
