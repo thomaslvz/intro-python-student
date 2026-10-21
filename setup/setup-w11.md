@@ -19,7 +19,7 @@ Si vous ne le trouvez pas, il faut l'installer :
 Ouvrez l'application "Anaconda Powershell Prompt" et lancez la commande suivante :
 
 ```powershell
-Invoke-RestMethod 'https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/check-setup.ps1' | Invoke-Expression
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force; Invoke-RestMethod 'https://raw.githubusercontent.com/thomaslvz/intro-python-student/refs/heads/main/setup/check-setup.ps1' | Invoke-Expression
 ```
 
 Cela vérifie que tout est bien configuré, et si besoin, installe les éléments manquants.
