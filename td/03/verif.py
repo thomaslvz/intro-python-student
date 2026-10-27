@@ -154,10 +154,11 @@ def check_classify_revenue(f):
 
 @test_checker_func
 def check_add_eligibility(f):
-    assert f({}) is not None, (
+    client = {"name": "Hector", "age": 25, "student": False, "country": "France"}
+    assert f(client) is not None, (
         "La fonction doit RENVOYER un résultat : utilisez la clause 'return'."
     )
-    assert isinstance(f({}), dict), "La fonction doit renvoyer un dictionnaire."
+    assert isinstance(f(client), dict), "La fonction doit renvoyer un dictionnaire."
     clients = [
         {"name": "Hector", "age": 25, "student": False, "country": "France"},
         {"name": "Alice", "age": 29, "student": True, "country": "France"},
