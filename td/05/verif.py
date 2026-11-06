@@ -84,3 +84,20 @@ def check_companies(c):
     assert c.loc["Delta", "city"].lower() == "marseille", (
         "Avez-vous modifié la ville de l'entreprise Delta ?"
     )
+
+
+@test_checker_var
+def check_sales(c):
+    assert tuple(c.shape) == (12, 5), (
+        "Avez-vous ajouté la colonne `revenue above mean?` ?"
+    )
+    assert "revenue above mean?" in c.columns, (
+        "Avez-vous ajouté la colonne `revenue above mean?` sous le bon nom ?"
+    )
+    mean_Lyon = c.loc[c["store"] == "Lyon"]["revenue"].mean()
+    mean_Paris = c.loc[c["store"] == "Paris"]["revenue"].mean()
+    for index, row in c.iterrows():
+        mean = mean_Lyon if row["store"] == "Lyon" else mean_Paris
+        assert (row["revenue"] > mean) == row["revenue above mean?"], (
+            f"La valeur de `revenue above mean?` ne semble pas bonne sur la ligne d'index {index}"
+        )
