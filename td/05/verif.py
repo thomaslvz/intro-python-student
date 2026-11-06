@@ -101,3 +101,17 @@ def check_sales(c):
         assert (row["revenue"] > mean) == row["revenue above mean?"], (
             f"La valeur de `revenue above mean?` ne semble pas bonne sur la ligne d'index {index}"
         )
+
+
+@test_checker_var
+def check_titanic_shape(titanic_shape):
+    assert tuple(titanic_shape) == (891, 12), (
+        "Le fichier train.csv attendu contient 891 lignes et 12 colonnes."
+    )
+
+
+@test_checker_var
+def check_survival_rate(survival_rate):
+    assert abs(float(survival_rate) - 0.3838383838) < 1e-6, (
+        "Vérifier le calcul de la proportion : la moyenne de Survived donne le taux de survie."
+    )
