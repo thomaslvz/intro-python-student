@@ -56,6 +56,69 @@ def test_checker_var(var):
 
 
 @test_checker_var
+def check_is_admitted(a):
+    assert isinstance(a, np.ndarray), (
+        "La variable 'is_admitted' doit être un ndarray, construit avec NumPy en testant si les notes dépassent 10."
+    )
+    assert a.dtype == "bool", (
+        "'is_admitted' doit contenir des True et des False selon la valeur de chaque note."
+    )
+    assert (
+        a
+        == np.array(
+            [
+                [True, False, True, False, True, False, True, True],
+                [True, True, True, False, False, True, True, True],
+            ]
+        )
+    ).all(), (
+        "Avez-vous utilisé un test vérifiant si chaque note est supérieure ou égale à 10 ?"
+    )
+
+
+@test_checker_var
+def check_notes_admitted(a):
+    assert (a == np.array([12, 17, 14, 18, 11, 15, 13, 16, 12, 14, 10])).all(), (
+        "Le tableau des notes admises est erroné."
+    )
+
+
+@test_checker_var
+def check_notes_failed(a):
+    assert (a == np.array([8, 5, 9, 9, 6])).all(), (
+        "Le tableau des notes non admises est erroné."
+    )
+
+
+@test_checker_var
+def check_bonus(a):
+    assert isinstance(a, np.ndarray), "La variable 'bonus_notes' doit être un ndarray."
+    assert np.array_equal(
+        a, np.array([[12, 10, 17, 7, 14, 11, 18, 11], [15, 13, 16, 11, 8, 12, 14, 10]])
+    ), "Le tableau 'bonus_notes' ne contient pas les bonnes notes."
+
+
+@test_checker_var
+def check_is_hot(is_hot, data):
+    assert isinstance(is_hot, np.ndarray), "is_hot doit être un array NumPy."
+    assert is_hot.dtype == bool, "is_hot doit contenir des booléens."
+    assert is_hot.shape == data.shape, (
+        "Le masque doit avoir la même dimension que data."
+    )
+    assert np.array_equal(is_hot, data > 30), (
+        "Le masque doit tester les températures strictement supérieures à 30°C."
+    )
+
+
+@test_checker_var
+def check_warm_temps(warm_temps, data):
+    expected = data[(data >= 25) & (data <= 30)]
+    assert np.array_equal(warm_temps, expected), (
+        "Vérifier les deux bornes du filtre (25°C et 30°C inclus)."
+    )
+
+
+@test_checker_var
 def check_mean_revenue(r):
     assert isinstance(r, np.float64), (
         "La valeur de mean_revenue doit être calculée avec pandas ou NumPy..."
