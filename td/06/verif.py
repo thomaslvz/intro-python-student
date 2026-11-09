@@ -109,3 +109,51 @@ def check_passclass(s):
     assert (s.index == [1, 2, 3]).all(), (
         "Il faut faire un groupby par classe (Pclass) ici."
     )
+
+
+@test_checker_var
+def check_T(d):
+    assert "T" in d.columns, "La colonne 'T' n'est pas présente dans weather."
+    assert d["T"].mean() - 8.1749 < 0.001, (
+        "La colonne 'T' ne contient pas les bonnes valeurs..."
+    )
+
+
+@test_checker_var
+def check_weather_missing(weather_clean):
+    assert weather_clean["T"].notna().all(), (
+        "Supprimer les lignes dont la température est manquante."
+    )
+    assert (weather_clean["NBJORAG"] == 0).sum() == 29179, (
+        "Remplacer par 0 les NaN de la colonne NBJORAG."
+    )
+    assert (weather_clean["NBJSOLNG"] == 0).sum() == 28835, (
+        "Remplacer par 0 les NaN de la colonne NBJSOLNG."
+    )
+
+
+@test_checker_var
+def check_weather_date_col(weather):
+    assert "date" in weather.columns, "Il faut créer une colonne 'date'."
+    assert weather["date"].dtype in ["str", "object"], (
+        "La colonne 'date' doit contenir des objets de type str."
+    )
+    assert weather["date"].str.endswith("01").all(), (
+        "Les valeurs dans date doivent être au format YYYYMMDD avec DD='01' (le jour 1er jour du mois)."
+    )
+
+
+@test_checker_var
+def check_weather_prepared(weather):
+    assert pd.api.types.is_datetime64_any_dtype(weather["date"]), (
+        "La colonne 'date' doit être au format datetime."
+    )
+    assert "year" in weather.columns, 'Il faut créer une colonne "year".'
+    cols = ["date", "NOM_USUEL", "T", "NBJSOLNG", "NBJORAG", "ALTI", "year"]
+    assert len(weather.columns) == len(cols), "Il n'y a pas le bon nombre de colonnes."
+    assert (weather.columns == cols).all(), (
+        "Les colonnes ne correspondent pas à ce qui est demandé."
+    )
+    assert weather["year"].dtype in ["int", "int64", "int32"], (
+        "La colonne 'year' doit être de type int."
+    )
