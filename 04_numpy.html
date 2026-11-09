@@ -253,7 +253,7 @@
 <section id="section" class="slide level2">
 <h2></h2>
 <p>Il faut d’abord importer le package</p>
-<div id="33324b34" class="cell" data-execution_count="1">
+<div id="72be2157" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div>
 </div>
 </section>
@@ -261,7 +261,7 @@
 <h2>Création en listant tous les éléments</h2>
 <p>Un <code>array</code> est un peu comme une <code>list</code>… mais ce n’en est pas une !</p>
 <div class="fragment">
-<div id="8448a4d3" class="cell" data-execution_count="2">
+<div id="b8b3cd8a" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="" aria-hidden="true" tabindex="-1"></a>prices_list <span class="op">=</span> [[<span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">15</span>], [<span class="dv">12</span>, <span class="dv">6</span>, <span class="dv">18</span>]]    <span class="co">#prix HT et TTC</span></span>
 <span id="cb2-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(prices_list))</span>
 <span id="cb2-3"><a href="" aria-hidden="true" tabindex="-1"></a>prices_list</span></code></pre></div>
@@ -275,7 +275,7 @@
 </div>
 <div class="fragment">
 <p><br></p>
-<div id="6913b678" class="cell" data-execution_count="3">
+<div id="2a54bf13" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="" aria-hidden="true" tabindex="-1"></a>prices_array <span class="op">=</span> np.array(prices_list)</span>
 <span id="cb5-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(prices_array))</span>
 <span id="cb5-3"><a href="" aria-hidden="true" tabindex="-1"></a>prices_array</span></code></pre></div>
@@ -295,7 +295,7 @@
 </section>
 <section id="les-attributs-dun-array" class="slide level2 small-slide">
 <h2>Les attributs d’un <code>array</code></h2>
-<div id="85e5f50b" class="cell" data-execution_count="4">
+<div id="9430067b" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="" aria-hidden="true" tabindex="-1"></a>prices_array</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>array([[10,  5, 15],
@@ -310,7 +310,7 @@
 <div class="column" style="width:40%;">
 <p>👉 dimension</p>
 </div><div class="column" style="width:60%;">
-<div id="066f2cb8" class="cell" data-execution_count="5">
+<div id="1b688a51" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="" aria-hidden="true" tabindex="-1"></a>prices_array.ndim </span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>2</code></pre>
@@ -323,7 +323,7 @@
 <div class="column" style="width:40%;">
 <p>👉 shape</p>
 </div><div class="column" style="width:60%;">
-<div id="7a2b66ef" class="cell" data-execution_count="6">
+<div id="35815d5e" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="" aria-hidden="true" tabindex="-1"></a>prices_array.shape </span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>(2, 3)</code></pre>
@@ -336,7 +336,7 @@
 <div class="column" style="width:40%;">
 <p>👉 taille</p>
 </div><div class="column" style="width:60%;">
-<div id="171baffc" class="cell" data-execution_count="7">
+<div id="04e79716" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="" aria-hidden="true" tabindex="-1"></a>prices_array.size </span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>6</code></pre>
@@ -349,7 +349,7 @@
 <div class="column" style="width:40%;">
 <p>👉 type de son contenu</p>
 </div><div class="column" style="width:60%;">
-<div id="615a3199" class="cell" data-execution_count="8">
+<div id="a212b120" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="" aria-hidden="true" tabindex="-1"></a>prices_array.dtype</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>dtype('int64')</code></pre>
@@ -362,7 +362,7 @@
 <h2>D’autres manières de créer un <code>array</code></h2>
 <p>👉 <code>np.arange()</code> : on donne le départ, l’arrivée, et l’espacement des valeurs</p>
 <div class="fragment">
-<div id="3203214e" class="cell" data-execution_count="9">
+<div id="a60dd7e1" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="" aria-hidden="true" tabindex="-1"></a>np.arange(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>)</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>array([0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])</code></pre>
@@ -373,7 +373,7 @@
 <p>👉 <code>np.linspace()</code> : on donne le départ, l’arrivée, et le nombre de valeurs</p>
 </div>
 <div class="fragment">
-<div id="cfc9be88" class="cell" data-execution_count="10">
+<div id="107b20bf" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="" aria-hidden="true" tabindex="-1"></a>np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">5</span>)</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>array([0.  , 0.25, 0.5 , 0.75, 1.  ])</code></pre>
@@ -384,7 +384,7 @@
 <p>👉 <code>np.zeros()</code> : crée un <code>array</code> de la <code>shape</code> souhaitée, rempli de zéros</p>
 </div>
 <div class="fragment">
-<div id="36b95a1d" class="cell" data-execution_count="11">
+<div id="91c9c74b" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="" aria-hidden="true" tabindex="-1"></a>np.zeros((<span class="dv">2</span>, <span class="dv">3</span>))</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>array([[0., 0., 0.],
@@ -401,7 +401,7 @@
 <section id="section-1" class="slide level2">
 <h2></h2>
 <p>Créons un array :</p>
-<div id="1719537e" class="cell" data-execution_count="12">
+<div id="80cd0302" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> np.array(</span>
 <span id="cb24-2"><a href="" aria-hidden="true" tabindex="-1"></a>    [</span>
 <span id="cb24-3"><a href="" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>],</span>
@@ -437,7 +437,7 @@
 <p><img data-src="img/numpy-data-selection-1cell.png"></p>
 </div><div class="column" style="width:60%;">
 <p><br></p>
-<div id="ad174612" class="cell" data-execution_count="13">
+<div id="a3bde4dd" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="" aria-hidden="true" tabindex="-1"></a>data[<span class="dv">1</span>, <span class="dv">2</span>]</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>np.int64(12)</code></pre>
@@ -453,7 +453,7 @@
 <p><img data-src="img/numpy-data-selection-row-part.png"></p>
 </div><div class="column" style="width:60%;">
 <p><br></p>
-<div id="525aaf29" class="cell" data-execution_count="14">
+<div id="221b6d25" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="" aria-hidden="true" tabindex="-1"></a>data[<span class="dv">1</span>, <span class="dv">1</span>:<span class="dv">4</span>]</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>array([11, 12, 13])</code></pre>
@@ -469,7 +469,7 @@
 <p><img data-src="img/numpy-data-selection-column-part.png"></p>
 </div><div class="column" style="width:60%;">
 <p><br></p>
-<div id="e41f70f9" class="cell" data-execution_count="15">
+<div id="d872d79c" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="" aria-hidden="true" tabindex="-1"></a>data[<span class="dv">2</span>:, <span class="dv">0</span>]</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>array([20, 30, 40])</code></pre>
@@ -485,13 +485,13 @@
 <p><img data-src="img/numpy-data-selection-row.png"></p>
 </div><div class="column" style="width:60%;">
 <p><br> 2 possibilités :</p>
-<div id="3d893637" class="cell" data-execution_count="16">
+<div id="1c69d827" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="" aria-hidden="true" tabindex="-1"></a>data[<span class="dv">1</span>]</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>array([10, 11, 12, 13, 14])</code></pre>
 </div>
 </div>
-<div id="3fa06849" class="cell" data-execution_count="17">
+<div id="06d885a4" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="" aria-hidden="true" tabindex="-1"></a>data[<span class="dv">1</span>, :]</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <pre><code>array([10, 11, 12, 13, 14])</code></pre>
@@ -507,7 +507,7 @@
 <p><img data-src="img/numpy-data-selection-column.png"></p>
 </div><div class="column" style="width:60%;">
 <p><br></p>
-<div id="404b224e" class="cell" data-execution_count="18">
+<div id="1e56fcbf" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a href="" aria-hidden="true" tabindex="-1"></a>data[:, <span class="dv">0</span>]</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>array([ 0, 10, 20, 30, 40])</code></pre>
@@ -518,7 +518,7 @@
 <section id="mettre-à-jour-des-données-update" class="slide level2">
 <h2>Mettre à jour des données (<em>Update</em>)</h2>
 <p>Comme pour les listes, on <strong>ré-assigne</strong> une partie du tableau à sa valeur.</p>
-<div id="2c170e79" class="cell" data-execution_count="19">
+<div id="6704e480" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb38-1"><a href="" aria-hidden="true" tabindex="-1"></a>data</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>array([[ 0,  1,  2,  3,  4],
@@ -529,7 +529,7 @@
 </div>
 </div>
 <div class="fragment">
-<div id="a08f766d" class="cell" data-execution_count="20">
+<div id="31bae11b" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="" aria-hidden="true" tabindex="-1"></a>data[<span class="dv">1</span>, <span class="dv">2</span>:] <span class="op">=</span> <span class="dv">1000</span></span>
 <span id="cb40-2"><a href="" aria-hidden="true" tabindex="-1"></a>data</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
@@ -570,7 +570,7 @@
 
 <p>Lorsque on sélectionne de la donnée avec des crochets, l’ordre des indices correspondent à l’ordre des <code>axis</code>.</p>
 <div class="fragment">
-<div id="25fb91ba" class="cell columns column-output-location" data-execution_count="21">
+<div id="a704d3fc" class="cell columns column-output-location" data-execution_count="21">
 <div class="column">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="" aria-hidden="true" tabindex="-1"></a>data[<span class="dv">2</span>, :]</span></code></pre></div>
 </div><div class="column">
@@ -601,7 +601,7 @@
 <h2>Opérations élement-par-élément</h2>
 <p>👉 On dispose des opérateurs <code>+</code>, <code>-</code>, <code>/</code>, <code>*</code>, <code>**</code> :</p>
 <div class="fragment">
-<div id="2fd46c90" class="cell" data-execution_count="22">
+<div id="24815515" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="" aria-hidden="true" tabindex="-1"></a>quantity <span class="op">=</span> np.array([<span class="dv">120</span>, <span class="dv">80</span>, <span class="dv">200</span>, <span class="dv">50</span>])</span>
 <span id="cb44-2"><a href="" aria-hidden="true" tabindex="-1"></a>price <span class="op">=</span> np.array([<span class="fl">2.5</span>, <span class="fl">4.0</span>, <span class="fl">1.2</span>, <span class="fl">9.9</span>])</span>
 <span id="cb44-3"><a href="" aria-hidden="true" tabindex="-1"></a>revenue <span class="op">=</span> quantity <span class="op">*</span> price      <span class="co"># the '*' is a NumPy operator</span></span>
@@ -615,7 +615,7 @@
 <p>👉 Ainsi que de nombreuses <a href="https://numpy.org/doc/stable/reference/routines.math.html" class="external" target="_blank">fonctions mathématiques</a> comme <a href="https://numpy.org/doc/stable/reference/generated/numpy.exp.html" class="external" target="_blank"><code>np.exp</code></a>, <a href="https://numpy.org/doc/stable/reference/generated/numpy.log.html#numpy.log" class="external" target="_blank"><code>np.log</code></a>, <a href="https://numpy.org/doc/stable/reference/generated/numpy.sqrt.html" class="external" target="_blank"><code>np.sqrt</code></a>, <a href="https://numpy.org/doc/stable/reference/generated/numpy.round.html" class="external" target="_blank"><code>np.round</code></a> :</p>
 </div>
 <div class="fragment">
-<div id="eb11be5e" class="cell" data-execution_count="23">
+<div id="ea75409b" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="" aria-hidden="true" tabindex="-1"></a>years <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
 <span id="cb46-2"><a href="" aria-hidden="true" tabindex="-1"></a>capital <span class="op">=</span> <span class="dv">1000</span> <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> <span class="fl">0.03</span>) <span class="op">**</span> years    <span class="co"># the '**' is a NumPy operator</span></span>
 <span id="cb46-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.<span class="bu">round</span>(capital, <span class="dv">1</span>))</span></code></pre></div>
@@ -630,13 +630,13 @@
 <p>On peut appliquer des fonctions d’agrégation <strong>directement</strong> sur un <code>array</code>.</p>
 <div class="fragment">
 <p>👉 si un <code>array</code> s’appelle <code>wages</code> :</p>
-<div id="d12425d1" class="cell" data-execution_count="24">
+<div id="a5e2b9db" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="" aria-hidden="true" tabindex="-1"></a>wages <span class="op">=</span> np.array([<span class="dv">1800</span>, <span class="dv">2100</span>, <span class="dv">2400</span>, <span class="dv">3900</span>, <span class="dv">2200</span>, <span class="dv">1650</span>])</span></code></pre></div>
 </div>
 </div>
 <div class="fragment">
 <p>On “chaîne” la méthode <code>.sum()</code> de cette manière :</p>
-<div id="7b842fb0" class="cell" data-execution_count="25">
+<div id="5fb5b15e" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb49-1"><a href="" aria-hidden="true" tabindex="-1"></a>wages.<span class="bu">sum</span>()</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>np.int64(14050)</code></pre>
@@ -655,7 +655,7 @@
 
 <p><strong>Exemples des fonctions d’agrégation principales :</strong></p>
 <p>👉 Pour des calculs mathématiques basiques</p>
-<div id="703f9d67" class="cell" data-execution_count="26">
+<div id="a70ebddc" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb51-1"><a href="" aria-hidden="true" tabindex="-1"></a>wages <span class="op">=</span> np.array([<span class="dv">1800</span>, <span class="dv">2100</span>, <span class="dv">2400</span>, <span class="dv">3900</span>, <span class="dv">2200</span>, <span class="dv">1650</span>])</span>
 <span id="cb51-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(wages.<span class="bu">sum</span>(), wages.<span class="bu">min</span>(), wages.<span class="bu">max</span>())</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -664,7 +664,7 @@
 </div>
 <div class="fragment">
 <p>👉 Pour des calculs statistiques</p>
-<div id="c0f4a4a1" class="cell" data-execution_count="27">
+<div id="b0884e14" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb53-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(wages.mean(), wages.std())</span>
 <span id="cb53-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.median(wages), np.percentile(wages, <span class="dv">75</span>))</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -679,7 +679,7 @@
 </section>
 <section id="agrégation-le-long-dun-axis" class="slide level2">
 <h2>Agrégation <em>le long d’un axis</em></h2>
-<div id="58f98daf" class="cell" data-execution_count="28">
+<div id="aea321fc" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb55-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales <span class="op">=</span> np.array([[<span class="dv">100</span>, <span class="dv">120</span>, <span class="dv">90</span>],      <span class="co"># shop 1, three months</span></span>
 <span id="cb55-2"><a href="" aria-hidden="true" tabindex="-1"></a>                  [<span class="dv">200</span>, <span class="dv">180</span>, <span class="dv">210</span>]])    <span class="co"># shop 2</span></span>
 <span id="cb55-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sales.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>))   <span class="co"># per month (down the rows)</span></span>

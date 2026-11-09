@@ -226,7 +226,7 @@
 </section>
 <section id="un-exemple" class="slide level2">
 <h2>Un exemple</h2>
-<div id="ff04d571" class="cell" data-execution_count="2">
+<div id="c22dc2e1" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array([</span>
 <span id="cb1-2"><a href="" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>],</span>
 <span id="cb1-3"><a href="" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>],</span>
@@ -235,7 +235,7 @@
 </div>
 <p>On sait sélectionner des éléments tableau selon leur position.</p>
 <div class="fragment">
-<div id="62a05ff6" class="cell" data-execution_count="3">
+<div id="5da6a9b8" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="" aria-hidden="true" tabindex="-1"></a>b[<span class="dv">1</span>, :<span class="dv">2</span>]</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>array([4, 5])</code></pre>
@@ -253,7 +253,7 @@
 <h2>Tester toutes les valeurs d’un coup</h2>
 <p>Numpy intègre ce type de test :</p>
 <div class="fragment">
-<div id="7b1a7c01" class="cell" data-execution_count="4">
+<div id="ed97f547" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="" aria-hidden="true" tabindex="-1"></a>b <span class="op">&gt;</span> <span class="dv">4</span></span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>array([[False, False, False],
@@ -281,7 +281,7 @@
 <div class="fragment">
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="1b31cfdf" class="cell" data-execution_count="5">
+<div id="e694ad3a" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="" aria-hidden="true" tabindex="-1"></a>b</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>array([[1, 2, 3],
@@ -289,7 +289,7 @@
        [7, 8, 9]])</code></pre>
 </div>
 </div>
-<div id="1c6f5c84" class="cell" data-execution_count="6">
+<div id="15e83c14" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="" aria-hidden="true" tabindex="-1"></a>b[b <span class="op">&gt;</span> <span class="dv">4</span>]</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>array([5, 6, 7, 8, 9])</code></pre>
@@ -329,13 +329,13 @@
 <p><img data-src="img/numpy-boolean-indexing-b.png"></p>
 </div></div>
 <div class="fragment">
-<div id="7e8c6f82" class="cell" data-execution_count="7">
+<div id="ab5a3786" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="" aria-hidden="true" tabindex="-1"></a>b[(b <span class="op">&gt;</span> <span class="dv">4</span>) <span class="op">|</span> (b <span class="op">&lt;=</span> <span class="dv">2</span>)]</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>array([1, 2, 5, 6, 7, 8, 9])</code></pre>
 </div>
 </div>
-<div id="7eeb4473" class="cell" data-execution_count="8">
+<div id="7148f2e6" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="" aria-hidden="true" tabindex="-1"></a>b[(b <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>) <span class="op">&amp;</span> ((b <span class="op">&gt;</span> <span class="dv">4</span>) <span class="op">|</span> (b <span class="op">&lt;=</span> <span class="dv">2</span>))]</span>
 <span id="cb12-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># NB: b % 2 retourne le reste de la division par 2</span></span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
@@ -364,7 +364,7 @@
 <section id="importer-pandas" class="slide level2">
 <h2>Importer pandas</h2>
 <p>En général, on importe à la fois NumPy et pandas :</p>
-<div id="9be30f29" class="cell" data-execution_count="9">
+<div id="c3aa2636" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb14-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div>
 </div>
@@ -385,7 +385,7 @@
 <li class="fragment">dans une <code>Series</code>, chaque valeur est associée à un <code>index</code></li>
 </ul>
 <div class="fragment">
-<div id="48ec1aa8" class="cell" data-execution_count="10">
+<div id="e5d1f537" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="" aria-hidden="true" tabindex="-1"></a>pop <span class="op">=</span> pd.Series([<span class="fl">68.4</span>, <span class="fl">84.5</span>, <span class="fl">58.9</span>], name<span class="op">=</span><span class="st">"population"</span>)</span>
 <span id="cb15-2"><a href="" aria-hidden="true" tabindex="-1"></a>pop</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
@@ -397,7 +397,7 @@ Name: population, dtype: float64</code></pre>
 </div>
 </div>
 <div class="fragment">
-<div id="7619eae4" class="cell" data-execution_count="11">
+<div id="3d239862" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="" aria-hidden="true" tabindex="-1"></a>pop.name</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>'population'</code></pre>
@@ -408,7 +408,7 @@ Name: population, dtype: float64</code></pre>
 <section class="slide level2">
 
 <p><strong>Création à partir d’une liste de valeurs et des index</strong></p>
-<div id="bc89b03e" class="cell" data-execution_count="12">
+<div id="366ac3b6" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="" aria-hidden="true" tabindex="-1"></a>pd.Series([<span class="fl">68.4</span>, <span class="fl">84.5</span>, <span class="fl">58.9</span>], index<span class="op">=</span>[<span class="st">"France"</span>, <span class="st">"Germany"</span>, <span class="st">"Italy"</span>], name<span class="op">=</span><span class="st">"population"</span>)</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>France     68.4
@@ -419,7 +419,7 @@ Name: population, dtype: float64</code></pre>
 </div>
 <div class="fragment">
 <p><strong>Création à partir d’un dictionnaire</strong></p>
-<div id="3d4964b2" class="cell" data-execution_count="13">
+<div id="909a5e23" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="" aria-hidden="true" tabindex="-1"></a>pd.Series({<span class="st">"France"</span>: <span class="fl">68.4</span>, <span class="st">"Germany"</span>: <span class="fl">84.5</span>, <span class="st">"Italy"</span>: <span class="fl">58.9</span>}, name<span class="op">=</span><span class="st">"population"</span>)</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>France     68.4
@@ -438,7 +438,7 @@ Name: population, dtype: float64</code></pre>
 <li class="fragment">Chaque ligne possède un <code>index</code></li>
 </ul>
 <div class="fragment">
-<div id="0deb4cf9" class="cell" data-execution_count="14">
+<div id="d81fdb8b" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(</span>
 <span id="cb23-2"><a href="" aria-hidden="true" tabindex="-1"></a>    {</span>
 <span id="cb23-3"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="st">"population"</span>: [<span class="fl">68.4</span>, <span class="fl">84.5</span>, <span class="fl">58.9</span>],</span>
@@ -499,7 +499,7 @@ Name: population, dtype: float64</code></pre>
 <h2></h2>
 <p>Un <code>DataFrame</code> peut être vu comme un <code>Dictionnaire</code> de <code>Series</code> :</p>
 <div class="fragment">
-<div id="f630aba9" class="cell code-30-70 columns column-output-location" data-execution_count="15">
+<div id="08276181" class="cell code-30-70 columns column-output-location" data-execution_count="15">
 <div class="column">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="" aria-hidden="true" tabindex="-1"></a>col_1 <span class="op">=</span> pd.Series({<span class="st">"a"</span>: <span class="dv">1</span>, <span class="st">"b"</span>: <span class="dv">4</span>, <span class="st">"c"</span>: <span class="dv">7</span>, <span class="st">"d"</span>: <span class="dv">10</span>})</span>
 <span id="cb24-2"><a href="" aria-hidden="true" tabindex="-1"></a>col_2 <span class="op">=</span> pd.Series({<span class="st">"a"</span>: <span class="dv">2</span>, <span class="st">"b"</span>: <span class="dv">5</span>, <span class="st">"c"</span>: <span class="dv">8</span>})</span>
@@ -589,7 +589,7 @@ Name: population, dtype: float64</code></pre>
 <h2>Charger un <code>DataFrame</code> depuis un csv</h2>
 <p>Pour l’exemple, basons-nous sur ce <a href="https://github.com/thomaslvz/intro-python-student/blob/main/data/countries.csv?plain=1#repos-sticky-header" class="external" target="_blank">fichier <code>.csv</code></a>. On le télécharge et le range dans le dossier du Notebook, puis on l’importe avec <code>pandas</code> :</p>
 <div class="fragment">
-<div id="521de798" class="cell" data-execution_count="16">
+<div id="2eb09019" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">"countries.csv"</span>)</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <div>
@@ -805,7 +805,7 @@ Pour l'exemple, utilisons les données publiques de l'Etat sur le [recensement d
 <h2>Les reflexes pour explorer rapidement un <code>DataFrame</code></h2>
 <p>On stocke le <code>DatafFrame</code> dans une variable.</p>
 <div class="fragment">
-<div id="481e6867" class="cell" data-execution_count="17">
+<div id="1b076fc0" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"countries.csv"</span>, delimiter<span class="op">=</span><span class="st">","</span>, decimal<span class="op">=</span><span class="st">"."</span>)</span></code></pre></div>
 </div>
 </div>
@@ -824,7 +824,7 @@ Pour l'exemple, utilisons les données publiques de l'Etat sur le [recensement d
 
 <p>Combien de lignes et de colonnes ?</p>
 <div class="fragment">
-<div id="9dd9d7f7" class="cell" data-execution_count="18">
+<div id="8a12b77b" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="" aria-hidden="true" tabindex="-1"></a>df.shape</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>(250, 11)</code></pre>
@@ -835,7 +835,7 @@ Pour l'exemple, utilisons les données publiques de l'Etat sur le [recensement d
 <p>A quoi ressemblent les premières lignes ?</p>
 </div>
 <div class="fragment">
-<div id="4603fa5a" class="cell" data-execution_count="19">
+<div id="ce7ef9b2" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">3</span>)  <span class="co"># first 3 rows</span></span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <div>
@@ -925,7 +925,7 @@ Pour l'exemple, utilisons les données publiques de l'Etat sur le [recensement d
 
 <p>Quelles sont les colonnes ?</p>
 <div class="fragment">
-<div id="9e97f554" class="cell" data-execution_count="20">
+<div id="1faab825" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="" aria-hidden="true" tabindex="-1"></a>df.columns</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
 <pre><code>Index(['country', 'iso3 ode', 'name_local', 'capital', 'region', 'subregion',
@@ -939,7 +939,7 @@ Pour l'exemple, utilisons les données publiques de l'Etat sur le [recensement d
 
 <p>Un aperçu global ?</p>
 <div class="fragment">
-<div id="5aa228f2" class="cell" data-execution_count="21">
+<div id="42ec743b" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="" aria-hidden="true" tabindex="-1"></a>df.info()</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.DataFrame'&gt;
@@ -968,7 +968,7 @@ memory usage: 21.6 KB</code></pre>
 
 <p>Des statistiques rapides ?</p>
 <div class="fragment">
-<div id="a405ab25" class="cell" data-execution_count="22">
+<div id="03ad8258" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="" aria-hidden="true" tabindex="-1"></a>df.describe()  <span class="co"># will only consider numeric columns</span></span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
 <div>
@@ -1070,7 +1070,7 @@ memory usage: 21.6 KB</code></pre>
 </ul>
 <div class="fragment">
 <p>On peut aussi définir des index de lignes personnalisés :</p>
-<div id="5650eebc" class="cell" data-execution_count="23">
+<div id="6ac78d7d" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.set_index(<span class="st">"country"</span>)</span>
 <span id="cb35-2"><a href="" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
@@ -1194,7 +1194,7 @@ memory usage: 21.6 KB</code></pre>
 </section>
 <section id="sélectionner-une-colonne" class="slide level2 small-slide">
 <h2>Sélectionner <em>une</em> colonne</h2>
-<div id="ab325f42" class="cell" data-execution_count="24">
+<div id="f9ad9479" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a href="" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"population"</span>]</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
 <pre><code>country
@@ -1218,7 +1218,7 @@ Name: population, Length: 250, dtype: int64</code></pre>
 </section>
 <section id="sélectionner-plusieurs-colonnes" class="slide level2 small-slide">
 <h2>Sélectionner <em>plusieurs</em> colonnes</h2>
-<div id="ff10ae63" class="cell" data-execution_count="25">
+<div id="1de00b1a" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb38-1"><a href="" aria-hidden="true" tabindex="-1"></a>df[[<span class="st">"population"</span>, <span class="st">"region"</span>, <span class="st">"currency"</span>]]</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="25">
 <div>
@@ -1335,7 +1335,7 @@ Name: population, Length: 250, dtype: int64</code></pre>
 <div class="fragment">
 <div class="columns">
 <div class="column" style="width:48%;">
-<div id="6bfd3006" class="cell" data-execution_count="26">
+<div id="7b1d7f5d" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="" aria-hidden="true" tabindex="-1"></a>df.loc[<span class="st">"France"</span>]</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="26">
 <pre><code>iso3 ode                   FRA
@@ -1354,7 +1354,7 @@ Name: France, dtype: object</code></pre>
 </div><div class="column" style="width:4%;">
 
 </div><div class="column" style="width:48%;">
-<div id="9905e252" class="cell" data-execution_count="27">
+<div id="4d0c37ff" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="" aria-hidden="true" tabindex="-1"></a>df.loc[<span class="st">"France"</span>:<span class="st">"Gabon"</span>]</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="27">
 <div>
@@ -1484,7 +1484,7 @@ Name: France, dtype: object</code></pre>
 <p>On utilise <code>.loc[&lt;slicer de lignes&gt;, &lt;liste de colonnes&gt;]</code> :</p>
 <p><br></p>
 <div class="fragment">
-<div id="08a1f0b2" class="cell" data-execution_count="28">
+<div id="45b9a12c" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="" aria-hidden="true" tabindex="-1"></a>df.loc[<span class="st">"France"</span>:<span class="st">"Germany"</span>, [<span class="st">"population"</span>, <span class="st">"currency"</span>]]</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
 <div>
@@ -1567,7 +1567,7 @@ Name: France, dtype: object</code></pre>
 <section id="filtrer-selon-des-conditions" class="slide level2 tiny-slide">
 <h2>Filtrer selon des conditions</h2>
 <p>Comme avec Numpy, on peut utiliser un <strong>masque booléen</strong> pour filtrer les lignes, et on le passe entre crochets <code>[]</code> :</p>
-<div id="4926a8cb" class="cell" data-execution_count="29">
+<div id="09a36b06" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb43-1"><a href="" aria-hidden="true" tabindex="-1"></a>mask <span class="op">=</span> df[<span class="st">"population"</span>] <span class="op">&gt;</span> <span class="dv">1000000000</span>  <span class="co"># 1 billion</span></span>
 <span id="cb43-2"><a href="" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-3"><a href="" aria-hidden="true" tabindex="-1"></a>df[mask]</span></code></pre></div>
@@ -1651,7 +1651,7 @@ Name: France, dtype: object</code></pre>
 </div>
 <div class="fragment">
 <p>On peut aussi le passer en tant que <code>slicer de lignes</code> dans <code>.loc</code> :</p>
-<div id="f0008b00" class="cell" data-execution_count="30">
+<div id="8268ee89" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="" aria-hidden="true" tabindex="-1"></a>df.loc[mask, [<span class="st">"population"</span>, <span class="st">"currency"</span>]]</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="30">
 <div>
@@ -1702,7 +1702,7 @@ Name: France, dtype: object</code></pre>
 </div>
 <div class="fragment">
 <p>Souvent, on écrit directement le test dans <code>.loc</code> :</p>
-<div id="8e7f0468" class="cell" data-execution_count="31">
+<div id="3faf34b1" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a href="" aria-hidden="true" tabindex="-1"></a>df.loc[df[<span class="st">"population"</span>] <span class="op">&gt;</span> <span class="dv">1000000000</span>, [<span class="st">"population"</span>, <span class="st">"currency"</span>]]</span></code></pre></div>
 </div>
 </div>
@@ -1714,7 +1714,7 @@ Name: France, dtype: object</code></pre>
 </section>
 <section id="créer-une-colonne" class="slide level2 small-slide">
 <h2>Créer une colonne</h2>
-<div id="824e8d72" class="cell" data-execution_count="32">
+<div id="de5e45cb" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="" aria-hidden="true" tabindex="-1"></a>big_countries <span class="op">=</span> df.loc[df[<span class="st">"population"</span>] <span class="op">&gt;</span> <span class="dv">1000000000</span>, [<span class="st">"population"</span>, <span class="st">"currency"</span>]]</span>
 <span id="cb46-2"><a href="" aria-hidden="true" tabindex="-1"></a>big_countries</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="32">
@@ -1767,7 +1767,7 @@ Name: France, dtype: object</code></pre>
 <p>Pour ajouter une colonne, on la déclare et on lui affecte une valeur :</p>
 </div>
 <div class="fragment">
-<div id="38ed6b29" class="cell" data-execution_count="33">
+<div id="09bc95c0" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb47-1"><a href="" aria-hidden="true" tabindex="-1"></a>big_countries[<span class="st">"GDP (billion $)"</span>] <span class="op">=</span> [<span class="dv">18748</span>, <span class="fl">3909.097</span>]  <span class="co"># toutes les valeurs de la colonne</span></span>
 <span id="cb47-2"><a href="" aria-hidden="true" tabindex="-1"></a>big_countries[<span class="st">"visited?"</span>] <span class="op">=</span> <span class="va">False</span>  <span class="co"># partout la même valeur dans la colonne</span></span>
 <span id="cb47-3"><a href="" aria-hidden="true" tabindex="-1"></a>big_countries.loc[<span class="st">"China"</span>, <span class="st">"National day"</span>] <span class="op">=</span> <span class="st">"October 1st"</span>  <span class="co"># une cellule précise</span></span>
@@ -1835,7 +1835,7 @@ Name: France, dtype: object</code></pre>
 <section id="modifier-certaines-valeurs" class="slide level2 small-side">
 <h2>Modifier certaines valeurs</h2>
 <p>Il suffit de sélectionner les données et de leur affecter leur nouvelle valeur.</p>
-<div id="8e1bdb6c" class="cell" data-execution_count="34">
+<div id="48975ccd" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="" aria-hidden="true" tabindex="-1"></a>big_countries.loc[<span class="st">"China"</span>, <span class="st">"visited?"</span>] <span class="op">=</span> <span class="va">True</span></span>
 <span id="cb48-2"><a href="" aria-hidden="true" tabindex="-1"></a>big_countries</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="34">
@@ -1896,8 +1896,12 @@ Name: France, dtype: object</code></pre>
 </div>
 </div>
 </div>
-
 </section></section>
+<section id="a-vous-de-jouer" class="title-slide slide level1 center">
+<h1>A vous de jouer</h1>
+<p>Faire les exercices du <code>TD5</code></p>
+
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
