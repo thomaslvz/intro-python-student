@@ -27,22 +27,35 @@ A chaque début de séance, une commande est lancée dans un terminal pour véri
 | **Séance 4**      | NumPy (1/2)<br><br>📄 _Evaluation 1h (sans ordinateur)_ | [Présentation](https://thomaslvz.github.io/intro-python-student/04_numpy) / [TD](td/04/readme.md)                                                                                                                       | [Aide mémoire (Cheatsheet) Numpy](https://assets.datacamp.com/blog_assets/Numpy_Python_Cheat_Sheet.pdf)                                                           |
 | **Séance 5**      | NumPy (2/2) et pandas (1/2)                             | [Présentation](https://thomaslvz.github.io/intro-python-student/05_numpy-advanced-and-intro-to-pandas) / [TD](td/05/readme.md)                                                                                          | [Aide mémoire (Cheatsheet) pandas](https://assets.ctfassets.net/wp1lcwdav1p1/3CRlFPO0cY99vmTFCNxLzL/d3b130e8dd2e6d19ee55a9ce25d140bb/Pandas_Visual_Resources.pdf) |
 | **Séance 6**      | pandas (2/2)                                            | [Présentation](https://thomaslvz.github.io/intro-python-student/06_pandas-advanced) / [TD](td/06/readme.md)                                                                                                             |                                                                                                                                                                   |
-| **Séance 7**      | Data-visualisation et Optimisation                      | [Présentation](#) / [TD](#)                                                                                                                                                                                             | [Aide mémoire (Cheatsheet) Matplotlib](https://matplotlib.org/cheatsheets/)                                                                                       |
-| **Séance 8**      | Corrélation et régression                               |                                                                                                                                                                                                                         |                                                                                                                                                                   |
+| **Séance 7**      | Data-visualisation                                      | [Présentation](https://thomaslvz.github.io/intro-python-student/07_Dataviz) / [TD](td/07/readme.md)                                                                                                                     | [Aide mémoire (Cheatsheet) Matplotlib](https://matplotlib.org/cheatsheets/)                                                                                       |
+| **Séance 8**      | Optimisation, régression                                |                                                                                                                                                                                                                         |                                                                                                                                                                   |
 | **Séance 9**      |                                                         |                                                                                                                                                                                                                         |                                                                                                                                                                   |
 
 ### Ressources externes / Bibliographie
 
-- Apprendre Python avec d'autres cours :
-  - capsules vidéo niv. débutant.e sur [learn.microsoft.com](https://learn.microsoft.com/en-us/shows/intro-to-python-development/) (en anglais)
-  - le très complet [cours](https://python.sdv.u-paris.fr/) de Patrick Fuchs & Pierre Poulain (Université Paris Cité)
-  - des cours, ateliers, exercices, mini-projets pour les économistes, niv. intermédiaire et avancé.e, sur [QuantEcon](https://quantecon.org/) (en anglais)
-- S'entraîner à coder en Python sur des exercices en ligne (en anglais) :
-  - la [Python Quest](https://utileaf.com/tools/python-quest) sur Utileaf (niv. débutant.e)
-  - de nombreux exercices tous niveaux, classés par thématique, sur [CodingPractice](https://codingpractice.online/)
-- Exécuter du code Python en ligne depuis n'importe quel ordinateur, sans installation :
-  - Dans une [console python](https://fr.futurecoder.io/course/#ide)
-  - Sur [JupyterLab](https://jupyter.org/try-jupyter/lab/)
+#### Apprendre Python
+
+**Niveau débutant.e :**
+
+- Capsules vidéo sur [learn.microsoft.com](https://learn.microsoft.com/en-us/shows/intro-to-python-development/) (en anglais)
+- [Cours d'introduction à python](https://inseefrlab.github.io/formation-python-initiation/) pour les agents du Service Statistique Public (en français, open source sous licence MIT)u
+
+**Niveau interméiaire/avancé.e :**
+
+- Des cours, ateliers, exercices, mini-projets pour les économistes sur [QuantEcon](https://quantecon.org/) (en anglais)
+- Le très complet [cours](https://python.sdv.u-paris.fr/) de Patrick Fuchs & Pierre Poulain (Université Paris Cité)
+
+#### Exercices pour s'entraîner
+
+- la [Python Quest](https://utileaf.com/tools/python-quest) sur Utileaf (niv. débutant.e)
+- de nombreux exercices tous niveaux, classés par thématique, sur [CodingPractice](https://codingpractice.online/)
+
+#### Coder en Python, sans l'installer
+
+Depuis n'importe quel ordinateur connecté à internet :
+
+- Dans une [console python](https://fr.futurecoder.io/course/#ide)
+- Sur [JupyterLab](https://jupyter.org/try-jupyter/lab/)
 
 ## Questions fréquentes
 
