@@ -1,9 +1,3 @@
-warning installer seaborn
-
-move data to data?
-
--
-
 [< Revenir à la page d'Accueil](../../readme.md)
 
 # TD7
