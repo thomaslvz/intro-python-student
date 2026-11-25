@@ -249,10 +249,10 @@
 <h2>Un tableau avec quelques problèmes</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="55b33d33" class="cell" data-execution_count="2">
+<div id="82cc353e" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales</span></code></pre></div>
 </div>
-<div id="05502ab8" class="cell" data-execution_count="3">
+<div id="d5ff48be" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <table class="dataframe caption-top">
 <thead>
@@ -319,7 +319,7 @@
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="5c535902" class="cell" data-execution_count="4">
+<div id="eb3b1c8b" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales.info()</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.DataFrame'&gt;
@@ -351,7 +351,7 @@ memory usage: 372.0 bytes</code></pre>
 <div class="columns">
 <div class="column" style="width:40%;">
 <p>Lorsqu’on importe des données, les types ne sont pas toujours ceux que l’on souhaite.</p>
-<div id="b705eec1" class="cell" data-execution_count="5">
+<div id="1f0b0fb3" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales[<span class="st">"quantity"</span>].dtype</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>&lt;StringDtype(storage='python', na_value=nan)&gt;</code></pre>
@@ -360,7 +360,7 @@ memory usage: 372.0 bytes</code></pre>
 </div><div class="column" style="width:10%;">
 
 </div><div class="column" style="width:50%;">
-<div id="56666c6a" class="cell" data-execution_count="6">
+<div id="808448e2" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <table class="dataframe caption-top">
 <thead>
@@ -429,7 +429,7 @@ memory usage: 372.0 bytes</code></pre>
 </div></div>
 <p>On peut convertir une colonne avec <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.astype.html" class="external" target="_blank"><code>.astype()</code></a> :</p>
 <div class="fragment">
-<div id="70b3cda9" class="cell" data-execution_count="7">
+<div id="1587a003" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales[<span class="st">"quantity"</span>] <span class="op">=</span> sales[<span class="st">"quantity"</span>].astype(<span class="bu">int</span>)</span>
 <span id="cb6-2"><a href="" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="" aria-hidden="true" tabindex="-1"></a>sales[<span class="st">"quantity"</span>].dtype</span></code></pre></div>
@@ -444,7 +444,7 @@ memory usage: 372.0 bytes</code></pre>
 <p>pandas dispose d’un type particulier pour les dates et les heures, qui permet des manipulations rapides (extraction du mois, du jour, calcul de durée, etc.).</p>
 <div class="fragment">
 <p>Mais à l’import, les données de dates sont souvent représentées comme des chaînes de caractères.</p>
-<div id="1c81a4ca" class="cell" data-execution_count="8">
+<div id="1dfec6eb" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales[<span class="st">"date"</span>].dtype</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>&lt;StringDtype(storage='python', na_value=nan)&gt;</code></pre>
@@ -453,7 +453,7 @@ memory usage: 372.0 bytes</code></pre>
 </div>
 <div class="fragment">
 <p>On utilise <a href="https://pandas.pydata.org/docs/reference/api/pandas.to_datetime.html#pandas.to_datetime" class="external" target="_blank"><code>pd.to_datetime()</code></a> pour la convertir :</p>
-<div id="ed6b679a" class="cell" data-execution_count="9">
+<div id="901e1afa" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales[<span class="st">"date"</span>] <span class="op">=</span> pd.to_datetime(sales[<span class="st">"date"</span>])</span>
 <span id="cb10-2"><a href="" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="" aria-hidden="true" tabindex="-1"></a>sales[<span class="st">"date"</span>].dtype.name</span></code></pre></div>
@@ -464,7 +464,7 @@ memory usage: 372.0 bytes</code></pre>
 </div>
 <div class="fragment">
 <p>Une fois la colonne convertie, on peut accéder à certaines informations avec <code>.dt</code> :</p>
-<div id="3c41843a" class="cell" data-execution_count="10">
+<div id="a63ce5a8" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales[<span class="st">"date"</span>].dt.year</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>0    2025
@@ -482,7 +482,7 @@ Name: date, dtype: int32</code></pre>
 <h2>Nettoyer les chaînes de caractères (1/2)</h2>
 <p>Pour appliquer des méthodes de chaînes de caractères à toute une colonne, on utilise <code>.str</code>.</p>
 <p>On peut enlever les espaces avant et après avec</p>
-<div id="8fbeb8ef" class="cell" data-execution_count="11">
+<div id="411fcd33" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales[<span class="st">"product"</span>].<span class="bu">str</span>.strip()  <span class="co"># Remove leading and trailing spaces</span></span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>0     Apple
@@ -496,7 +496,7 @@ Name: product, dtype: str</code></pre>
 </div>
 <div class="fragment">
 <p>On peut chainer derrière <code>.str</code> les méthodes déjà vues sur les chaînes de caractères Python : <code>.upper()</code>, <code>.lower()</code>, <code>.capitalize()</code>…</p>
-<div id="08e1a9e1" class="cell" data-execution_count="12">
+<div id="2dad517b" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales[<span class="st">"product"</span>].<span class="bu">str</span>.lower()</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>0     apple  
@@ -518,7 +518,7 @@ Name: product, dtype: str</code></pre>
 <li class="fragment">formater les mots avec une majuscule au début avec <code>.capitalize()</code></li>
 </ul>
 <div class="fragment">
-<div id="05673dd0" class="cell" data-execution_count="13">
+<div id="8c7fbb75" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales[<span class="st">"product"</span>] <span class="op">=</span> sales[<span class="st">"product"</span>].<span class="bu">str</span>.strip()</span>
 <span id="cb18-2"><a href="" aria-hidden="true" tabindex="-1"></a>sales[<span class="st">"product"</span>] <span class="op">=</span> sales[<span class="st">"product"</span>].<span class="bu">str</span>.capitalize()</span>
 <span id="cb18-3"><a href="" aria-hidden="true" tabindex="-1"></a>sales</span></code></pre></div>
@@ -607,7 +607,7 @@ Name: product, dtype: str</code></pre>
 </div>
 <div class="fragment">
 <p>🤯 Et remarquons que comme ces modifications renvoient toujours une <code>Series</code>, on peut les chaîner. On aurait ainsi pu écrire la modification en une seule ligne :</p>
-<div id="86164370" class="cell" data-execution_count="14">
+<div id="bb999220" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales[<span class="st">"product"</span>] <span class="op">=</span> sales[<span class="st">"product"</span>].<span class="bu">str</span>.strip().<span class="bu">str</span>.capitalize()</span></code></pre></div>
 </div>
 </div>
@@ -617,13 +617,13 @@ Name: product, dtype: str</code></pre>
 <div class="columns">
 <div class="column" style="width:40%;">
 <p>Lorsqu’on importe des grands tableaux, ou qu’on agrège des données diverses, il peut y avoir des doublons (lignes identiques).</p>
-<div id="c1619dbe" class="cell" data-execution_count="15">
+<div id="f6503ae6" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales  </span></code></pre></div>
 </div>
 </div><div class="column" style="width:10%;">
 
 </div><div class="column" style="width:50%;">
-<div id="f5d1a7a5" class="cell" data-execution_count="16">
+<div id="ab5f795f" class="cell" data-execution_count="16">
 <div class="cell-output cell-output-display" data-execution_count="16">
 <div>
 <style scoped="">
@@ -712,13 +712,13 @@ Name: product, dtype: str</code></pre>
 <div class="columns">
 <div class="column" style="width:40%;">
 <p>La méthode <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.drop_duplicates.html" class="external" target="_blank"><code>drop_duplicates()</code></a> permet de supprimer les lignes dupliquées.</p>
-<div id="e4050909" class="cell" data-execution_count="17">
+<div id="244790ab" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales.drop_duplicates()</span></code></pre></div>
 </div>
 </div><div class="column" style="width:10%;">
 
 </div><div class="column" style="width:50%;">
-<div id="4f38eba1" class="cell" data-execution_count="18">
+<div id="fd40c1a8" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display" data-execution_count="18">
 <div>
 <style scoped="">
@@ -799,7 +799,7 @@ Par défaut, pandas compare toutes les colonnes.
 
 On peut aussi ne considérer que certaines colonnes avec `subset` :
 
-::: {#ecde3e1f .cell execution_count=19}
+::: {#9f8e832a .cell execution_count=19}
 ``` {.python .cell-code}
 sales.drop_duplicates(subset=["product", "date"])
 ```
@@ -880,7 +880,7 @@ sales.drop_duplicates(subset=["product", "date"])
 <section id="supprimer-les-doublons-22" class="slide level2 tiny-slide">
 <h2>Supprimer les doublons (2/2)</h2>
 <p>Pour conserver le résultat, il faut réaffecter le DataFrame :</p>
-<div id="30807335" class="cell" data-execution_count="20">
+<div id="8c77c819" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales <span class="op">=</span> sales.drop_duplicates()</span>
 <span id="cb22-2"><a href="" aria-hidden="true" tabindex="-1"></a>sales</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
@@ -963,7 +963,7 @@ sales.drop_duplicates(subset=["product", "date"])
 <p>pandas représente généralement les valeurs “vides” par <code>NaN</code> (<em>Not a Number</em>).</p>
 <div class="fragment">
 <p>On peut tester s’il y a des valeurs est manquantes avec <code>isna()</code> :</p>
-<div id="aafc611e" class="cell" data-execution_count="21">
+<div id="837d5ca9" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales.isna()</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <div>
@@ -1042,7 +1042,7 @@ sales.drop_duplicates(subset=["product", "date"])
 </div>
 <div class="fragment">
 <p>Pour connaître le nombre de valeurs manquantes dans chaque colonne :</p>
-<div id="142fb191" class="cell" data-execution_count="22">
+<div id="7313ed4d" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales.isna().<span class="bu">sum</span>()</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>product     0
@@ -1060,7 +1060,7 @@ dtype: int64</code></pre>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>La méthode <code>dropna()</code> <strong>supprime</strong> les lignes contenant au moins une valeur manquante. On précise la/les colonne(s) à considérer avec le paramètre <code>subset</code>.</p>
-<div id="1bfb4c59" class="cell" data-execution_count="23">
+<div id="0e4927ad" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales.dropna(subset<span class="op">=</span>[<span class="st">"price"</span>])</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
 <div>
@@ -1130,7 +1130,7 @@ dtype: int64</code></pre>
 </div>
 </div><div class="column" style="width:50%;">
 <p>La méthode <code>fillna()</code> permet de <strong>remplacer</strong> les valeurs manquantes par une valeur donnée.</p>
-<div id="0eb4a5f0" class="cell" data-execution_count="24">
+<div id="40a2569d" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales[<span class="st">"price"</span>].fillna(<span class="dv">0</span>)</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
 <pre><code>0    1.5
@@ -1154,7 +1154,7 @@ Name: price, dtype: float64</code></pre>
 <section id="trier-selon-les-valeurs-dune-colonne" class="slide level2 tiny-slide">
 <h2>Trier selon les valeurs d’une colonne</h2>
 <p>On utilise la méthode <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sort_values.html" class="external" target="_blank"><code>.sort_values()</code></a>.</p>
-<div id="06b9e26b" class="cell" data-execution_count="25">
+<div id="2c11f7bc" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales.sort_values(<span class="st">"price"</span>)</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="25">
 <div>
@@ -1232,13 +1232,13 @@ Name: price, dtype: float64</code></pre>
 </div>
 <div class="fragment">
 <p>👉 Pour obtenir un tri décroissant :</p>
-<div id="7e128b85" class="cell" data-execution_count="26">
+<div id="c2a53ddc" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales.sort_values(<span class="st">"price"</span>, ascending<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
 </div>
 </div>
 <div class="fragment">
 <p>👉 Pour trier selon plusieurs colonnes :</p>
-<div id="8fdcb552" class="cell" data-execution_count="27">
+<div id="d3635034" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales.sort_values([<span class="st">"product"</span>, <span class="st">"price"</span>])</span></code></pre></div>
 </div>
 </div>
@@ -1246,7 +1246,7 @@ Name: price, dtype: float64</code></pre>
 <section id="trier-selon-lindex-des-lignes" class="slide level2">
 <h2>Trier selon l’index des lignes</h2>
 <p>On utilise la méthode <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sort_index.html#pandas.DataFrame.sort_index" class="external" target="_blank"><code>.sort_index()</code></a>.</p>
-<div id="7456a9a5" class="cell" data-execution_count="28">
+<div id="4dbce00b" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales.sort_index(ascending<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
 <div>
@@ -1331,7 +1331,7 @@ Name: price, dtype: float64</code></pre>
 <section id="un-exemple" class="slide level2">
 <h2>Un exemple</h2>
 <p>On dispose d’un tableau <code>sales</code> contenant des ventes :</p>
-<div id="f3bdeef0" class="cell" data-execution_count="29">
+<div id="05b040eb" class="cell" data-execution_count="29">
 <div class="cell-output cell-output-display" data-execution_count="29">
 <div>
 <style scoped="">
@@ -1442,16 +1442,16 @@ Name: price, dtype: float64</code></pre>
 <p>👉 Calculons le chiffre d’affaire par magasin.</p>
 <div class="fragment">
 <p>Il faut faire des sous-groupes selon la colonne <code>store</code> :</p>
-<div id="72240802" class="cell" data-execution_count="30">
+<div id="6caf9cfe" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales.groupby(<span class="st">"store"</span>)</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="30">
-<pre><code>&lt;pandas.api.typing.DataFrameGroupBy object at 0x7ddf54b55ac0&gt;</code></pre>
+<pre><code>&lt;pandas.api.typing.DataFrameGroupBy object at 0x7529acc4e660&gt;</code></pre>
 </div>
 </div>
 </div>
 <div class="fragment">
 <p>Puis dans chaque sous-groupe, calculer la somme de la colonne <code>revenue</code> :</p>
-<div id="d61de39e" class="cell" data-execution_count="31">
+<div id="5d1efda8" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales.groupby(<span class="st">"store"</span>)[<span class="st">"revenue"</span>].<span class="bu">sum</span>()</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="31">
 <pre><code>store
@@ -1467,7 +1467,7 @@ Name: revenue, dtype: float64</code></pre>
 <p>👉 Calculons le chiffre d’affaire <strong>et</strong> le nombre total de produits vendus par magasin.</p>
 <div class="fragment">
 <p>Même méthode, mais on doit faire la somme de deux colonnes (<code>revenue</code> et <code>quantity</code>) :</p>
-<div id="fb79f570" class="cell" data-execution_count="32">
+<div id="fa6e1b6e" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales.groupby(<span class="st">"store"</span>)[[<span class="st">"revenue"</span>, <span class="st">"quantity"</span>]].<span class="bu">sum</span>()</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="32">
 <div>
@@ -1527,7 +1527,7 @@ Name: revenue, dtype: float64</code></pre>
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1"><code>.mean()</code></a></li><li><a href="#tabset-1-2"><code>.count()</code></a></li><li><a href="#tabset-1-3"><code>.min()</code> et <code>.max()</code></a></li><li><a href="#tabset-1-4"><code>.std()</code></a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
-<div id="1d251f45" class="cell" data-execution_count="33">
+<div id="04c523d9" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb38-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales.groupby(<span class="st">"store"</span>)[<span class="st">"revenue"</span>].mean()</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="33">
 <pre><code>store
@@ -1538,7 +1538,7 @@ Name: revenue, dtype: float64</code></pre>
 </div>
 </div>
 <div id="tabset-1-2">
-<div id="6a2cead3" class="cell" data-execution_count="34">
+<div id="d1efcfe6" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales.groupby(<span class="st">"store"</span>)[<span class="st">"revenue"</span>].count()</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="34">
 <pre><code>store
@@ -1549,7 +1549,7 @@ Name: revenue, dtype: int64</code></pre>
 </div>
 </div>
 <div id="tabset-1-3">
-<div id="f4b964c9" class="cell" data-execution_count="35">
+<div id="40476fa2" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales.groupby(<span class="st">"store"</span>)[[<span class="st">"revenue"</span>, <span class="st">"quantity"</span>]].<span class="bu">min</span>()</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="35">
 <div>
@@ -1599,7 +1599,7 @@ Name: revenue, dtype: int64</code></pre>
 </div>
 </div>
 <div id="tabset-1-4">
-<div id="5f3a2890" class="cell" data-execution_count="36">
+<div id="b937796e" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb43-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales.groupby(<span class="st">"store"</span>)[[<span class="st">"revenue"</span>, <span class="st">"quantity"</span>]].std()</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="36">
 <div>
@@ -1654,7 +1654,7 @@ Name: revenue, dtype: int64</code></pre>
 <section class="slide level2">
 
 <p>On peut également regrouper selon plusieurs colonnes :</p>
-<div id="39fbaeef" class="cell" data-execution_count="37">
+<div id="73f2617b" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales.groupby([<span class="st">"store"</span>, <span class="st">"category"</span>])[[<span class="st">"revenue"</span>]].<span class="bu">sum</span>()</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="37">
 <div>
@@ -1716,7 +1716,7 @@ Name: revenue, dtype: int64</code></pre>
 <p>On utilise souvent la méthode <a href="https://pandas.pydata.org/docs/reference/api/pandas.api.typing.DataFrameGroupBy.agg.html#pandas.api.typing.DataFrameGroupBy.agg" class="external" target="_blank"><code>.agg()</code></a> après un <code>.groupby()</code> pour appliquer plusieurs fonctions à la fois.</p>
 <div class="fragment">
 <p>On passe un dictionnaire en argument :</p>
-<div id="4a754f39" class="cell" data-execution_count="38">
+<div id="d322662d" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales.groupby(<span class="st">"store"</span>).agg({<span class="st">"revenue"</span>: [<span class="st">"sum"</span>, <span class="st">"count"</span>], <span class="st">"quantity"</span>: <span class="st">"mean"</span>})</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="38">
 <div>
@@ -1789,7 +1789,7 @@ Name: revenue, dtype: int64</code></pre>
 <p>pandas permet de produire rapidement des graphiques avec <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html#pandas.DataFrame.plot" class="external" target="blank"><code>.plot()</code></a>.</p>
 <div class="columns">
 <div class="column" style="width:30%;">
-<div id="e9a8aadd" class="cell" data-execution_count="40">
+<div id="225f49f9" class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="40">
 <div>
@@ -1843,7 +1843,7 @@ Name: revenue, dtype: int64</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:70%;">
-<div id="c6d21d1b" class="cell" data-execution_count="41">
+<div id="3c13727e" class="cell" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb47-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales.plot()</span></code></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1859,7 +1859,7 @@ Name: revenue, dtype: int64</code></pre>
 <h2>Personnaliser le graphique</h2>
 <p>Le paramètre <code>kind</code> permet de choisir le type de graphique.</p>
 <p>Par exemple, un diagramme en bâtons :</p>
-<div id="f2a3969d" class="cell" data-execution_count="42">
+<div id="8c349b98" class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales.plot(kind<span class="op">=</span><span class="st">"bar"</span>)</span></code></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1874,7 +1874,7 @@ Name: revenue, dtype: int64</code></pre>
 
 <p>On peut préciser les colonnes à utiliser avec <code>x</code> et <code>y</code> :</p>
 <div class="center smaller">
-<div id="b1a07d2d" class="cell" data-execution_count="43">
+<div id="6eb1d947" class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb49-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales.plot(</span>
 <span id="cb49-2"><a href="" aria-hidden="true" tabindex="-1"></a>    kind<span class="op">=</span><span class="st">"bar"</span>,</span>
 <span id="cb49-3"><a href="" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"month"</span>,</span>
@@ -1906,7 +1906,7 @@ Name: revenue, dtype: int64</code></pre>
 <div class="fragment">
 <div class="columns">
 <div class="column" style="width:30%;">
-<div id="45d510e3" class="cell" data-execution_count="45">
+<div id="aeff7a05" class="cell" data-execution_count="45">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb50-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="45">
 <div>
@@ -1959,7 +1959,7 @@ Name: revenue, dtype: int64</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:70%;">
-<div id="affbde67" class="cell" data-execution_count="46">
+<div id="abb74763" class="cell" data-execution_count="46">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb51-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, row <span class="kw">in</span> sales.iterrows():</span>
 <span id="cb51-2"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(index)</span>
 <span id="cb51-3"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(row[<span class="st">"product"</span>]) <span class="co"># NB: row is a Series</span></span></code></pre></div>
@@ -1982,7 +1982,7 @@ Orange</code></pre>
 <p>🔴 En général, on évite de parcourir les lignes une par une.</p>
 <p>Pandas est conçu pour effectuer des opérations sur des colonnes entières.</p>
 </div><div class="column" style="width:30%;">
-<div id="44a06b89" class="cell" data-execution_count="47">
+<div id="497a5c42" class="cell" data-execution_count="47">
 <div class="cell-output cell-output-display" data-execution_count="47">
 <div>
 <style scoped="">
@@ -2038,7 +2038,7 @@ Orange</code></pre>
 <p>Par exemple, pour calculer le montant de chaque vente :</p>
 </div>
 <div class="fragment">
-<div id="25b3f27b" class="cell" data-execution_count="48">
+<div id="8e4b42d3" class="cell" data-execution_count="48">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb53-1"><a href="" aria-hidden="true" tabindex="-1"></a>sales[<span class="st">"total"</span>] <span class="op">=</span> sales[<span class="st">"quantity"</span>] <span class="op">*</span> sales[<span class="st">"price"</span>]</span>
 <span id="cb53-2"><a href="" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-3"><a href="" aria-hidden="true" tabindex="-1"></a>sales</span></code></pre></div>
@@ -2164,7 +2164,7 @@ Orange</code></pre>
 
 On dispose de deux tableaux contenant des ventes réalisées à des périodes différentes :
 
-::: {#19014802 .cell execution_count=49}
+::: {#ee4bec1b .cell execution_count=49}
 ``` {.python .cell-code}
 sales_january = pd.DataFrame({
     "product": ["Apple", "Banana"],
@@ -2185,7 +2185,7 @@ On souhaite réunir les deux tableaux pour obtenir un seul historique de ventes.
 
 On utilise `pd.concat()` :
 
-::: {#1d6194bc .cell execution_count=50}
+::: {#ab7223ab .cell execution_count=50}
 ``` {.python .cell-code}
 pd.concat([sales_january, sales_february])
 ```
@@ -2249,7 +2249,7 @@ pd.concat([sales_january, sales_february])
 
 Par défaut, les index des deux DataFrames sont conservés.
 
-::: {#09e92d77 .cell execution_count=51}
+::: {#d65bc4ec .cell execution_count=51}
 ``` {.python .cell-code}
 pd.concat([sales_january, sales_february])
 ```
@@ -2313,7 +2313,7 @@ pd.concat([sales_january, sales_february])
 
 On peut demander à pandas de recréer un index continu avec `ignore_index=True` :
 
-::: {#db9a7faf .cell execution_count=52}
+::: {#5fec214a .cell execution_count=52}
 ``` {.python .cell-code}
 pd.concat(
     [sales_january, sales_february],
@@ -2383,7 +2383,7 @@ On dispose maintenant de deux tableaux :
 - un tableau contenant les ventes ;
 - un tableau contenant les informations sur les produits.
 
-::: {#cf096fa5 .cell execution_count=53}
+::: {#5692d3d6 .cell execution_count=53}
 ``` {.python .cell-code}
 sales = pd.DataFrame({
     "product": ["Apple", "Banana", "Orange", "Apple"],
@@ -2405,7 +2405,7 @@ products = pd.DataFrame({
 
 On peut utiliser `pd.merge()` pour fusionner deux DataFrames à partir d'une colonne commune :
 
-::: {#80e1489f .cell execution_count=54}
+::: {#1709d08c .cell execution_count=54}
 ``` {.python .cell-code}
 pd.merge(sales, products, on="product")
 ```
@@ -2481,7 +2481,7 @@ Par défaut, `merge()` réalise une jointure interne.
 
 On peut l'indiquer explicitement avec `how="inner"` :
 
-::: {#80c70f03 .cell execution_count=55}
+::: {#4d9350a4 .cell execution_count=55}
 ``` {.python .cell-code}
 pd.merge(
     sales,
@@ -2592,7 +2592,7 @@ Associer des informations à partir d'une clé commune.
 
 La méthode `unique()` permet de connaître les différentes valeurs présentes dans une colonne.
 
-::: {#1ac99272 .cell execution_count=56}
+::: {#0551b848 .cell execution_count=56}
 ``` {.python .cell-code}
 sales["product"].unique()
 ```
@@ -2613,7 +2613,7 @@ Length: 3, dtype: str
 
 On peut également compter le nombre de valeurs distinctes avec `nunique()` :
 
-::: {#acf1c2be .cell execution_count=57}
+::: {#b85dafde .cell execution_count=57}
 ``` {.python .cell-code}
 sales["product"].nunique()
 ```

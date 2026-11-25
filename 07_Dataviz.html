@@ -227,7 +227,7 @@
 <h2>Matplotlib</h2>
 <p>Pour tracer des graphiques simples, on utilise en général le module <code>pyplot</code> de <code>matplotlib</code>.</p>
 <div class="fragment">
-<div id="dea3b018" class="cell" data-execution_count="1">
+<div id="e5884570" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt     <span class="co">#canonical import</span></span></code></pre></div>
@@ -257,7 +257,7 @@
 <div class="fragment">
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="bfe63685" class="cell" data-execution_count="2">
+<div id="7c01a387" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="" aria-hidden="true" tabindex="-1"></a>plt.plot([<span class="dv">1</span>, <span class="dv">3</span>, <span class="fl">3.5</span>, <span class="dv">4</span>], [<span class="dv">1</span>, <span class="op">-</span><span class="dv">4</span>, <span class="dv">20</span>, <span class="dv">16</span>])</span></code></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -282,7 +282,7 @@
 <div class="fragment">
 <div class="columns">
 <div class="column" style="width:60%;">
-<div id="33b90f0d" class="cell" data-execution_count="3">
+<div id="0ebc6a91" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">1000</span>)  <span class="co"># 1000 x values between -1 and 5</span></span>
 <span id="cb3-2"><a href="" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> x <span class="op">+</span> np.exp(x)  <span class="co"># 1000 values of f(x)</span></span>
 <span id="cb3-3"><a href="" aria-hidden="true" tabindex="-1"></a></span>
@@ -304,7 +304,7 @@
 <p>On peut superposer plusieurs graphes sur la même figure.</p>
 <div class="columns">
 <div class="column" style="width:60%;">
-<div id="f1ee807b" class="cell" data-execution_count="4">
+<div id="bf85e7cb" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">1000</span>)</span>
 <span id="cb4-2"><a href="" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> x <span class="op">+</span> np.exp(x)      <span class="co"># first function</span></span>
 <span id="cb4-3"><a href="" aria-hidden="true" tabindex="-1"></a>y2 <span class="op">=</span> <span class="dv">3</span> <span class="op">*</span> x <span class="op">+</span> np.exp(x <span class="op">-</span> <span class="dv">2</span>)  <span class="co"># second function</span></span>
@@ -340,7 +340,7 @@
 </div>
 <div class="fragment">
 <p>Reprenons les données du dataset <code>titanic</code> vu dans les TDs précédents.</p>
-<div id="d635df3e" class="cell" data-execution_count="6">
+<div id="af8eeb6c" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="" aria-hidden="true" tabindex="-1"></a>titanic.head(<span class="dv">3</span>)</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <div>
@@ -469,7 +469,7 @@
 <div class="column" style="width:80%;">
 <p>❓ Comment se répartissent les âges ?</p>
 </div><div class="column" style="width:20%;">
-<div id="0645da20" class="cell" data-execution_count="7">
+<div id="126b1b51" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 <style scoped="">
@@ -520,7 +520,7 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>👉 Histogramme</p>
-<div id="085d3075" class="cell" data-execution_count="8">
+<div id="3b70fb48" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="" aria-hidden="true" tabindex="-1"></a>titanic[[<span class="st">'Age'</span>]].plot(kind<span class="op">=</span><span class="st">'hist'</span>)</span></code></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -535,7 +535,7 @@
 </div>
 </div><div class="fragment column" style="width:50%;">
 <p>👉 Boxplot</p>
-<div id="9f10ea02" class="cell" data-execution_count="9">
+<div id="0eefa379" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="" aria-hidden="true" tabindex="-1"></a>titanic[[<span class="st">"Age"</span>]].plot(kind<span class="op">=</span><span class="st">"box"</span>)</span></code></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -583,7 +583,7 @@
 <div class="column" style="width:80%;">
 <p>❓ Existe-t-il une relation entre le prix du billet et l’âge ?</p>
 </div><div class="column" style="width:20%;">
-<div id="08c09b58" class="cell" data-execution_count="10">
+<div id="fc99aae3" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 <style scoped="">
@@ -638,7 +638,7 @@
 <p>👉 Scatterplot</p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="65a5678d" class="cell" data-execution_count="11">
+<div id="62b12bf4" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="" aria-hidden="true" tabindex="-1"></a>titanic.plot(x<span class="op">=</span><span class="st">"Age"</span>, y<span class="op">=</span><span class="st">"Fare"</span>, kind<span class="op">=</span><span class="st">'scatter'</span>)</span></code></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -659,7 +659,7 @@
 <div class="fragment">
 <p>👉 Lineplot (les x sont triés dans l’ordre croissant)</p>
 <div class="column" style="width:70%;">
-<div id="fd41963f" class="cell" data-execution_count="12">
+<div id="62318136" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">100</span>)</span>
 <span id="cb9-2"><a href="" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span></span>
 <span id="cb9-3"><a href="" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">"x_values"</span>:x, <span class="st">"y_values"</span>:y})</span>
@@ -675,7 +675,7 @@
 </div>
 </div></div>
 </div><div class="column" style="width:20%;">
-<div id="dc605ca7" class="cell" data-execution_count="13">
+<div id="6e12c4fb" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-display" data-execution_count="13">
 <div>
 <style scoped="">
@@ -792,12 +792,12 @@
 <p>❓ Les femmes ont-elles plus survécu que les hommes ?</p>
 <div class="fragment">
 <p><span class="small">On doit d’abord calculer le taux de survie par catégorie</span></p>
-<div id="c93d9e7e" class="cell" data-execution_count="14">
+<div id="a95bd1b8" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> titanic.groupby(<span class="st">"Sex"</span>)[[<span class="st">"Survived"</span>]].mean()</span></code></pre></div>
 </div>
 </div>
 </div><div class="column fragment" style="width:20%;">
-<div id="9c8ee7da" class="cell" data-execution_count="15">
+<div id="88b9bfcc" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display" data-execution_count="15">
 <div>
 <style scoped="">
@@ -845,7 +845,7 @@
 <p>👉 Barplot</p>
 <div class="columns">
 <div class="column fragment" style="width:45%;">
-<div id="32156d4e" class="cell" data-execution_count="16">
+<div id="e6d0f0bd" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="" aria-hidden="true" tabindex="-1"></a>df.plot(kind<span class="op">=</span><span class="st">'bar'</span>)</span></code></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -886,7 +886,7 @@
 <div class="column" style="width:80%;">
 <p>❓ Combien y-a-t-il de passagers par classe ?</p>
 </div><div class="column" style="width:20%;">
-<div id="ca42bfaa" class="cell" data-execution_count="17">
+<div id="674ed859" class="cell" data-execution_count="17">
 <div class="cell-output cell-output-display" data-execution_count="17">
 <div>
 <style scoped="">
@@ -937,7 +937,7 @@
 <p>👉 Countplot</p>
 <div class="columns">
 <div class="column fragment" style="width:45%;">
-<div id="2ef6ac02" class="cell" data-execution_count="18">
+<div id="8890c245" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> titanic[<span class="st">"Pclass"</span>].value_counts()</span>
 <span id="cb12-2"><a href="" aria-hidden="true" tabindex="-1"></a>df.plot(kind<span class="op">=</span><span class="st">'bar'</span>)</span></code></pre></div>
 <div class="cell-output cell-output-display">
@@ -962,7 +962,7 @@
 <h2>Importer Seaborn</h2>
 <p>Pour des graphiques plus évolués en Analyse de Données, on utilise en général la librairie <code>Seaborn</code>, et on l’importe <em>après</em> matplotlib.</p>
 <div class="fragment">
-<div id="2c2d7f07" class="cell" data-execution_count="19">
+<div id="1629419a" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb13-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb13-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt     </span>
@@ -984,7 +984,7 @@
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Histogramme</a></li><li><a href="#tabset-1-2">Boxplot</a></li><li><a href="#tabset-1-3">Scatterplot</a></li><li><a href="#tabset-1-4">Countplot</a></li><li><a href="#tabset-1-5">Lineplot</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
-<div id="f6e0b440" class="cell columns column-output-location" data-execution_count="20">
+<div id="d275141e" class="cell columns column-output-location" data-execution_count="20">
 <div class="column">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="" aria-hidden="true" tabindex="-1"></a>sns.histplot(data<span class="op">=</span>titanic, x<span class="op">=</span><span class="st">"Age"</span>)</span></code></pre></div>
 </div><div class="column">
@@ -998,7 +998,7 @@
 </div></div>
 </div>
 <div id="tabset-1-2">
-<div id="7537d2eb" class="cell columns column-output-location" data-execution_count="21">
+<div id="7b1773ac" class="cell columns column-output-location" data-execution_count="21">
 <div class="column">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>titanic, x<span class="op">=</span><span class="st">"Age"</span>)</span></code></pre></div>
 </div><div class="column">
@@ -1012,7 +1012,7 @@
 </div></div>
 </div>
 <div id="tabset-1-3">
-<div id="0b8bccb9" class="cell columns column-output-location" data-execution_count="22">
+<div id="8df969b8" class="cell columns column-output-location" data-execution_count="22">
 <div class="column">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(</span>
 <span id="cb16-2"><a href="" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>titanic, </span>
@@ -1030,7 +1030,7 @@
 </div></div>
 </div>
 <div id="tabset-1-4">
-<div id="c200e5d9" class="cell columns column-output-location" data-execution_count="23">
+<div id="a330e1d6" class="cell columns column-output-location" data-execution_count="23">
 <div class="column">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="" aria-hidden="true" tabindex="-1"></a>sns.countplot(data<span class="op">=</span>titanic, x<span class="op">=</span><span class="st">"Sex"</span>)</span>
 <span id="cb17-2"><a href="" aria-hidden="true" tabindex="-1"></a></span>
@@ -1048,7 +1048,7 @@
 </div></div>
 </div>
 <div id="tabset-1-5">
-<div id="650c50ee" class="cell columns column-output-location" data-execution_count="24">
+<div id="c78eba84" class="cell columns column-output-location" data-execution_count="24">
 <div class="column">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">100</span>)</span>
 <span id="cb18-2"><a href="" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span></span>
@@ -1083,7 +1083,7 @@
 <div class="tab-content">
 <div id="tabset-2-1">
 <p>Avec l’argument <code>hue=...</code>, on peut croiser une variable catégorielle de plus.</p>
-<div id="1ab40479" class="cell columns column-output-location" data-execution_count="25">
+<div id="3df8722a" class="cell columns column-output-location" data-execution_count="25">
 <div class="column">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="" aria-hidden="true" tabindex="-1"></a>sns.countplot(</span>
 <span id="cb19-2"><a href="" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>titanic, </span>
@@ -1101,7 +1101,7 @@
 </div></div>
 </div>
 <div id="tabset-2-2">
-<div id="a8431792" class="cell columns column-output-location" data-execution_count="26">
+<div id="7fe1c337" class="cell columns column-output-location" data-execution_count="26">
 <div class="column">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="" aria-hidden="true" tabindex="-1"></a>sns.catplot(data<span class="op">=</span>titanic, </span>
 <span id="cb20-2"><a href="" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"Fare"</span>, </span>
@@ -1129,12 +1129,29 @@
 <h1>Personnaliser un graphique avec <code>Matplotlib</code></h1>
 
 </section>
+<section id="anatomie-dune-figure" class="slide level2 tiny-slide">
+<h2>Anatomie d’une figure</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div id="68d65524" class="cell" data-execution_count="27">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="07_Dataviz_files/figure-revealjs/cell-28-output-1.png" width="615" height="647"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:60%;">
+<p>👉 La documentation de Matplotlib propose de nombreux exemples : <a href="https://matplotlib.org/stable/tutorials/pyplot.html" class="external" target="_blank">Matplotlib — Pyplot tutorial</a>.</p>
+</div></div>
+</section>
 <section id="titres" class="slide level2 tiny-slide">
 <h2>Titres</h2>
 <p>Matplotlib est compatible avec les graphiques créés avec Pandas ou Seaborn.</p>
-<p>💡 Le principe : ajouter des instructions après la création du graphique {.tiny-slide}</p>
+<p>💡 Le principe : ajouter des instructions après la création du graphique.</p>
 <div class="fragment">
-<div id="af1d7d52" class="cell columns column-output-location" data-execution_count="27">
+<div id="deaa8fd6" class="cell columns column-output-location" data-execution_count="28">
 <div class="column">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="" aria-hidden="true" tabindex="-1"></a>titanic.plot(x<span class="op">=</span><span class="st">"Age"</span>, y<span class="op">=</span><span class="st">"Fare"</span>, kind<span class="op">=</span><span class="st">"scatter"</span>)</span>
 <span id="cb21-2"><a href="" aria-hidden="true" tabindex="-1"></a></span>
@@ -1147,35 +1164,18 @@
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="07_Dataviz_files/figure-revealjs/cell-28-output-1.png" width="817" height="451"></p>
+<p><img data-src="07_Dataviz_files/figure-revealjs/cell-29-output-1.png" width="817" height="451"></p>
 </figure>
 </div>
 </div>
 </div></div>
 </div>
-</section>
-<section id="anatomie-dune-figure" class="slide level2 tiny-slide">
-<h2>Anatomie d’une figure</h2>
-<div class="columns">
-<div class="column" style="width:40%;">
-<div id="debe8693" class="cell" data-execution_count="28">
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><img data-src="07_Dataviz_files/figure-revealjs/cell-29-output-1.png" width="615" height="647"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:60%;">
-<p>👉 La documentation de Matplotlib propose de nombreux exemples : <a href="https://matplotlib.org/stable/tutorials/pyplot.html" class="external" target="_blank">Matplotlib — Pyplot tutorial</a>.</p>
-</div></div>
 </section>
 <section id="couleurs" class="slide level2 tiny-slide">
 <h2>Couleurs</h2>
 <p>Certains paramètres sont liés au tracé, et pas à la figure dans son ensemble. Il faut donc les ajouter <strong>dans</strong> le <code>.plot()</code>.</p>
 <div class="fragment">
-<div id="6b90b1c9" class="cell columns column-output-location" data-execution_count="29">
+<div id="e81d2e17" class="cell columns column-output-location" data-execution_count="29">
 <div class="column">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="" aria-hidden="true" tabindex="-1"></a>titanic.plot(x<span class="op">=</span><span class="st">"Age"</span>,</span>
 <span id="cb22-2"><a href="" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"Fare"</span>, </span>
@@ -1201,7 +1201,7 @@
 <h2>Légende</h2>
 <p>On peut préciser les etiquettes dans l’ordre, et la position de la légende.</p>
 <div class="fragment">
-<div id="97119d32" class="cell columns column-output-location" data-execution_count="30">
+<div id="6a0dacf7" class="cell columns column-output-location" data-execution_count="30">
 <div class="column">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">1000</span>)</span>
 <span id="cb23-2"><a href="" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> np.exp(x)      <span class="co"># first function</span></span>
@@ -1228,7 +1228,7 @@
 </section>
 <section id="styles-de-traits-marqueurs-et-taille-de-la-figure" class="slide level2 tiny-slide">
 <h2>Styles de traits, marqueurs, et taille de la figure</h2>
-<div id="6088eb8c" class="cell columns column-output-location" data-execution_count="31">
+<div id="dfd762c0" class="cell columns column-output-location" data-execution_count="31">
 <div class="column">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">50</span>)</span>
 <span id="cb24-2"><a href="" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> x <span class="op">+</span> np.exp(x)</span>
@@ -1257,7 +1257,7 @@
 </section>
 <section id="grille-limites-et-ticks" class="slide level2 tiny-slide">
 <h2>Grille, limites et ticks</h2>
-<div id="805956f6" class="cell columns column-output-location" data-execution_count="32">
+<div id="9161838a" class="cell columns column-output-location" data-execution_count="32">
 <div class="column">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>titanic, x<span class="op">=</span><span class="st">"Age"</span>, y<span class="op">=</span><span class="st">"Fare"</span>)</span>
 <span id="cb25-2"><a href="" aria-hidden="true" tabindex="-1"></a></span>
@@ -1283,7 +1283,7 @@
 <h2>Axes latéraux (spines)</h2>
 <p>Il y a 4 spines au total… et on peut choisir de les masquer.</p>
 <div class="fragment">
-<div id="1951c664" class="cell columns column-output-location" data-execution_count="33">
+<div id="7134df88" class="cell columns column-output-location" data-execution_count="33">
 <div class="column">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">50</span>)</span>
 <span id="cb26-2"><a href="" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> x <span class="op">+</span> np.exp(x)</span>
@@ -1311,7 +1311,8 @@
 </div></div>
 </div>
 </section></section>
-<section id="aller-plus-loin" class="title-slide slide level1 center">
+<section>
+<section id="aller-plus-loin" class="title-slide slide level1 tiny_slide center">
 <h1>Aller plus loin</h1>
 <p><span class="warning">💡 Contenu non exigible à l’examen</span></p>
 <p>Il existe plein de types de graphiques..</p>
@@ -1325,6 +1326,11 @@
 </div>
 <p><br></p>
 <p>👉 <a href="https://www.data-to-viz.com/" class="external" target="_blank">From Data to Viz</a></p>
+</div>
+</section>
+<section id="crédits" class="slide level2">
+<h2>Crédits</h2>
+<p>La majorité des visuels de cette présentation est issue du site internet <a href="https://www.data-to-viz.com/" class="external" target="_blank">From Data to Viz</a>, dont le contenu est sous licence MIT. Copyright ©️ 2017 Holtz Yan.</p>
 <!-- 
 # Résumé {.section-slide}
 
@@ -1339,9 +1345,7 @@
 | Nuage de points | `sns.scatterplot()` |
 | Diagramme en boîtes | `sns.boxplot()` |
 | Ajouter une dimension | `hue=` | -->
-</div>
-</section>
-
+</section></section>
 <section id="à-vous-de-jouer" class="title-slide slide level1 center">
 <h1>À vous de jouer</h1>
 <p>Faire le <code>TD 7</code></p>
